@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Fade-up / Fade-in</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .spacer{width: 100%; height: 300px; background-color: #999;}
+
+        .effect-section{padding: 100px 0; background-color: #111; color: #fff;}
+        .effect-section .inner{max-width: 1100px; margin: 0 auto; padding: 0 20px;}
+        .effect-title,.effect-desc{text-align: center;}
+        .effect-grid{display: flex; flex-wrap: wrap; gap: 32px; margin-top: 40px;}
+        .effect-card{
+            flex: 1 1 calc(33.333% - 32px); min-width: 260px; background: #222;
+            padding: 220px 24px; border-radius: 16px; color: #fff;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+        }
+
+        .fade-up{opacity: 0; transform: translateY(80px); will-change: transform, opacity;}
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            // batch로 처리
+            ScrollTrigger.batch(".fade-up", {
+                start: "top 85%",
+                onEnter: (batch) => {
+                    gsap.to(batch, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        stagger: 0.1,
+                        delay: 0.8
+                    });
+                },
+                once: true  //한번만 실행
+            });
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+    <section style="height:100vh; background:#222; color:#fff; display:flex; align-items:center; justify-content:center;">
+        위 섹션 – 아래로 스크롤 해보세요
+    </section>
+
+
+    <section id="effect-section" class="effect-section">
+        <div class="inner">
+
+            <h2 class="effect-title fade-up" data-delay="0.2">Scroll Fade</h2>
+            <p class="effect-desc fade-up" data-delay="0.4">
+                스크롤에 따라 자연스럽게 위로 떠오르며 나타나는 기본적인 등장 모션입니다.
+            </p>
+
+            <div class="effect-grid" data-delay="0.6">
+                <div class="effect-card fade-up">
+                    <h3>Card 1</h3>
+                    <p>텍스트 영역</p>
+                </div>
+                <div class="effect-card fade-up">
+                    <h3>Card 2</h3>
+                    <p>텍스트 영역</p>
+                </div>
+                <div class="effect-card fade-up">
+                    <h3>Card 3</h3>
+                    <p>텍스트 영역</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section style="height:100vh; background:#555;"></section>
+
+
+</body>
+</html>

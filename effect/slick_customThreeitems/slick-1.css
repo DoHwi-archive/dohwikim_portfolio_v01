@@ -1,0 +1,154 @@
+* {margin: 0; padding: 0; box-sizing:border-box;}
+ul,li {list-style: none;}
+a {text-decoration: none;}
+img {vertical-align: top;}
+input:focus {outline: none;}
+
+/* slick-slider */
+.slick-slider {position:relative; display:block; box-sizing:border-box; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; -webkit-touch-callout:none; -khtml-user-select:none; -ms-touch-action:pan-y; touch-action:pan-y; -webkit-tap-highlight-color:transparent;}
+.slick-list {position:relative; display:block; margin:0; padding:0;}
+.slick-list:focus {outline:none;}
+.slick-list.dragging {cursor:pointer; cursor:hand;}
+.slick-slider .slick-track, .slick-slider .slick-list {-webkit-transform:translate3d(0, 0, 0); -moz-transform:translate3d(0, 0, 0); -ms-transform:translate3d(0, 0, 0); -o-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0);}
+.slick-track {position:relative; top:0; left:0; display:block; margin-left:auto; margin-right:auto;}
+.slick-track:before, .slick-track:after {display:table; content:'';}
+.slick-track:after {clear:both;}
+.slick-loading .slick-track {visibility:hidden;}
+.slick-slide {display:none; float:left; height:100%; min-height:1px;}
+[dir='rtl'] .slick-slide {float:right;}
+.slick-slide img {display:block;}
+.slick-slide.slick-loading img {display:none;}
+.slick-slide.dragging img {pointer-events:none;}
+.slick-initialized .slick-slide {display:block;}
+.slick-loading .slick-slide {visibility:hidden;}
+.slick-vertical .slick-slide {display:block; height:auto; border:1px solid transparent;}
+.slick-arrow.slick-hidden {display:none;}
+/* ----------------------------------------------------- */
+#section-sk{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  font-size: 30px;
+}
+
+#section-sk>.container{
+  width: 100%;
+  height: 400px;
+  background-color: rgb(231, 231, 231);
+  position: relative;
+  top: 50%; transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 얘가 감싸고 있는 부모 본체!! */
+.sk-con-wrap{
+  width: 1170px;
+  height: auto;
+  background-color: rgb(0, 0, 0); 
+  position: relative;
+}
+
+/* 얘는 con 애들 */
+.sk-con{
+  width: 380px;
+  height: 400px;
+  text-align: center; line-height: 400px;
+  
+  /*
+   ----------------------------------------------------
+    원래 애들(뒤에있는애들)을 작게 만들어 놓고
+    '.slick-active'클래스 추가해서 가운데 올때 크게 만드는것
+    ----------------------------------------------------
+  */ 
+  transform: scale(0.8);
+  opacity: 0.8;
+  transition: 0.3s;
+ }
+
+/* 액티브 추가 - 가운데 오는 애들(3개) */
+.sk-con.slick-active{
+  transform: scale(1.0);
+  opacity: 1.0;
+  transition: 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 35px; font-weight: 500; color: #fff;
+}
+
+/* ------------------------------------ */
+/* 화살표 */
+.sk-arrow-wrap{
+  width: 80%;
+  height: 70px;
+  position: absolute;
+  top: 160px;
+
+  font-size: 25px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: space-between;
+}
+.sk-arrow{
+  width: 70px;
+  height: 70px;
+  background-color: red;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ------------------------------------ */
+/* 닷츠 */
+
+/* ul */
+.slick-dots{
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.slick-dots>li{
+  width: auto;
+  height: 100%;
+}
+
+
+.slick-dots>li>button{
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  opacity: 0.3;
+  color: #fff;
+  margin: 0 10px;
+  /* 블락해야 li안에 딱 들어감 */
+  display: block;
+  
+  padding: 0;
+	border: none;
+}
+
+.slick-dots>li.slick-active>button {
+  opacity: 1;
+}
+
+/* ------------------------------------ */
+
+
+
+
+
+
+
+
+

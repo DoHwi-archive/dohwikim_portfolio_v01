@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Focus UI</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .wrap {max-width: 1000px; margin: 0 auto; padding: 120px 20px;}
+        .title {font-size: 34px; margin-bottom: 20px;}
+        .desc {opacity: 0.75; line-height: 1.6; margin-bottom: 40px; font-size: 20px;}
+
+
+        .form-box{
+            border: 1px solid rgba(255, 255, 255, 0.14); background-color: rgba(255, 255, 255, 0.14);
+            border-radius: 18px; padding: 28px 28px;
+        }
+        .grid{display: grid; grid-template-columns: 1fr 1fr; gap: 40px;}
+        .field{
+            position: relative; border: 1px solid rgba(255, 255, 255, 0.16); background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 14px; padding: 18px 16px; transition: all 0.25s ease;
+        }
+        .field:focus-within{
+            border-color: rgba(255, 255, 255, 0.45);
+            background-color: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+        }
+        .field input, .field textarea{
+            width: 100%; border:0; outline: none; background-color: transparent; color: #000;
+            font-size: 18px; line-height: 1.6; padding-top: 10px; padding-right: 6px;
+        }
+        .field textarea{min-height: 120px; resize: vertical; padding-top: 15px;}
+        .field input::placeholder, .field textarea::placeholder{color: transparent;}
+
+
+        .field label{
+            position: absolute; left: 16px; top: 18px; color: #000;
+            font-size: 18px; line-height: 1.6; pointer-events: none; transform-origin: left top; transition: all 0.22s ease;
+        }
+        .field:focus-within label,
+        .field input:not(:placeholder-shown) + label,
+        .field textarea:not(:placeholder-shown) + label{
+            top: 5px; transform: scale(0.86); opacity: 0.7; color: #000;
+        }
+        
+        
+
+        
+        .actions {width: 100%; margin-top: 18px; display: flex; gap: 22px;}
+        .btn{
+            appearance: none; border: 1px solid rgba(255, 255, 255, 0.18); background-color: rgba(0, 0, 0, 0.15);
+            color: #000; padding: 12px 14px; border-radius: 12px; cursor: pointer;
+            transition: all 0.18s ease; font-size: 18px;
+        }
+        .btn:hover{border-color:rgba(255, 255, 255, 0.28); background-color: rgba(255, 255, 255, 0.12);}
+        .btn:active{transform: scale(0.98); background-color: rgba(100, 0, 0, 0.9); color: #fff;}
+
+        
+
+    </style>
+
+    
+</head>
+<body>
+
+
+
+    <div class="wrap">
+
+        <h1 class="title">Form Focus UI</h1>
+        <p class="desc">
+            <!-- Floating Label + Focus Highlight + Keyboard Focus(<code>:focus-visible</code>)가 한 번에 포함된 폼 예시입니다.<br/> -->
+            <b>마우스로 클릭</b>할 때와, <b>Tab 키</b>로 이동할 때 포커스 표현이 어떻게 달라지는지 확인해보세요.
+        </p>
+
+        <!-- ---- -->
+        <form class="form-box" id="demoForm" novalidate>
+            <div class="grid">
+                <!-- 필드 1 -->
+                <div>
+                    <div class="field">
+                        <!-- placeholder는 상태 판별용(투명 처리됨) -->
+                        <input id="name" name="name" type="text" placeholder="이름" autocomplete="name" />
+                        <label for="name">NAME</label>
+                    </div>
+                </div>
+
+                <!-- 필드 2 -->
+                <div>
+                    <div class="field">
+                        <input id="email" name="email" placeholder="이메일" autocomplete="email"/>
+                        <label for="email">EMAIL</label>
+                    </div>
+                </div>
+
+                <!-- 필드 3 -->
+                <div style="grid-column:  1 / -1;">
+                    <div class="field">
+                        <textarea id="message" name="message" placeholder="메시지"></textarea>
+                        <label for="message">MESSAGE</label>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="actions">
+                    <button class="btn" type="submit">SEND</button>
+                    <button class="btn" type="button" id="resetBtn">RESET</button>
+                </div>
+
+
+
+
+            </div>
+        </form>
+        <!-- ---- -->
+
+    </div>
+
+
+
+    <script>
+        
+
+            document.getElementById("resetBtn").addEventListener("click", function(){
+                document.getElementById("demoForm").reset();
+            });
+
+            document.getElementById("demoForm").addEventListener("submit", function(e){
+                e.preventDefault();
+                alert("실제 전송 X");
+            });
+
+        
+    </script>
+    
+</body>
+</html>

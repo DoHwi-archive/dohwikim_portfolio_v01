@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 정렬 & 줄바꿈 처리 (반응형)</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{color: #111; background-color: #f6f7fb; line-height: 1.6;}
+
+        .wrap{max-width: 1600px; margin: 0 auto; padding: 80px 40px;}
+        .top{display: flex; gap: 14px; justify-content: space-between; align-items: flex-end; margin-bottom: 35px;}
+        .top h1{font-size: 28px; letter-spacing: -0.02em;}
+        .grid{display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px;}
+        
+
+        .card{
+            background-color: #fff; border: 1px solid #e7e7e7; border-radius: 14px;
+            padding: 28px; box-shadow: 0 6px 18px rgba(20, 20, 40, 0.05); overflow: hidden;
+        }
+        .card h2{font-size: 20px; margin-bottom: 25px; opacity: 0.85;}
+        .hint{font-size: 16px; opacity: 0.65; margin-bottom: 25px;}
+        .pill{
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 14px; opacity: 0.8; background-color: #dadbe6; border: 1px solid #e0e5ff;
+            padding: 4px 10px; margin-bottom: 10px;
+        }
+        .pill b{font-weight: 700;}
+
+        .typo p{letter-spacing: -0.02em;}
+        .demo-box{border: 1px dashed #d7d9e6; border-radius: 10px; padding: 14px; background-color: #fafbff;}
+
+
+        /* 정렬 */
+        .align-center{text-align: center;}
+        .align-left{text-align: left;}
+        .align-right{text-align: right;}
+
+        .kv{
+            display: grid; grid-template-columns: 1fr 120px; gap: 10px; align-items: center;
+            padding: 10px 12px; border-radius: 10px; background-color: #fff; border: 1px solid #ececf6; margin-top: 10px;
+        }
+        .kv .label{opacity: 0.8;}
+        .kv .value{font-variant-numeric: tabular-nums; font-weight: 700;}
+        .kv .value.right{text-align: right;}
+
+
+        .keep-all{
+            word-break: keep-all;    
+            /* 한글 가독성 */
+            overflow-wrap: break-word;
+            /* 영문, URL 안전망 */
+        }
+
+        .break-any{
+            word-break: break-all;
+            /* 매우 좁은 공간에서 강제로 끊기고 싶을때 */
+        }
+
+        .code{background-color: #757575; color: #fff; padding: 2px 6px; border-radius: 8px;}
+
+
+        .ellipsis-1{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .ellipsis-2{
+            /* WebKit 기반 속성을 쓰는 방식 */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            line-height: 2;
+        }
+
+
+        /* PC에서는 의도한 줄바꿈 유지 & 모바일에서는 자동으로 합치기 */
+        .pc-br{display: inline;}
+
+        .footer-note{margin-top: 18px; font-size: 14px; opacity: 0.7;}
+
+
+        /* --------------------반응형-------------------- */
+        @media (max-width: 900px){
+            .gird{grid-template-columns: 1fr;}
+        }
+
+        @media (max-width: 640px){
+            .top{align-items: flex-start; flex-direction: column; gap: 8px;}
+            .top h1{font-size: 22px;}
+            .badge{align-self: flex-start;}
+            .card{padding:16px}
+            /* 모바일에서 pc-br을 숨김 (JS가 없으면 문장이 바로 붙음) */
+            .pc-br{ display:none; }
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="wrap">
+
+        <div class="top">
+            <h1>텍스트 정렬 & 줄바꿈 처리 (PC / 반응형)</h1>
+        </div>
+
+        <div class="grid">
+            
+
+
+
+            <!-- 카드1 줄바꿈/word-break -->
+            <section class="card typo">
+
+                <h2>1) 줄바꿈 (한글/영문/URL)</h2>
+
+                <div class="demo-box" style="margin-bottom: 12px;">
+                    <div class="pill"><b>keep-all + break-word</b> 기본 조함</div>
+                    <p class="keep-all">
+                        그렇기 때문에 로렘 입숨처럼 적당히 정갈하면서도 전세계 어떤 화자도 무슨 내용인지 이해할 수 없는(달리 말해 주의를 빼앗기지 않을) 문장을 사용한다.
+                    </p>
+                </div>
+
+                <div class="demo-box">
+                    <div class="pill"><b>긴 URL</b></div>
+                    <p class="keep-all" style="opacity: 0.9;">
+                        https://example.com/super-super-long-url-path/with-a-lot-of-numbers-and-query?param=reallyreallyreallylongvalue1234567890
+                    </p>
+
+                    <div style="height: 10px;"></div>
+
+                    <div class="pill"><b>break-all</b></div>
+                    <p class="break-any" style="opacity: 0.9;">
+                        ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+                    </p>
+                </div>
+
+
+            </section> 
+
+
+
+            <!-- 카드2 말줄임 -->
+            <section class="card typo">
+                
+                <h2>2) 말줄임 (1줄 / 2줄)</h2>
+
+                <div class="demo-box" style="margin-bottom: 12px;">
+                    <div class="pill"><b>1줄 말줄임</b></div>
+                    <p class="ellipsis-1" style="background-color: #fff; border: 1px solid #ececf6; border-radius: 10px; padding: 10px 12px;">
+                        [공지] 로렘 입숨 생성 기능이 없더라도 플러그인을 지원하는 소프트웨어에는 로렘 입숨을 생성해 주는 플러그인이 존재하기도 한다. (길면 … 처리)
+                    </p>
+                </div>
+
+                <div class="demo-box">
+                    <div class="pill"><b>2줄 말줄임</b></div>
+                    <p class="ellipsis-2" style="background-color: #fff; border: 1px solid #ececf6; border-radius: 10px; padding: 10px 12px;">
+                        이 텍스트는 2줄까지만 보여주고 그 이상은 말줄임 처리합니다. 설명이 길어질 때 레이아웃이 무너지는 것을 방지하기 위한 패턴이며,
+                        반응형에서도 높이를 예측 가능하게 유지할 수 있습니다.
+                    </p>
+                </div>
+
+
+            </section>
+
+
+
+            <!-- 카드3 pc에서는 <br>유지, 모바일에서는 합치기 -->
+            <section class="card typo">
+                
+                <h2>3) PC 의도된 줄바꿈 + 모바일에서는 합치기</h2>
+
+                <div class="demo-box">
+
+                    <div class="pill"><b>PC</b></div>
+                    <div class="pill"><b>Mobile</b></div>
+                    <p id="copyLine" class="keep-all" style="font-size: 18px; font-weight: 500; background-color: #fff; border: 1px solid #ececf6; border-radius: 10px; padding: 10px 12px;">
+                        사용자 경험을 최우선으로 생각하며<span class="pc-br"><br></span>
+                        변화하는 웹 환경에서도 유연하게 대응합니다.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+        <div style="text-align: right; color: #777; margin-top: 30px;">( 창을 줄여 확인 가능 )</div>
+
+    </div>
+
+
+    <!-- ---script--- -->
+    <script>
+
+        // 모바일일때 카피문장안의 br을 공백텍스트로처리
+
+        function isMobile(){
+            return window.innerWidth <= 640;
+        }
+
+        function handleBrForMobile(){
+            var copy = document.getElementById("copyLine");
+
+            // 이미 처리한 적이 있으면 되돌릴 수 있게 원본 HTML을 저장해둠
+            if(!copy.dataset.originalHtml){
+                copy.dataset.originalHtml = copy.innerHTML;
+            }
+
+            if(isMobile()){
+                copy.innerHTML = copy.dataset.originalHtml.replaceAll("<br>", " ");
+            }else{
+                copy.innerHTML = copy.dataset.originalHtml;
+            }
+        }
+
+        handleBrForMobile();
+
+
+        // 리사이즈때마다 반영
+        window.addEventListener("resize",function(){
+            handleBrForMobile();
+        });
+
+    </script>
+    <!-- ---script--- -->
+    
+</body>
+</html>

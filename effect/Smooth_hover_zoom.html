@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Hover Zoom</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+
+        .hover-section{padding: 140px 0; background-color: #000; color: #fff;}
+        .inner{max-width: 1100px; margin: 0 auto;}
+        .hover-grid{display: flex; flex-wrap: wrap; gap: 32px;}
+        .hover-card{flex: 1 1 calc(33.333% - 32px); min-width: 260px;}
+
+        .img-wrap{position: relative; overflow: hidden; border-radius: 16px;}
+        .img-wrap img{width: 100%; display: block; transform: scale(1); transition: transform 0.6s ease;}
+        .img-wrap .overlay{
+            position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transform: translateY(0); transition: all 0.6s ease;
+        }
+        .img-wrap .overlay p{
+            font-size: 26px; font-weight: 600; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+        }
+        .img-wrap a{position: absolute; inset: 0;}
+
+        /* hover */
+        .img-wrap:hover img{transform: scale(1.15);}
+        .img-wrap:hover .overlay{opacity: 1; transform: translateY(0);}
+        .img-wrap:hover .overlay p{opacity: 1; transform: translateY(0);}
+
+
+    </style>
+</head>
+<body>
+    
+
+    <section id="effect-hover" class="hover-section">
+        <div class="inner">
+
+            <div class="hover-grid">
+
+                <div class="hover-card">
+                    <div class="img-wrap">
+                        <img src="img/item.jpg" alt=""/>
+                        <div class="overlay">
+                            <p>View More</p>
+                        </div>
+                        <a href="#none"></a>
+                    </div>
+                </div>
+
+                <div class="hover-card">
+                    <div class="img-wrap">
+                        <img src="img/item.jpg" alt=""/>
+                        <div class="overlay">
+                            <p>View More</p>
+                        </div>
+                        <a href="#none"></a>
+                    </div>
+                </div>
+
+                <div class="hover-card">
+                    <div class="img-wrap">
+                        <img src="img/item.jpg" alt=""/>
+                        <div class="overlay">
+                            <p>View More</p>
+                        </div>
+                        <a href="#none"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+</html>

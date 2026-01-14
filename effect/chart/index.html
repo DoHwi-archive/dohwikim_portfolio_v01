@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3개의 Chart.js 차트</title>
+
+  <script src="js/chart.umd.js"></script>
+  <script src="js/chartjs-plugin-datalabels.min.js"></script>
+  <!-- 도넛차트 외부값 -->
+
+  <style>
+
+    *{margin: 0; padding: 0; text-align: center;}
+
+    #doughnut-legend-custom>h2{
+      position: absolute; top: 50px; left: 50%; transform: translateX(-50%);
+    }
+
+    #doughnutChart{
+      max-width: 950px; max-height: 850px;
+      padding-top: 40px;
+    }
+
+
+    /* 범례 css */
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%; /* 동그라미 */
+      flex-shrink: 0;
+    }
+
+
+
+    /* 라인차트 */
+    #lineChart{
+      width: 80% !important; height: 700px !important;
+    }
+    .custom_Bum_wrap{
+      width: 80%; position: relative;
+    }
+    .custom_Bum_wrap h2{color: #1b1b1b; font-size: 25px; margin-bottom: 25px;}
+    
+    /* 라인차트 범례 커스텀 */
+    #lineChart-wrap #lineLegend{
+      width: auto; height: 30px; display: flex; align-items: center; justify-content: flex-start;
+    }
+    #lineLegend button{
+      width: auto; height: 30px; box-sizing: border-box; margin-right: 14px;
+      background-color: #ffffff; border: 1px solid #b3b3b3; border-radius: 5px; cursor: pointer;
+    }
+    #lineLegend button:active{background-color: #e2e2e2;}
+    #lineLegend .lineSearch{display: flex; justify-content: center; align-items: center; width: 30px; height: 30px; padding: 0;}
+    #lineLegend .lineSearch img{width: 65%; height: auto; opacity: 0.5;}
+
+    #lineLegend .line-Blue,#lineLegend .line-Mint{position: relative; padding: 0 10px 0 25px;}
+    #lineLegend .line-Blue::before,#lineLegend .line-Mint::before{
+      content: ''; width: 9px; height: 9px; border-radius: 50%; position: absolute; top: 50%; left: 9px; transform: translateY(-50%);
+    }
+    #lineLegend .line-Blue::before{background-color: #1d5ced;}
+    #lineLegend .line-Mint::before{background-color: #00e2bc;}
+
+
+    /* 뒤에 불투명 배경 : background-image */
+    #halfCircleCustom_BG{
+      width: 309px; height: 309px; position: absolute; top: 47px; left: 37px;
+      background-image: url(image/BG.png); background-position: center; background-repeat: no-repeat; background-size: 109.7%; opacity: 0.25;
+    }
+    #Y-arrow{
+      width: 35px; height: 32px;  position: absolute; top: 114px; right: 31%; z-index: 99; opacity: 1; transform: rotateZ(85deg);
+      border-radius: 14% 100% 48% 74% / 14% 71% 56% 100%; 
+      background-color: #faf05e; border: 3px solid #1f1f1f; box-sizing: border-box;
+     
+    }
+    
+
+    /* canvas태그에는 직접 before속성을 사용할수없어서 그위에 부모에게 사용 */
+    #Hrz_barChart-wrap::before{
+      content: ''; width: 100%; height: 16px; background-color: #555;
+      position: absolute; bottom: 2px; left: 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  
+
+ 
+    <!-- bar 형태 차트 -->
+    <div style="width: 100%; height: auto; padding: 50px 20px; box-sizing: border-box;">
+      <h2 style="width: 100%; float: left; text-align: center;">bar Charts</h2>
+      <div class="chart-view" style="width:100%; float: left;">
+        <canvas id="barCtx" style="height: 500px;"></canvas>
+      </div>
+    </div>
+
+
+    <!-- doughnut 형태 차트 -->
+    <div id="doughnut-legend-custom" 
+    style="width: 100%; padding: 100px 0; overflow: hidden; position: relative; display: flex; justify-content: center;" >
+
+      <div style="position: relative; width: 750px; height: 750px;">
+
+        <h2 >doughnut Charts</h2>
+
+        <canvas id="doughnutChart"></canvas>
+
+        <!-- ✅ 커스텀 범례 박스 -->
+        <div id="customLegend" style="
+          display: flex;
+          justify-content: flex-end; 
+          background-color: rgba(255,255,255,0.5);
+          gap: 8px;
+          height: fit-content; position: absolute; top: 50px; right: 0;
+        "></div>
+        <!-- 범례 항목은 JS로 동적으로 추가됩니다 -->
+
+      </div>
+
+    </div>
+
+
+
+    <!-- line 형태 차트 -->
+    <div id="lineChart-wrap" style="width: 100%; height: fit-content; box-sizing: border-box; padding: 50px 40px;">
+      <div class="inner" style=" width:100%; height: fit-content; background-color: #ffffff; box-sizing: border-box; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+        <div class="custom_Bum_wrap">
+          <h2>Line chart</h2>
+          <div id="lineLegend">
+
+            <button class="lineSearch">
+              <img src="image/search-icon.png" alt="돋보기"/>
+            </button>
+            <button class="line-Blue">All BLUE</button>
+            <button class="line-Mint">All MINT</button>
+
+          </div>
+        </div>
+
+        <canvas id="lineChart"></canvas>
+
+      </div>
+    </div> 
+
+
+
+
+    <!-- stacked bar & line 차트  (총 3개의 차트) -->
+    <div id="BarLine-Chart" style="width: 100%; height: auto; box-sizing: border-box; padding: 10px 20px; background-color: #000000; margin-top: 100px;">
+      
+      <div class="inner" style=" width:100%; height: 400px; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center;">
+          <!-- 안에 차트 두개 가로로 배치 -->
+
+
+          <!-- 1 -->
+          <div  style="width: 48%; height: 100%; margin-right: 0.6%; background-color: #1f1f1f; display: flex; justify-content: center; align-items: center;">
+            <canvas id="barLineChart"></canvas>
+          </div>
+
+          <!-- 2 반도넛 차트 -->
+          <div  style="width: 30%; height: 100%;  margin-right: 0.6%; background-color: #1f1f1f;  box-sizing: border-box; display: flex; justify-content: center; align-items: center;">
+            <canvas id="halfDoughnut-Chart"></canvas>
+          </div>
+
+          <!-- -------------------------- -->
+          
+          <div style="width: 20.9%; height: 100%; background-color: #1f1f1f; position: relative; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+
+            <div id="halfCircleCustom_BG" data-percent="85.4"></div>
+            <div id="Y-arrow"></div>
+            
+            <!-- 3 커스텀반도넛 차트-->
+            <canvas id="halfCircleCustom" style="height: 400px; position: absolute; top: -29px;"></canvas>
+
+            <div style="position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); display: flex; justify-content: space-between; flex-direction: column;">
+              <span style="font-size: 13px; color: #555;">Last Operation</span>
+              <span style="font-size: 14px; font-weight: 700; color: #a7a7a7;">Today at 5:30 AM</span>
+            </div>
+
+            <div style="width: 100%; height: 285px;position: relative;">
+              <span style="font-size: 14px; font-weight: bold; color: #555; position: absolute; bottom: 18px; left: 28px;">0</span>
+              <span style="font-size: 14px; font-weight: bold; color: #555; position: absolute; bottom: 175px; left: 30px;">25</span>
+              <span style="font-size: 14px; font-weight: bold; color: #555; position: absolute; top: 6px; left: 49%; transform: translateX(-50%);">50</span>
+              <span style="font-size: 14px; font-weight: bold; color: #555; position: absolute; bottom: 173px; right: 36px;">75</span>
+              <span style="font-size: 14px; font-weight: bold; color: #555; position: absolute; bottom: 18px; right: 22px;">100</span>
+            </div>
+
+          </div>
+          <!-- -------------------------- -->
+
+
+      </div>
+
+
+
+
+      <!-- 아래섹션 -->
+      <div class="cont" style="width: 100%; height: auto; background-color: #000000; margin-top: 15px;">
+
+        
+        <!-- 버튼같이생긴 Chart -->
+        <div style="width: 100%; height: 100px; background-color: #1f1f1f; margin-bottom: 15px; border: 1px solid #666; box-sizing: border-box; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 96%; height: 80%; display: flex; align-items: flex-start; justify-content: space-between; flex-direction: column;">
+
+            <div style="width: 100%; position: relative;">
+              <span style="color: #777; position: absolute; left: 0;">
+                Running For:&nbsp;&nbsp;
+                <strong style="color:#00FFD1;">68 Hrs 44 Mins</strong>
+              </span>
+              <span style="color: #777; position: absolute; right: 0;">
+                Last 30days (01/01 - 01/30):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <strong style="color:#ffffff;">99.6 % &nbsp;&nbsp;Uptime</strong>
+              </span>
+            </div>
+
+            <div style="width: 100%; position: relative;">
+              <div id="Hrz_barChart-wrap" style="width: 100%; position: absolute; bottom: 15px; left: 0;">
+
+                <!-- 4 가로형 막대차트-->
+                <canvas id="Hrz_barChart" style="height: 20px; display: block; position: relative;"></canvas>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- 5 -->
+        <div style="width: 100%; background-color: #1f1f1f;border: 1px solid #666; box-sizing: border-box; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 96%; height: 96%; display: flex; align-items: flex-start; justify-content: space-between; flex-direction: column;">
+
+            <span style="font-size:24px; color: #fff; font-weight: 600; display: block; width: 100%; height: 34px; background-color: rgb(32, 32, 32); text-align: left; position: relative;">
+              Earnings
+              <div style="width: auto; height: 100%; position: absolute; top: 0; right: 0; display: flex; justify-content: flex-start; align-items: center;">
+                <button style="margin-right: 15px; background-color: transparent; color: #b4b4b4; width: 90px; height: 100%; border-radius: 4px;">Today</button>
+                <button style=" background-color: transparent; color: #b4b4b4; width: 90px; height: 100%; border-radius: 4px;">Total</button>
+              </div>
+            </span>
+
+            <div style="width: 100%; height: 510px; margin-top: 10px; display: flex; align-items: center; justify-content: space-between;">
+
+              <div style="width: 40%; height: 100%;">
+                <!-- 5.거미줄 차트-->
+                <canvas id="radarChart"></canvas>
+              </div>
+
+              <div style="width: 59%; height: 100%;">
+                <!-- -->
+                <canvas></canvas>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <!-- stacked bar & line 차트  (총 3개의 차트) -->
+
+
+  <!-- end -->
+  <script>
+
+
+    // -------------------------------------------------------
+
+    // 1. 바 차트
+    const barCtx = document.getElementById('barCtx').getContext('2d');
+
+    new Chart(barCtx, {
+      type: 'bar',
+      data: {  // ✅ data 속성 추가
+        labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Gray'], // ✅ X축 이름들
+        datasets: [{
+          label: 'My First Dataset', 
+          data: [40, 23, 52, 25, 66, 40, 27],
+           backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)','rgb(255, 159, 64)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(54, 162, 235)','rgb(153, 102, 255)','rgb(201, 203, 207)'
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'My First Dataset', 
+          data: [65, 59, 10, 21, 56, 55, 40],
+          backgroundColor: [
+            'rgba(255, 99, 132,1)','rgba(255, 159, 64,1)','rgba(255, 205, 86, 1)','rgba(75, 192, 192, 1)','rgba(54, 162, 235, 1)','rgba(153, 102, 255,1)','rgba(201, 203, 207,1)'
+          ],
+        }
+      ],
+        
+      },
+      options: {  // ✅ 위치 바르게 조정
+        responsive:true,
+        maintainAspectRatio: false,
+        
+        scales: {
+          x: {
+            grid: { // 축에 대한 격자선
+              display: true, // grid 활성화 (기본값 true)
+            },
+          },
+            y: {
+              min: 0, // y축에 대한 최소값
+              max: 70, // y축에 대한 최대값
+              border: { // 축에 대한 테두리 속성
+                dash: [3, 3] // 점선 형태
+              },
+          },
+        },
+      }
+    });
+
+    //-------------------------------------------------
+    // 2️⃣ 도넛 차트
+    // 1.도넛 차트 위에 값 표시 (호버 없이도 항상 보이게)
+    // 2.값을 도넛 외부에 표시
+    const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+    // 범례 js
+    const labels = ['Chrome', 'Safari', 'Firefox', 'Edge', 'Others'];
+    const data = [30, 25, 22, 1, 2];
+    const colors = [
+      'rgba(255, 99, 132,1)',
+      'rgba(255, 159, 64,1)',
+      'rgba(255, 205, 86, 1)',
+      'rgba(75, 192, 192, 1)',
+      'rgba(54, 162, 235, 1)'
+    ];
+
+    new Chart(doughnutCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Chrome', 'Safari', 'Firefox', 'Edge', 'Others'],
+        datasets: [{
+          label: '값',
+          data: [10, 20, 10, 30, 30],
+
+
+          backgroundColor: [
+            'rgba(255, 99, 132,1)',
+            'rgba(255, 159, 64,1)',
+            'rgba(255, 205, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(54, 162, 235, 1)'
+          ],
+          hoverOffset: 20,
+          borderColor: 'transparent',   
+          borderWidth: 0,           
+          fill: false,
+          tension: 0.5,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio:true,
+        cutout: '90%',
+        radius:'80%',
+         plugins: {
+          datalabels: {
+            color: '#000',
+            anchor: 'end', // 외부에 위치시킴
+            align: 'end', // 외부에 위치시킴
+            formatter: (value, context) => {
+              return value + '%'; 
+            },
+            font: {
+              size: 18,
+            },
+          },
+          legend: { display: false },
+        }
+      },
+      plugins: [ChartDataLabels] 
+    });
+
+
+    // // ✅ 커스텀 범례 생성
+    const legendContainer = document.getElementById('customLegend');
+    labels.forEach((label, i) => {
+      const item = document.createElement('div');
+      item.className = 'legend-item';
+      item.innerHTML = `
+        <div class="legend-dot" style="background-color: ${colors[i]}"></div>
+        <span>${label}</span>
+      `;
+      legendContainer.appendChild(item);
+    });
+
+    
+
+
+    // // 3. 라인 차트
+
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    const labels_3 = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월'];
+    // 배경색-그라데이션 생성
+    let gradient;
+
+    const lineChart = new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: labels_3,
+        datasets: [
+          {
+            label: '사용자 방문수1',
+            data: [20, 35, 30, 75, 45, 25, 40, 38, 52],
+            pointRadius: 8,
+            fill: true,
+            borderWidth: 2,
+            
+            backgroundColor: function(context) {
+              const chart = context.chart;
+              const {ctx, chartArea} = chart;
+
+              // chartArea가 존재할 때만 gradient 생성
+              if (!chartArea) return null;
+
+              if (!gradient) {
+                gradient = lineCtx.createLinearGradient(
+                  // chartArea.left, 0, chartArea.right, 0 // 가로방향 그라데이션
+                  0, chartArea.top, 0, chartArea.bottom  //위아래 그라데이션
+                );
+                gradient.addColorStop(0, 'rgba(29,92,227,0.5)');
+                gradient.addColorStop(1, 'rgba(29,92,227,0)');
+              }
+
+              return gradient;
+
+            },        
+            pointBackgroundColor: '#1d5ced',  // 점 내부 색
+            pointBorderColor: 'white',        // ✅ 점 테두리 색
+            pointBorderWidth: 3,              // ✅ 점 테두리 두께
+            borderColor: '#1d5ced',
+            tension: 0.5
+          },
+          // + 그래프 추가
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis:'x',  // x/y 축의 방향을 바꿀때 사용(기본값 'x')
+        scales: {
+
+            x: {
+              grid: {display: false,},
+              ticks: {
+                padding: 30,
+                color: '#000',
+                font: {
+                  size: 18,
+                }
+              }
+            },
+            y: {
+              grid: {
+                display: true,
+                color: 'rgba(0, 0, 0, 0.2)',
+                lineWidth: 1,
+                borderColor: '#ffffff',
+                drawBorder: true
+              },
+              beginAtZero: true,
+              min: 0,
+              max: 80,
+              ticks: {
+                padding: 40,
+                color: '#000', // ✅ 글자 색상은 ticks 안에서 이렇게!
+                font: {
+                  size: 16,
+                }
+              }
+            }
+        },
+
+
+        plugins: {
+          legend: { display: false }
+        }
+
+      }
+    });
+
+
+
+
+
+   // 4. 바차트+라인차트 합쳐진것
+    // ✅ 라벨 데이터
+    const labels_BarLine = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+
+    // ✅ 차트를 생성하는 함수
+    function createBarLineChart(ctx, labels, datasets, options = {}) {
+      return new Chart(ctx, {
+        type: 'line', // 라인 타입을 기본으로 하고 일부는 바 타입으로 설정
+        data: {
+          labels: labels_BarLine,
+          // 데이터 이안에 적는게 안 헷갈림
+          datasets: [
+            {   
+              // 바
+              label: '데이터 1 (Bar)',
+              data: [12, 19, 3, 5, 2, 3, 7],
+              borderColor: 'red',
+              backgroundColor: 'rgba(185, 220, 132, 0.75)',
+              stack: 'combined',
+              type: 'bar'
+            },
+            {
+              // 라인
+              label: '데이터 2 (Line)',
+              data: [8, 1, 3, 5, 2, 3, 7],
+              borderColor: '#00FFD1',
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              stack: 'combined',
+              fill: false,
+              pointRadius: 6,
+              borderWidth: 2,
+              pointBackgroundColor: '#00FFD1',
+              pointBorderColor: 'white',
+              pointBorderWidth: 2,
+              borderColor: '#00FFD1',
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            title: {
+              display: true,
+              text: '[ Bar + Line 혼합형 차트 ]',
+              color: '#fff',
+              font: {
+                size: 18,
+              },
+              
+            },
+            legend: {
+              position: 'bottom',
+              labels: {
+                usePointStyle: false,
+                boxWidth: 30,
+                boxHeight: 5,
+                padding: 20,
+                color: 'rgba(255,255,255,0.65)',
+              }
+            },
+          },
+          ...options, // 외부에서 옵션이 들어오면 병합
+          scales: {
+            x: {
+              grid: {display: false},
+              stacked: true, // 위로 누적시킬것이다
+              ticks: {
+                padding: 8,
+                color: '#d4d4d4',
+                font: {
+                  size: 13,
+                }
+              }
+              
+            },
+            y: {
+              min:0,
+              max:25,
+              grid: {
+                display: true,
+                color: 'rgba(255, 255, 255, 0.3)',
+              },
+              stacked: true,  // 위로 누적시킬것이다
+              ticks: {
+                padding: 20,
+                color: '#d4d4d4',
+                font: {
+                  size: 12,
+                }
+              },
+            }
+          }
+        }
+      });
+    }
+
+   
+    //  5. 반도넛 차트
+    const labels_halfD = [ 'blue' , 'empty' ];
+    
+    //  + 도넛 차트 가운데 텍스트 (플러그인 정의) =>재사용가능
+    const centerTextPi = {
+      id: 'centerText',
+      beforeDraw(chart, args, options) {
+        const { ctx, width, height } = chart;
+        ctx.save();
+
+        const fontSize   = options.font?.size   || 24;
+        const fontWeight = options.font?.weight || 'normal';
+        ctx.font         = `${fontWeight} ${fontSize}px sans-serif`;
+        ctx.fillStyle    = options.color || '#fff';
+        ctx.textAlign    = 'center';
+        ctx.textBaseline = 'middle';
+
+        (options.texts || []).forEach(item => {
+          // ✅ 좌표 비율 기반으로 계산 (기본값 width/2, height/2)
+          const x = item.x ?? (item.xRatio != null ? width  * item.xRatio : width / 2);
+          const y = item.y ?? (item.yRatio != null ? height * item.yRatio : height / 2);
+          ctx.fillText(item.text, x, y);
+        });
+
+        ctx.restore();
+      }
+    };
+
+
+
+
+    // 차트생성함수
+    function createHalfDChart(ctx2, labels, datasets, options = {})
+    {
+      return new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: labels_halfD,
+          datasets: [
+            {
+              label: '하프데이터',
+              data: [66,34],
+              backgroundColor: ['rgba(54, 162, 235, 1)', 'rgba(100, 100, 100,1)'],
+              borderColor: 'transparent',
+              borderWidth: 0,
+            }
+          ]
+        },
+        // 1. 플러그인 등록
+        plugins: [centerTextPi],
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          // 반원 만드려면 들어가는 옵션
+          rotation: -90,   // 시작점
+				  circumference: 180,  // 360도 중에 얼만큼만 보여줄지
+          cutout: '70%',      // 그래프 두께
+          radius: '85%',   // 그래프 전체 크기
+            // 떠있는 여백 제거
+          layout: {
+            padding: {
+              top: 0,
+              bottom: 0
+            },
+            autoPadding: false,
+          },
+          plugins:{
+            datalabels: {
+              anchor: 'end',
+              align: 'end',
+              formatter: (value, context) => {
+                return value + '%'; 
+              },
+            },
+            title: {
+              display: true,
+              text: '[ 반 도넛형 차트 + 가운데 숫자넣기 ]',
+              color: '#fff',
+              font: {
+                size: 18,
+              },
+            },
+            legend:{
+              position: 'right',
+              labels: {
+                // 범례 아이콘 정사각형으로 바꾸는 것
+                usePointStyle: false,
+                boxWidth: 18,
+                boxHeight: 18,
+                // 범례 아이콘 정사각형으로 바꾸는 것
+                padding: 12,
+                color: 'rgba(255,255,255,0.65)', // 글자색상
+                font: {
+                  size: 14,
+                },
+              },
+            },
+            // 2. 가운데텍스트 플러그인
+            centerText: {
+              texts: [
+                { text: '70.48 %', xRatio: 0.425, yRatio: 0.65 }
+              ],
+              color: '#fff',
+              font: {
+                size: 36,
+                weight: 'normal'
+              }
+            }
+          },
+          scales: {
+            x: {
+              // x축 숫자 커스터마이징하는게 나음(커스텀 플러그인사용)
+              // 축자체를 안보이게
+              display: false
+            },
+            y: {
+              // 축자체를 안보이게
+              display: false
+            }
+          }
+        }
+      });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //  5. 커스텀 반도넛 차트
+    const labels_halfCC = [ 'fill' , '0' ];
+
+    // 차트생성함수(5. 커스텀 반도넛 차트)
+    function createHalfCChart(ctx3, labels, datasets, options = {})
+    {
+      // ✅ 그라데이션 생성 (ctx3 사용!)
+      const gradient_1 = ctx3.createLinearGradient(0,0,400,0);  //좌우방향 
+      gradient_1.addColorStop(0,"rgba(164, 28, 255, 1)");
+      gradient_1.addColorStop(0.25,"rgba(253, 29, 29, 1)");
+      gradient_1.addColorStop(0.65,"rgba(249, 252, 69, 1)");
+
+      return new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+          labels: labels_halfCC,
+          datasets: [
+            {
+              label: '그라데이션 도넛',
+              data: [65,35],
+              backgroundColor: [gradient_1, 'transparent'],
+              borderColor: 'transparent',
+              borderWidth: 0,
+              borderRadius: 200,
+            }
+          ]
+        },
+        // 1. 플러그인 등록
+        plugins: [centerTextPi],
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          // 반원 만들기
+          rotation: -120,
+          circumference: 225,
+          cutout: '87%',
+          radius: '75%',
+          // 떠있는 여백제거
+          layout: {
+            padding: {
+              top: 0,
+              bottom: 0
+            },
+            autoPadding: false,
+          },
+          plugins: {
+            datalabels: {
+              anchor: 'end',
+              align: 'end',
+              formatter: (value, context) => {
+                return value + '%'; 
+              },
+            },
+            title: {
+              display:true,
+              text: '[ 그라데이션 커스텀 차트 ]',
+              color: '#fff',
+              font: {size: 18},
+              padding: {bottom :30,top:30}
+            },
+            legend: {display: false},
+            // 가운데텍스트 플러그인
+            centerText: {
+              texts: [
+                { text: '65%', xRatio: 0.495, yRatio: 0.65 }
+              ],
+              color: '#fff',
+              font: {
+                size: 40,
+                weight: 'normal'
+              }
+            }
+          },
+          // ✅ scales는 plugins 바깥에 있어야 함!
+          scales: {
+              x: {display: false},
+              y: {display: false}
+          }
+        },
+      })
+    }
+
+
+
+
+
+
+
+    //  6. 가로형 막대차트 : 1줄짜리  (#Hrz_barChart)
+    const labels_Hrz = ['null'];
+
+    // 차트생성함수
+    function createHrzChart(ctx4, labels, datasets, options = {})
+    {
+      return new Chart(ctx4, {
+        type: 'bar',
+        data: {
+          labels: labels_Hrz,
+          datasets: [
+            {
+              data: ['67'],
+              backgroundColor: ['#64E2B7'],
+              borderColor: 'transparent',
+              borderWidth: 0,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          autoPadding: false,
+          indexAxis: 'y',
+          plugins: {
+            legend:{display: false},
+            title: {display: false},
+            label:{display:false},
+            plugins: {
+              datalabels: {
+                anchor: false,
+                align: false,
+              }
+            }
+          },
+          scales: {
+            x: {
+              display:false,
+              ticks: {display: false},
+              grid: {display: false},
+              min: 0,
+              max: 100
+            },
+            y: {
+              display:false,
+              ticks: {display: false},
+              grid: {display: false}
+            }
+          },
+          
+
+          
+        },
+      
+        
+        
+        
+      });
+    }
+
+
+
+    // 7. 거미줄 차트
+    const labels_rd = ['Africa', 'Asia', 'Europe', 'Latin America', 'North America'];
+
+    function createRdChart(ctx5, labels, datasets, options = {})
+    {
+      return new Chart(ctx5, {
+        type:'radar',
+        data: {
+          labels: labels_rd,
+          datasets: [
+            {
+              labels: '2020년',
+              fill:true,
+              backgroundColor:'rgba(100,100,255,0.2)',
+              borderColor:'rgba(100,100,255,1)',
+              borderWidth: 2,
+              pointBorderColor:'#fff',
+              data: ['8.77', '55.61', '21.69', '6.62', '6.82']
+            }, {
+              label: '2025년',
+              fill:true,
+              backgroundColor:'rgba(255,255,100,0.2)',
+              borderColor:'rgba(255,255,100,1)',
+              borderWidth: 2,
+              pointBorderColor:'#fff',
+              data: ['25.48', '54.16', '7.61', '8.06', '4.45']
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          autoPadding: false,
+          backgroundColor: '#fff',
+          plugin: {
+            title: {
+              display: true,
+              text: 'Distribution in % of World Population',
+              color: '#fff'
+            },
+          },
+          scales: {
+            r: {
+              grid: {
+                color: 'rgba(255,255,255,0.4)',// 방사형 격자선 색깔
+              },
+              angleLines: {
+                color: 'rgba(255,255,255,0.4)', // 축 선색
+                size : 16
+              },
+              pointLabels: {
+                color: 'rgba(255,255,255,0.8)', // 축 라벨(글자) 색
+              },
+              ticks: {
+                color: 'rgba(255,255,255,0.7)', // 눈금숫자색
+                backdropColor: 'transparent'
+              },
+            }
+          },
+
+
+
+        },
+      })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  
+
+    // ==========================================================
+    // 차트실행 (여기안에 통합해서 한페이지에 들어가는 모든 차트 적기)
+    window.onload = function () {
+
+
+      // 1️⃣ bar + line 혼합형 차트
+      const ctx = document.getElementById('barLineChart').getContext('2d');
+      createBarLineChart(ctx, labels_BarLine);
+
+      // 2️⃣ half doughnut 차트
+      const ctx2 = document.getElementById('halfDoughnut-Chart').getContext('2d');
+      createHalfDChart(ctx2, labels_halfD);
+
+
+      // 3️⃣ 커스텀 반도넛 차트 (그라데이션)
+      const ctx3 = document.getElementById('halfCircleCustom').getContext('2d');
+      createHalfCChart(ctx3, labels_halfCC);
+
+
+      // 4. 가로형 막대차트 : 1줄짜리
+      const ctx4 = document.getElementById('Hrz_barChart').getContext('2d');
+      createHrzChart(ctx4, labels_Hrz);
+
+      // 5. 거미줄형 차트
+      const ctx5 = document.getElementById('radarChart').getContext('2d');
+      createRdChart(ctx5, labels_rd);
+
+
+
+
+
+
+
+      
+    };
+        
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------
+
+//   📌 전체적으로 올바른 틀 구조
+//    new Chart(context, {
+//      type: '...',
+//      data: {
+//        labels: [...],
+//        datasets: [...]
+//      },
+//      options: {
+//        responsive: true,
+//        plugins: {
+//          legend: { ... },
+//          tooltip: { ... },
+//          // datalabels: { ... }, ← 사용 시
+//         },
+//        scales: {
+//          x: { ... },
+//          y: { ... }
+//        }
+//      },
+//      plugins: [ /* 여기에 활성화할 플러그인 추가 */ ]
+//    });
+
+
+// => 전역함수로 감싼형태! (이것을 쓸것)
+// function createBarLineChart(ctx, labels, datasets, options = {}) {
+//   return new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//       labels: labels,
+//       datasets: datasets
+//     },
+//     options: {
+//       responsive: true,
+//       ...options
+//     },
+//     plugins: [ChartDataLabels]
+//   });
+// }
+
+
+    // 차트 형태
+    // type: 'bar' // line`, `doughnut` 등 다양한 형태가 존재
+
+    // 속성 값
+    // data: {
+    //   labels: ['2020', '2021', '2022', '2023'], // x축 데이터
+    //     datasets: [ // 데이터의 속성
+    //       {
+    //         label: 'Dataset', // 축의 제목
+
+    
+    //         fill: false, // line 형태일 때, 선 안쪽을 채우는지 여부
+    //         data: [10,20,30,40], // dataset 값
+    //         backgroundColor: '#00C7E2' // dataset 배경색
+    //         borderColor: 'white', // dataset 테두리 색상
+    //         borderWidth: 2, // dataset 테두리 두께
+    //         maxBarThickness: 30 // 최대 bar의 두께 설정
+    //       }
+    //     ]
+    // }
+
+    // 옵션
+    //   options: {
+    //   responsive: false, // 반응형 여부 (기본값 true)
+    //   maintainAspectRatio: false, // 크기 고정
+    //   plugins: {
+    //   	tooltip: { // 튤팁 스타일링
+    //       enabled: true, // 튤팁 활성화 (기본값 true)
+    //       backgroundColor: '#000', // 튤팁 색상
+    //       padding: 10 // 튤팁 패딩
+    //     },
+    //     legend: { // 범례 스타일링
+    //     	display: true, // 범례 활성화 (기본값 true)
+    //         position: 'bottom' // 범례 위치
+    //     }
+    //   },
+    //   scales: { // x축과 y축에 대한 설정
+    // 	x: {
+    //       grid: { // 축에 대한 격자선
+    //         display: false, // grid 활성화 (기본값 true)
+    //       }
+    //    	},
+    //     y: {
+    //       min: 0, // y축에 대한 최소값
+    //       max: 50, // y축에 대한 최대값
+    //       border: { // 축에 대한 테두리 속성
+    //       	dash: [5, 5] // 점선 형태
+    //       },
+    //     }
+    //   }
+    // }
+
+
+    // 
+    // 하나의 label에 두개의 데이터를 넣고 싶으면?
+    // datasets 에 객체를 하나 더 추가하면 돼요! ⤵️
+    // data: {
+    //   labels: ['2020', '2021', '2022', '2023'],
+    //     datasets: [
+    //       {
+    //         label: 'Dataset1',
+    //         data: [10,20,30,40],
+    //         backgroundColor: '#00C7E2',
+    //         maxBarThickness: 30
+    //       },
+    //       {
+    //         label: 'Dataset2',
+    //         data: [5,10,45,20],
+    //         backgroundColor: '#FF7DA8',
+    //         maxBarThickness: 30
+    //       }
+    //     ]
+    // }
+
+
+  </script>
+</body>
+</html>
+
+
+
+

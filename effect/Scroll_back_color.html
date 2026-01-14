@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-triggered Background / Color Change</title>
+    <style>
+        *{margin:0; padding:0; box-sizing:border-box;}
+        body{background:#fff; color:#111; transition: background-color 0.5s ease, color 0.5s ease;}
+
+        section{min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 20px;}
+        .box{
+            max-width: 900px; width: 100%; border: 1px solid rgba(0,0,0,0.12); border-radius: 18px;
+            padding: 50px 40px; background: rgba(0,0,0,0.03);
+        }
+        h1{font-size: 40px; margin-bottom: 12px;}
+        p{font-size: 16px; opacity: 0.8; line-height: 1.7;}
+
+        body.is-dark{background: #000; color: #fff;}
+        body.is-dark .box{border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.06);}
+
+
+        .light-sec{background: transparent;}
+        .dark-sec{background: transparent;}
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: "#change-bg",
+                start: "top 60%",
+                onEnter: function(){
+                    document.body.classList.add("is-dark");
+                },
+                onLeave: function(){
+                    document.body.classList.remove("is-dark");
+                },
+                onEnterBack: function(){
+                    document.body.classList.add("is-dark");
+                },
+                onLeaveBack: function(){
+                    document.body.classList.remove("is-dark");
+                },
+
+                // markers: true
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+
+
+    <section class="light-sec">
+        <div class="box">
+            <h1>Light Section</h1>
+            <p>
+                아래로 스크롤해서 <strong>Dark Section</strong>에 들어가면
+                배경색과 글자색이 바뀌는 효과를 확인할 수 있어요.
+            </p>
+        </div>
+    </section>
+
+    <!-- 이 섹션에 들어오면 배경이 어두워지게 -->
+    <section id="change-bg" class="dark-sec">
+        <div class="box">
+            <h1>Dark Section</h1>
+            <p>
+                이 섹션이 화면에 들어올 때 배경색/글자색을 전환합니다.<br/>
+                (다시 위로 올라가면 원래대로 돌아갑니다.)
+            </p>
+        </div>
+    </section> 
+
+
+    <!-- 다시 밝아지는 섹션 -->
+    <section class="light-sec">
+        <div class="box">
+            <h1>Next Section</h1>
+            <p>
+                위로 되돌아가도 전환되는지 확인해보세요.
+            </p>
+        </div>
+    </section> 
+    
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Scrolling Image Reveal</title> 
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+
+        .reveal-section{padding: 140px 0; background-color: #000; color: #fff;}
+        .inner{max-width: 1100px; margin: 0 auto; padding: 0 20px;}
+        .reveal-section .effect-title{font-size: 32px; margin-bottom: 10px; text-align: center;}
+        .reveal-section .effect-decs{font-size: 16px; margin-bottom: 40px; opacity: 0.8; text-align: center;}
+
+        .reveal-grid{display: flex; flex-wrap: wrap; gap: 32px;}
+        .reveal-item{flex: 1 1 calc(33.333% - 32px); min-width: 260px;}
+        .reveal-img-wrap{position: relative; overflow: hidden; border-radius: 18px;}
+        .reveal-img-wrap img{width: 100%; display: block; transform: scale(1.15); will-change: transform, opacity;}
+        .reveal-cover{
+            position: absolute; inset: 0; background-color: #ffffff; transform: translateX(0%); will-change: transform;
+            z-index: 2;
+        }
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const covers = gsap.utils.toArray("#effect-reveal .reveal-cover");
+            const imgs = gsap.utils.toArray("#effect-reveal .reveal-img-wrap img");
+
+            // 섹션전체에 대한 하나의 타임라인
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#effect-reveal",
+                    start: "top 80%",
+                    end: "bottom 40%",
+                    // scrub: true,
+                    // 스크롤위치에 연동
+                    once: true,
+                    // markers: true,
+                }
+            });
+
+            // 1 (cover들이 순서대로 빠져나감)
+            tl.to(covers, {
+                x: "100%",
+                duration: 0.9,
+                ease: "power2.out",
+                stagger: 0.3
+                // stagger 떼문에 차례대로 벗겨지는 느낌
+            });
+
+
+            // 2 (이미지들 스케일다운)
+            tl.to(imgs, {
+                scale: 1,
+                duration: 1.0,
+                ease: "power2.out",
+                stagger: 0.3
+                // 커버랑 같은 순서로
+            },"<");
+
+            
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <section style="height:100vh; background:#222; color:#fff; display:flex; align-items:center; justify-content:center;">
+        위 섹션 – 아래로 스크롤 해보세요
+    </section>
+
+
+    <section id="effect-reveal" class="effect-section reveal-section">
+        <div class="inner">
+
+            <h2 class="effect-title">Split Scrolling Image Reveal</h2>
+            <p class="effect-decs">
+                스크롤에 반응해서 이미지가 마스크를 벗고 등장하는 연출입니다.
+            </p>
+
+            <div class="reveal-grid">
+
+                <div class="reveal-item">
+                    <div class="reveal-img-wrap">
+                        <img src="img/item.jpg" alt=""/>
+                        <span class="reveal-cover"></span>
+                    </div>
+                </div>
+
+                <div class="reveal-item">
+                    <div class="reveal-img-wrap">
+                        <img src="img/item.jpg" alt=""/>
+                        <span class="reveal-cover"></span>
+                    </div>
+                </div>
+
+                <div class="reveal-item">
+                    <div class="reveal-img-wrap">
+                        <img src="img/item.jpg" alt=""/>
+                        <span class="reveal-cover"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section style="height:100vh; background:#555;"></section>
+
+
+    
+</body>
+</html>

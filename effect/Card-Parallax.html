@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Parallax</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .spacer{width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center;}
+        .spacer.spacer-top{background-color: white;}
+        .spacer.spacer-bottom{background-color: #999;}
+
+        .effect-cards{padding:180px 0; background-color: #111;}
+        .card_grid{max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 60px; margin-bottom: 40px;}
+        .effect-cards .card{
+            flex: 1 1 calc(33.333% - 60px); min-width: 260px; border: 1px solid gold;
+            color: #fff; padding: 40px 24px; border-radius: 16px; will-change: transform;
+            height: 400px;
+            backdrop-filter: blur(10px); background-color: #333;
+        }
+
+
+
+
+    </style>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 짝수 카드 - 위로
+            gsap.to("#effect-cards .card_grid .card:nth-child(2n)", {
+                    y: -120,
+                    ease: "none",
+                    scrollTrigger: {
+                    trigger: "#effect-cards",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    // markers: true, 
+                },
+            });
+
+            // 홀수 카드 - 아래로
+            gsap.to("#effect-cards .card_grid .card:nth-child(2n+1)", {
+                    y: 120,
+                    ease: "none",
+                    scrollTrigger: {
+                    trigger: "#effect-cards",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    // markers: true,
+                },
+            });
+        });
+  </script>
+
+</head>
+<body>
+
+    <section class="spacer spacer-top">
+        <p style="font-size: 20px;">스크롤을 내려서 패럴랙스 섹션을 확인해 보세요.</p>
+    </section>
+
+    <section id="effect-cards" class="effect-cards">
+        <div class="card_grid">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+        </div>
+        <div class="card_grid">
+            <div class="card">Card 4</div>
+            <div class="card">Card 5</div>
+            <div class="card">Card 6</div>
+        </div>
+        <div class="card_grid">
+            <div class="card">Card 7</div>
+            <div class="card">Card 8</div>
+            <div class="card">Card 9</div>
+        </div>
+    </section>
+
+    
+    <section class="spacer spacer-bottom">
+        <h2>아래 섹션</h2>
+    </section>
+    
+</body>
+</html>

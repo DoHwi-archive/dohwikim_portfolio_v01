@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Number Counter</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{background:#0b0b0b; color:#fff;}
+
+        .spacer{height: 100vh; display: flex; align-items: center; justify-content: center; opacity: 0.7; font-size: 20px;}
+        .wrap{max-width: 1600px; margin: 0 auto; padding: 120px 20px;}
+
+        .counter-section{padding: 110px 0; background-color: #111; border: 1px solid #353535; border-radius: 18px;}
+        .title{font-size: 34px; margin-bottom: 12px; text-align: center;}
+        .decs{opacity: 0.75; text-align: center; margin-bottom: 80px; line-height: 1.7;}
+        .grid{display: flex; justify-content: center; flex-wrap: wrap; gap: 22px; padding: 0 20px;} 
+        .card{
+            flex: 1 1 240px; max-width: 320px; background-color: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 26px 24px;
+        }
+        .label{opacity: 0.75; font-size: 14px; text-transform: uppercase;}
+        .value{font-size: 44px; font-weight: 700; margin-top: 10px;}
+        .unit{font-size: 18px; opacity:.85; margin-left: 6px; font-weight: 600;}
+
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+           
+            // 1. 숫자에 콤마 넣는 함수 (3500 -> 3,500)
+            function addComma(numStr) {
+                // 문자열의 정수 부분에 3자리마다 콤마 추가
+                return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // 2. 0 -> target까지 부드럽게 올리는 함수
+            function animateCounter(el) {
+
+                var target = parseFloat(el.dataset.target || "0");
+                var duration = parseInt(el.dataset.duration || "1500", 10);
+                // 소수점 자리 (없으면 정수)
+                var decimals = el.dataset.decimals ? parseInt(el.dataset.decimals, 10) : 0;
+
+                var startTime = null;
+
+                
+                function step(timestamp) {
+
+                    if (!startTime) startTime = timestamp;
+                    var elapsed = timestamp - startTime;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = target * eased;
+                    var fixed = current.toFixed(decimals);
+                    var parts = fixed.split(".");
+                    parts[0] = addComma(parts[0]);
+
+                    
+                    el.textContent = parts.join(".");
+
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        // 마지막은 목표값으로 정확히 고정
+                        var finalFixed = target.toFixed(decimals);
+                        var finalParts = finalFixed.split(".");
+                        finalParts[0] = addComma(finalParts[0]);
+                        el.textContent = finalParts.join(".");
+                    }
+                }
+
+                // 애니메이션 시작
+                requestAnimationFrame(step);
+            }
+
+
+            // 3. 섹션이 화면에 들어오면 카운터 실행 (한 번만)
+            var section = document.querySelector("#counter");
+
+            if (!section) return;
+
+            var counters = section.querySelectorAll(".value.counter");
+            var hasRun = false;
+
+            // IntersectionObserver = 요소가 화면에 들어오는 순간을 감지하는 기능
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+
+                // #counter 섹션이 화면에 들어왔고, 아직 실행 전이라면
+                if (entry.isIntersecting && !hasRun) {
+
+                    hasRun = true; // 다시 실행되지 않게 막기
+
+                    counters.forEach(function (el) {
+                        animateCounter(el);
+                    });
+
+                    // 한 번만 실행할 거라면 관찰 중단
+                    io.disconnect();
+                }
+                });
+            }, {
+                // 섹션이 화면에 얼마나 보일 때 실행할지 
+                threshold: 0.35
+            });
+
+            
+            io.observe(section);
+
+
+
+        });
+    </script>
+</head>
+<body>
+
+
+
+    <div class="spacer">스크롤을 내려서 Counter 섹션을 확인해보세요 ↓</div>
+
+    <!-- ---------------------------------- -->
+    <div class="wrap">
+        <section id="counter" class="counter-section">
+
+            <h2 class="title">Smooth Number Counter</h2>
+            <p class="decs">
+                섹션이 화면에 들어오면 숫자가 <b>부드럽게 증가</b>합니다.
+                (한 번만 실행)
+            </p>
+
+
+            <div class="grid">
+                <!-- data-target: 목표값 / data-duration: 진행시간(ms) -->
+
+                <div class="card">
+                    <div class="label">Project</div>
+                    <div class="value counter" data-target="28" data-duration="1400">0</div>
+                </div>
+
+                <div class="card">
+                    <div class="label">UI Component</div>
+                    <div class="value counter" data-target="120" data-duration="1600">0</div>
+                </div>
+
+                <div class="card">
+                    <div class="label">Hours</div>
+                    <div class="value counter" data-target="3500" data-duration="1800">0</div>
+                </div>
+
+                <div class="card">
+                    <div class="label">Satisfaction</div>
+                    <div class="value counter" data-target="98.5" data-decimals="1" data-duration="1700">0</div>
+                    <!-- 소수점도 가능: data-decimals="1" -->
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+    <!-- ---------------------------------- -->
+
+    <div class="spacer">다시 위로 올려도 재실행되지 않습니다</div>
+
+
+    
+</body>
+</html>

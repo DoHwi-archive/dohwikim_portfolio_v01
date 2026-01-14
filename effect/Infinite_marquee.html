@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Marquee</title>
+</head>
+<style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    body {background:#0b0b0b; color:#fff;}
+    .wrap{max-width: 1100px; margin: 0 auto; padding: 120px 20px;}
+    h1{font-size: 34px; letter-spacing: 0.08em; margin-bottom: 12px;}
+    p{opacity: 0.75; margin-bottom: 60px; line-height: 1.6;}
+
+
+    /* marquee */
+    .marquee{
+        --gap: 35px;
+        --speed: 14s;
+        --bg: #111;
+        --bd: rgba(255,255,255,.12);
+
+        border: 1px solid var(--bd); background: var(--bg); border-radius: 18px; overflow: hidden; padding: 18px 0;
+    }
+    .marquee + .marquee{margin-top: 20px;}
+
+    .marquee__track{
+        display: flex; width: max-content; gap: var(--gap); will-change: transform;
+        animation: marquee var(--speed) linear infinite; padding-left: var(--gap);
+    }
+    /* 반대방향(오른쪽) */
+    .marquee.is-reverse .marquee__track{ animation-name: marquee-reverse; }
+    /* 마우스올리면 stop */
+    .marquee:hover .marquee__track {animation-play-state: paused;}
+
+    
+    /* 애니메이션 ===== track을 자기 너비의 절반만큼 이동 */
+    @keyframes marquee{
+        from { transform: translateX(0); }
+        to   { transform: translateX(var(--move, -50%)); }  /* ✅ 기본값 -50%는 보험 */
+    }
+    @keyframes marquee-reverse{
+        from { transform: translateX(var(--move, -50%)); }
+        to   { transform: translateX(0); }
+    }
+
+
+
+    .marquee__item{
+        flex: 0 0 auto; padding: 14px 22px; border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 999px; background-color: rgba(255,255,255,0.04); white-space: nowrap;
+        font-size: 15px; opacity: 0.9; 
+    }
+    .marquee__item strong {font-weight: 700;}
+
+
+
+
+
+
+
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        function setupMarquee(){
+            document.querySelectorAll("[data-marquee] .marquee__track").forEach(function (track) {
+                
+
+                // 1.한번만복제
+                if (track.dataset.cloned !== "1") {
+
+                    const items = Array.from(track.children);
+                    items.forEach(function(item){
+                        track.appendChild(item.cloneNode(true));
+                    });
+
+                    track.dataset.cloned = "1";
+
+                }
+
+                // 2.원본트랙의 절반px값 구해서 그만큼 이동하게 설정
+                const halfWidth = track.scrollWidth / 2;
+
+                track.style.setProperty("--move", (-halfWidth) + "px");
+
+
+            });
+        }
+
+        setupMarquee();
+
+
+    });
+</script>
+<body>
+    
+
+    <div class="wrap">
+
+        <h1>Infinite Marquee</h1>
+        <p>
+            끊김 없이 계속 흐르는 마퀴(로고/키워드/스킬 태그) 예시입니다.
+            마우스 올리면 멈추고, 아래 줄은 반대 방향으로 흐릅니다.
+        </p>
+
+        <!-- 1. 왼쪽으로 흐름 -->
+         <div class="marquee" data-marquee>
+            <div class="marquee__track">
+                <div class="marquee__item"><strong>#</strong> ScrollTrigger</div>
+                <div class="marquee__item"><strong>#</strong> Split Text</div>
+                <div class="marquee__item"><strong>#</strong> Hover Zoom</div>
+                <div class="marquee__item"><strong>#</strong> Image Reveal</div>
+                <div class="marquee__item"><strong>#</strong> Responsive</div>
+                <div class="marquee__item"><strong>#</strong> A11y</div>
+                <div class="marquee__item"><strong>#</strong> UI Motion</div>
+                <div class="marquee__item"><strong>#</strong> Publishing</div>
+            </div>
+        </div>
+
+        <!-- 2. 오른쪽으로 흐름(반대) -->
+         <div class="marquee is-reverse" data-marquee>
+            <div class="marquee__track">
+                <div class="marquee__item">HTML</div>
+                <div class="marquee__item">CSS</div>
+                <div class="marquee__item">jQuery</div>
+                <div class="marquee__item">GSAP</div>
+                <div class="marquee__item">Swiper</div>
+                <div class="marquee__item">RWD</div>
+                <div class="marquee__item">Interaction</div>
+                <div class="marquee__item">Design Hand-off</div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

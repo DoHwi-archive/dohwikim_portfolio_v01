@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{border: 0; margin: 0;}
+    /* slick-slider */
+    .slick-slider {position:relative; display:block; box-sizing:border-box; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; -webkit-touch-callout:none; -khtml-user-select:none; -ms-touch-action:pan-y; touch-action:pan-y; -webkit-tap-highlight-color:transparent;}
+    .slick-list {position:relative; display:block; margin:0; padding:0;}
+    .slick-list:focus {outline:none;}
+    .slick-list.dragging {cursor:pointer; cursor:hand;}
+    .slick-slider .slick-track, .slick-slider .slick-list {-webkit-transform:translate3d(0, 0, 0); -moz-transform:translate3d(0, 0, 0); -ms-transform:translate3d(0, 0, 0); -o-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0);}
+    .slick-track {position:relative; top:0; left:0; display:block; margin-left:auto; margin-right:auto;}
+    .slick-track:before, .slick-track:after {display:table; content:'';}
+    .slick-track:after {clear:both;}
+    .slick-loading .slick-track {visibility:hidden;}
+    .slick-slide {display:none; float:left; height:100%; min-height:1px;}
+    [dir='rtl'] .slick-slide {float:right;}
+    .slick-slide img {display:block;}
+    .slick-slide.slick-loading img {display:none;}
+    .slick-slide.dragging img {pointer-events:none;}
+    .slick-initialized .slick-slide {display:block;}
+    .slick-loading .slick-slide {visibility:hidden;}
+    .slick-vertical .slick-slide {display:block; height:auto; border:1px solid transparent;}
+    .slick-arrow.slick-hidden {display:none;}
+
+
+    section{width: 100%;height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #000;}
+
+    /* 얘가 감싸고 있는 부모 본체!! */
+  .mo2-sec5-slick{
+    width: 1000px !important;
+    height: 600px !important;
+    background-color: rgb(185, 185, 185); 
+    position: relative; overflow: hidden;
+  }
+  
+
+
+  .mo2-slick-con{
+    width: 400px;
+    height: 600px !important;
+    /* important 해야 높이값 들어감 */
+    background-color: #fff; font-size: 50px; font-weight: 600; 
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    
+  }
+
+  /* slide  not active */
+  .mo2-sec5-slick .slick-slide,
+  .mo2-sec5-slick .slick-slide[aria-hidden="true"]:not(.slick-cloned) ~ .slick-cloned[aria-hidden="true"]{
+    transform: scale(0.6, 0.6);
+    opacity: 0.55;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* slide active */
+  .mo2-sec5-slick .slick-center,
+  .mo2-sec5-slick .slick-slide[aria-hidden="true"]:not([tabindex="-1"]) + .slick-cloned[aria-hidden="true"] {
+    transform: scale(1.2, 1.2);
+    opacity: 1;
+  }
+
+
+  /* 화살표 */
+  .sk-arrow-wrap{width: 70%;height: 70px;position: absolute;
+    top: 50%; transform: translateY(-50%);left: 50%; transform: translateX(-50%);
+    font-size: 25px;font-weight: 600;display: flex;justify-content: space-between;
+  }
+  .sk-arrow{
+    width: 70px;height: 70px;background-color: red;display: flex;align-items: center;justify-content: center;
+  }
+
+
+  </style>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+  <script>
+    $(document).ready(function(){
+
+
+
+
+      $('.mo2-sec5-slick').slick({
+      dots: false,
+      centerMode: true,
+      centerPadding: '0',
+      //양옆에 나머지 애들 보이는 정도
+      slidesToShow: 3,
+      nextArrow: $('.next'),
+      prevArrow: $('.prev'),
+      draggable: true,
+      autoplaySpeed: 1000,
+      autoplay: false,
+    });
+
+
+
+    });
+  </script>
+
+</head>
+<body>
+
+
+
+  <section>
+
+    
+    <div class="mo2-sec5-slick">
+
+      <div class="mo2-slick-con">1</div>
+      <div class="mo2-slick-con">2</div>
+      <div class="mo2-slick-con">3</div>
+      <div class="mo2-slick-con">4</div>
+      <div class="mo2-slick-con">5</div>
+      <div class="mo2-slick-con">6</div>
+      <div class="mo2-slick-con">7</div>
+      <div class="mo2-slick-con">8</div>
+      <div class="mo2-slick-con">9</div>
+
+    </div>
+
+     <!-- 좌우 화살표 -->
+    <div class="sk-arrow-wrap">
+      <div class="sk-arrow prev">이전</div>
+      <div class="sk-arrow next">다음</div>
+    </div>
+
+  </section>
+
+
+
+
+
+
+  
+</body>
+</html>
