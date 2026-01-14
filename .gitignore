@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Build / deps (쓰는 경우)
+node_modules/
+dist/
+build/
+
+# Design sources (원하면 제외)
+*.psd
+*.ai
+
+# Logs
+*.log
