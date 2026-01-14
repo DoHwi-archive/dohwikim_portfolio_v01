@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ben&jerrys</title>
+
+
+    <link href="css/ben.css" type="text/css" rel="stylesheet"/>
+    <link href="css/reset.css" type="text/css" rel="stylesheet"/>
+    <link href="css/bensub.css" type="text/css" rel="stylesheet"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/ben.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+<body>
+
+
+
+
+
+    <div id="wrap">
+
+
+
+
+
+        <!-- header start! -->
+        <header>
+            <div class="container">
+
+                <div class="header-logo">
+                    <a href="#"><img src="img/header/header-logo.png" alt=""/></a>
+                </div>
+
+                <!-- 헤더 메뉴 -->
+                <ul class="h-menu-wrap">
+                    <li class="h-menu">
+                        <a href="sub_page/ben-icecream-1.html" target="_blank">아이스크림</a>
+                    </li>
+                    <li class="h-menu">
+                        <a href="sub_page/ben-value-2.html" target="_blank">가치관</a>
+                    </li>
+                    <li class="h-menu">
+                        <a href="sub_page/ben-company-3.html" target="_blank">회사소개</a>
+                    </li>
+                    <li class="h-menu">
+                        <a href="sub_page/ben-store-4.html" target="_blank">매장위치 찾기</a>
+                    </li>
+                    <li class="h-menu">
+                        <a href="sub_page/ben-fff-5.html" target="_blank">FFF</a>
+                    </li>
+                </ul>
+
+                <div class="h-right-wrap">
+                    <div class="h-search-icon">
+                        <img src="img/header/search-icon.png" alt=""/>
+                    </div>
+                    <div class="h-kr-wrap">
+                        <div class="kr">KR</div>
+
+                        <!-- 화살표는 after로 넣기 -->
+
+                        <div class="kr-slide-wrap">
+                            <div class="krkr">KR</div>
+                            <div class="krkr">EN</div>
+                            <div class="krkr">CN</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </header>
+        <!-- header end -->
+
+
+
+
+
+
+
+        <!-- banner start -->
+        <div class="banner">
+            <div class="banner-container">
+
+
+                <div class="bann bann-1 bann-active">
+                    <img src="img/img-slide-wrap/bann-1.jpg" alt=""/>
+                </div>
+                <div class="bann bann-2">
+                    <img src="img/img-slide-wrap/bann-2.jpg" alt=""/>
+                </div>
+                <div class="bann bann-3">
+                    <img src="img/img-slide-wrap/bann-3.jpg" alt=""/>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- banner end -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- section-1 start   배너밑에 붙어있는애 & 상품 -->
+        <section class="section-1">
+
+            <div class="container">
+
+
+
+
+                <!-- 배너 바로 밑에 붙어있는애 -->
+                <div class="sec-1-top">
+                    
+                    <input type="text" id="favor-search" placeholder="검색어를 입력해주세요."
+                    onfocus="this.placeholder"/>
+                    
+                    <button>SEARCH</button>
+
+
+                    <ul class="mini-tag-wrap">
+                        <li><a href="https://www.benjerry.co.kr/flavours/karamel-sutra-core/pint">#카라멜 수트라</a></li>
+                        <li><a herf="https://www.benjerry.co.kr/flavours/chunky-monkey-ice-cream/pint">#청키몽키</a></li>
+                        <li><a hef="https://www.benjerry.co.kr/flavours/vanilla-ice-cream/pint">#바닐라</a></li>
+                        <li><a href="https://www.benjerry.co.kr/flavours/new-york-super-fudge-chunk-ice-cream/pint">#뉴욕 수퍼 퍼지 청크</a></li>
+                    </ul>
+
+                </div>
+
+
+
+
+                <!-- 제품 섹션 -->
+                <div class="sec-1-bottom" data-aos="fade-up" data-aos-duration="700">
+
+                    
+                    <div class="pro-title">
+                        <span>Ice cream</span>
+                        <img src="img/sec-1/bottom-pro/cloud.png" alt=""/>
+                    </div>
+
+
+                    
+                    <div class="pro-con-wrap">
+
+                        <!-- 이게 3개 -->
+                        <div class="pro-con">
+                            <div class="img"><img src="img/sec-1/bottom-pro/pro-1.png" alt=""/></div>
+                            <span class="title">파인트</span>
+                            <p class="ml">473ml</p>
+                            <p class="pp">
+                                벤 앤 제리스의 상징인 16온스 통에 가득 담긴 아이스크림
+                            </p>
+                        </div>
+
+                        <div class="pro-con">
+                            <div class="img"><img src="img/sec-1/bottom-pro/pro-2.png" alt=""/></div>
+                            <span class="title">미니컵</span>
+                            <p class="ml">120ml</p>
+                            <p class="pp">
+                                딱 적당한 크기의 미니컵에 담긴 벤 앤 제리스 아이스크림
+                            </p>
+                        </div>
+
+                        <div class="pro-con">
+                            <div class="img"><img src="img/sec-1/bottom-pro/pro-3.png" alt=""/></div>
+                            <span class="title">스쿱</span>
+                            <p class="ml"></p>
+                            <p class="pp">            
+                                스쿱에 담긴 오리지널 벤 앤 제리스 아이스크림 
+                            </p>
+                        </div>
+
+
+                        <!-- 나머지 1개는 more칸 -->
+                        <div class="pro-more-box">
+                            <span class="pro-more">more</span>
+                            <span class="more-arrow">→</span>
+                        </div>
+                        
+                        
+                    </div>
+
+                    
+                    
+
+
+                </div>
+
+
+
+
+
+
+
+        </section>
+        <!-- section-1 end -->
+
+
+
+
+
+
+
+
+
+
+        <!-- section-2 start -->
+        <section class="section-2"data-aos="fade-up" data-aos-duration="700">
+            <div class="container">
+
+
+                <!-- 왼쪽-설명 -->
+                <div class="store-left-wrap store-wrap">
+
+                    <div class="flex-box">
+
+                        <div class="top">
+                            
+                            <span class="toptop">먹고 싶은 아이스크림은 고민말고</span><br/>
+                            <!-- <img src="img/sec-1/bottom-pro/cloud.png" alt=""/> -->
+                            <span class="big">벤앤제리스에서 찾으세요.</span>
+                        </div>
+                        <div class="wave-box">
+                            <img src="img/sec-2/wave.jpg" alt=""/>
+                        </div>
+                        <div class="bottom">
+                            "Ben & Jerry's 를 즐길 수 있는 많은 방법들이 있습니다.<br/>
+                            우리는 모든 분들을 만족시키기 위해 엄선된 재료와 품질,<br/>
+                            최고의 맛으로 보답합니다."
+                        </div>
+                        <div class="store-box">매장 찾기</div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 오른쪽-사진 -->
+                <div class="store-right-wrap store-wrap">
+                    <img src="img/sec-2/right-img.jpg" alt=""/>
+                </div>
+
+
+
+            </div>
+        </section>
+        <!-- section-2 end -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- section-3 start  --  blog post -->
+        <section class="section-3" data-aos="fade-left" data-aos-duration="900">
+            <div class="container-1">
+
+
+
+                <div class="title">
+                    <div class="tttt">
+                        Our<br/>
+                        Blog Post
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="blog-wrap swiper_b mySwiper_b">
+                    <div class="long-container swiper-wrapper">
+
+
+
+
+                        <!-- 이게 6개 -->
+                        <div class="blog-con swiper-slide">
+                            <a href="sub_page/ben-fff-5.html">
+
+                                <div class="top-img-box">
+                                    <img src="img/sec-3/blog-1.jpg" alt=""/>
+                                </div>
+                                <div class="bottom-text-box">
+                                    <div class="div">
+                                        <span class="one">01</span>
+                                        <span class="two">Flavor Friends Forever</span>
+                                        <span class="three">2022년 5월 25일</span>
+                                    </div>
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="blog-con swiper-slide">
+                            <a href="https://www.benjerry.co.kr/whats-new/from-cows-to-cocoa">
+
+                                <div class="top-img-box">
+                                    <img src="img/sec-3/blog-2.jpg" alt=""/>
+                                </div>
+                                <div class="bottom-text-box">
+                                    <div class="div">
+                                        <span class="one">02</span>
+                                        <span class="two">From cow to cocoa</span>
+                                        <span class="three">2022년 3월 4일</span>
+                                    </div>
+                                </div>
+                            </a>    
+
+                        </div>
+
+                        <div class="blog-con swiper-slide">
+                            <a href="https://www.benjerry.co.kr/whats-new/you-are-what-you-eat">
+
+                                <div class="top-img-box">
+                                    <img src="img/sec-3/blog-3.jpg" alt=""/>
+                                </div>
+                                <div class="bottom-text-box">
+                                    <div class="div">
+                                        <span class="one">03</span>
+                                        <span class="two">Feeding on cows</span>
+                                        <span class="three">2022년 1월 6일</span>
+                                    </div>
+                                </div>
+
+                            </a>    
+
+                        </div>
+
+                        <div class="blog-con swiper-slide">
+                            <a href="https://www.benjerry.co.kr/whats-new/reducing-enteric-emissions">
+
+                                <div class="top-img-box">
+                                    <img src="img/sec-3/blog-4.jpg" alt=""/>
+                                </div>
+                                <div class="bottom-text-box">
+                                    <div class="div">
+                                        <span class="one">04</span>
+                                        <span class="two">Methane</span>
+                                        <span class="three">2022년 1월 6일</span>
+                                    </div>
+                                </div>
+
+                            </a>    
+
+                        </div>
+
+                        <div class="blog-con swiper-slide">
+                            <a href="https://www.benjerry.co.kr/whats-new/turning-waste-into-a-resource">
+
+                                <div class="top-img-box">
+                                    <img src="img/sec-3/blog-5.jpg" alt=""/>
+                                </div>
+                                <div class="bottom-text-box">
+                                    <div class="div">
+                                        <span class="one">05</span>
+                                        <span class="two">Waste as a resource</span>
+                                        <span class="three">2022년 1월 6일</span>
+                                    </div>
+                                </div>
+                            </a>    
+
+                        </div>
+
+                        <div class="blog-con swiper-slide">
+                            <a href="#">
+
+                                <div class="top-img-box">
+                                    <img src="img/sec-3/blog-6.jpg" alt=""/>
+                                </div>
+                                <div class="bottom-text-box">
+                                    <div class="div">
+                                        <span class="one">06</span>
+                                        <span class="two">How to create a fair future for all</span>
+                                        <span class="three">2022년 1월 5일</span>
+                                    </div>
+                                </div>
+                            </a>    
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper_b = new Swiper(".mySwiper_b", {
+                slidesPerView: 3.9,
+                spaceBetween: 40,
+                
+                });
+            </script>
+
+        </section>
+        <!-- section-3 end -->
+
+
+
+
+
+
+
+
+
+        <!-- section-4 start -->
+        <section class="section-4" data-aos="fade-down" data-aos-duration="700">
+            <div class="container">
+
+
+                <div class="consult-con">
+                    <div class="consult-box">
+
+                        <div class="title">전화 상담</div>
+                        <div class="number">080.041.7100</div>
+                        <p>
+                            우리에게 전화해 주시면, 기쁘게 경청하겠습니다.<br/> 
+                            <span class="highlight">수신자 부담 전화</span>로 거시면 됩니다.
+                        </p>
+
+                        <div class="consult-icon">
+                            <img src="img/sec-4/consult-img.png" alt=""/>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="consult-con">
+                    <div class="consult-box">
+
+                        <div class="title">이메일 상담</div>
+                        <p>
+                            문의글은 여기로 보내시면 됩니다. 감사히 읽겠습니다.<br/> 
+                            대표 이메일 주소: <span class="highlight">es.hrserviceskr@unilever.com</span>
+                        </p>
+                        <div class="consult-btn">상담하기</div>
+
+                        <div class="consult-icon">
+                            <img src="img/sec-4/consult-img-2.png" alt=""/>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- section-4 end -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- footer start -->
+        <footer>
+            <div class="container">
+
+
+                <div class="fo-left">
+
+                    <div class="f-logo">
+                        <a href="#"><img src="img/footer/f-logo.png" alt=""/></a>
+                    </div>
+
+                    <p>
+                        회사명 : 벤앤제리스<br/>
+                        고객센터 :  080-041-7100<br/>
+                        본사 : 서울특별시강남구삼성동144-25, 애플트리타워5~7층
+                    </p>
+
+                    <span>
+                        ⓒ Benjerry all rights reserved.
+                    </span>
+
+                </div>
+
+
+                <div class="fo-right">
+                    
+                    <div class="f-menu">
+                        <ul>
+                            <li><a href="https://www.unilever.co.kr/contact/">문의하기</a></li>
+                            <li><a href="https://www.unilever.co.kr/legal/">개인정보보호정책</a></li>
+                            <li><a href="https://www.unilevernotices.com/privacy-notices/korea-korean.html">개인정보</a></li>
+                            <li><a href="https://www.benjerry.co.kr/sitemap">사이트맵</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sns-wrap">
+                        <div class="sns">
+                            <a href="https://www.facebook.com/benandjerryskr"><img src="img/footer/facebook.png" alt=""/></a>
+                        </div>
+                        <div class="sns">
+                            <a href="https://www.instagram.com/benjerryskorea/"><img src="img/footer/insta.png" alt=""/></a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </footer>
+        <!-- footer end -->
+
+
+
+
+
+
+        <!-- top-btn start -->
+        <div id="top-btn">TOP</div>
+        <!-- top-btn end -->
+
+
+
+
+
+
+
+
+        <script>
+            AOS.init();
+          </script>
+
+
+
+
+
+    </div>
+    <!-- wrap end -->
+
+
+
+
+
+    
+</body>
+</html>

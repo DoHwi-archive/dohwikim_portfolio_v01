@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GU-monitor-sub-4</title>
+
+  <!-- css -->
+  <link href="../GU/css/reset.css" rel="stylesheet" type="text/css"/>
+  <link href="../GU/css/monitor.css" rel="stylesheet" type="text/css"/>
+  <link href="../GU/css/monitor-2.css" rel="stylesheet" type="text/css"/>
+  <link href="../GU/css/pc.css" rel="stylesheet" type="text/css"/>
+  <link href="../GU/css/pc-2.css" rel="stylesheet" type="text/css"/>
+
+  <!-- fonts -->
+  <link href="../GU/font/Pretendard-Black.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-Bold.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-ExtraBold.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-ExtraLight.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-Light.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-Medium.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-Regular.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-SemiBold.ttf" rel='stylesheet' type='text/css'/>
+  <link href="../GU/font/Pretendard-Thin.ttf" rel='stylesheet' type='text/css'/>
+
+  <!-- script -->
+  <script src="../GU/js/jquery-3.3.1.min.js"></script>
+  <script src="../GU/js/base.js"></script> 
+
+
+  <!-- 언어 -->
+  <script src="../GU/js/language.js"></script>
+  <!-- 언어 -->
+
+</head>
+<body>
+
+
+
+
+  <!-- 중요 -->
+  <div id="loading-wrap">
+
+
+
+    <!-- ------------------------------------------- -->
+    <!-- header start -->
+    <header>
+
+      <div class="top-header">
+        <div class="th th-1">GU SPRAY Control system</div>
+        <div class="th th-2">ALL ROBOT SETTING</div>
+        <div class="th th-3">
+          <div class="head-date">07/25/2024</div>
+          <div class="head-hour">17:48:50</div>
+        </div>
+      </div>
+
+      <div class="bottom-header">
+
+        <span>Last Alarm List</span>
+
+        <!-- ---------------------------------- -->
+        <div class="head-language-box">
+
+          <div class="language-tit">Language</div>
+
+          <!-- 셀렉트 박스 -->
+          <div class="selectBox">
+            <button class="label">KOR</button>
+            <ul class="optionList">
+              <li class="optionItem">KOR</li>
+              <li class="optionItem">ENG</li>
+              <li class="optionItem">VET</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- ---------------------------------- -->
+
+      </div>
+
+    </header>
+    <!-- header end -->
+    <!-- ----------------------------------- -->
+
+
+    <!-- ------------------------------------------- -->
+    <!-- main start -->
+    <main>
+
+
+
+
+      <!-- ----------------------- -->
+      <!-- 사이드 탭 (고정) -->
+      <div id="side-menu-bar">
+        <div class="container">
+
+
+            <!-- 클릭된(액티브) 상태 클래스:smOpen -->
+            <!-- 1  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub2.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/1.png" alt="AUTOMATIC OPERATION"/>
+                       <span>오토매틱 오퍼레이션</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 2  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub3-1.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/2.png" alt="AUTOMATIC OPERATION"/>
+                       <span>로봇세팅</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 3  -->
+            <div class="side-menu-con smOpen">
+                <a href="monitor-sub4.html">
+                    <div class="flex-box">
+                      <img src="imges/side-bar/3.png" alt="AUTOMATIC OPERATION"/>
+                      <span>올 로봇세팅</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 4  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub5-1.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/4.png" alt="AUTOMATIC OPERATION"/>
+                       <span>건 세팅</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 5  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub6.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/5.png" alt="AUTOMATIC OPERATION"/>
+                       <span>퍼지 앤 컬러로드</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 6  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub7.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/6.png" alt="AUTOMATIC OPERATION"/>
+                       <span>모델 셀렉션</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 7  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub8.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/7.png" alt="AUTOMATIC OPERATION"/>
+                       <span>PLC I/O</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 8  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub9.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/8.png" alt="AUTOMATIC OPERATION"/>
+                       <span>알람 리스트</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 9  -->
+            <div class="side-menu-con">
+                <a href="monitor-sub1.html">
+                    <div class="flex-box">
+                       <img src="imges/side-bar/9.png" alt="AUTOMATIC OPERATION"/>
+                       <span>메인 스크린</span>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+        </div>
+      </div>
+      <!-- 사이드 탭 (고정) -->
+      <!-- ----------------------- -->
+      
+
+
+
+
+      
+
+
+
+
+
+      <!-- ----------------------- -->
+    <!-- width값 다 다름 -->
+     <!-- 3350 -->
+      <div class="workBoard" id="all-robot-setting">
+
+
+        <!-- 왼쪽 영역 2430 -->
+        <div class="ARS-left-container">
+
+
+
+
+            <!-- 타이틀 & (다중선택)버튼 영역 -->
+            <div class="ARS-number-12-wrap">
+
+                <!-- 버튼아님/걍 타이틀 -->
+                <div class="ARS-tit">
+                    ROBOT<br/>
+                    SELECT
+                </div>
+
+                <!-- 다중선택 버튼 1 ~ 12 -->
+                <div class="ARS-number-box">
+                    <div class="ARS-num">1</div>
+                    <div class="ARS-num">2</div>
+                    <div class="ARS-num">3</div>
+                    <div class="ARS-num">4</div>
+                    <div class="ARS-num ARSnumberAC">5</div>
+                    <div class="ARS-num">6</div>
+                    <div class="ARS-num ARSnumberAC">7</div>
+                    <div class="ARS-num">8</div>
+                    <div class="ARS-num">9</div>
+                    <div class="ARS-num">10</div>
+                    <div class="ARS-num">11</div>
+                    <div class="ARS-num ARSnumberAC">12</div>
+                </div>
+
+
+            </div>
+            
+            
+
+
+
+            <!-- 도표 영역 2430 -->
+            <div class="ARS-table-wrap">
+                
+                <!-- 위에 대가리 테이블 -->
+                <table class="table-1">
+
+                    <colgroup>
+
+                        <col width=*/>
+
+                        <col width="30.6%"/>
+                        <col width="30.6%"/>
+                        <col width="30.6%"/>
+                        
+                    </colgroup>
+
+                    <tbody>
+                        <tr>
+                            <th class="ARS-table-head-none" rowspan="2"></th>
+                            <th class="ARS-table-head" rowspan="2">
+                                <ul>
+                                    <li>J1</li>
+                                </ul>
+                                <ul>
+                                    <li class="act-right">ACT</li>
+                                    <li class="set-right">SET</li>
+                                    <li>TARGET</li>
+                                </ul>
+                            </th>
+                            <th class="ARS-table-head" rowspan="2">
+                                <ul>
+                                    <li>J2</li>
+                                </ul>
+                                <ul>
+                                    <li>ACT</li>
+                                    <li>SET</li>
+                                    <li>TARGET</li>
+                                </ul>
+                            </th>
+                            <th class="ARS-table-head" rowspan="2">
+                                <ul>
+                                    <li>J1</li>
+                                </ul>
+                                <ul>
+                                    <li class="act-right-2">ACT</li>
+                                    <li class="set-right-2">SET</li>
+                                    <li>TARGET</li>
+                                </ul>
+                            </th>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+                <!-- 밑에 몸 테이블 -->
+                <table class="table-2">
+
+                    <colgroup>
+                        <col width="*"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                        <col width="10.211%"/>
+                    </colgroup>
+
+                    <tbody>
+
+
+                        <tr class="ARS-darkly">
+                            <th class="ARG-gray">R1</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-common">
+                            <th class="ARG-gray">R2</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-darkly">
+                            <th class="ARG-gray">R3</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-common">
+                            <th class="ARG-gray">R4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-darkly">
+                            <th class="ARG-gray">R5</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-common">
+                            <th class="ARG-gray">R6</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-darkly">
+                            <th class="ARG-gray">R7</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-common">
+                            <th class="ARG-gray">R8</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-darkly">
+                            <th class="ARG-gray">R9</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-common">
+                            <th class="ARG-gray">R10</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-darkly">
+                            <th class="ARG-gray">R11</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+                        <tr class="ARS-common">
+                            <th class="ARG-gray">R12</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                            <th>-123.4</th>
+                        </tr>
+
+
+                    </tbody>
+
+                </table> 
+
+            </div> 
+
+
+
+
+
+
+            <!-- 버튼 4개 영역-->
+            <div class="ARS-btn-wrap"> 
+                
+                <a href="#none" class="ARS-btn ARS-btn-1">
+                    ROBOT<br/>
+                    READY
+                </a>
+
+                <a href="#none" class="ARS-btn ARS-btn-2">
+                    ROBOT<br/>
+                    OPERATION
+                </a>
+
+                <a href="#none" class="ARS-btn ARS-btn-3">
+                    ROBOT<br/>
+                    ALARM
+                </a>
+
+                <a href="#none" class="ARS-btn ARS-btn-4">
+                    PLC<br/>
+                    STOP
+                </a>
+
+            </div>  
+
+
+
+
+        </div>
+
+
+        <!-- 오른쪽 영역 880 -->
+        <div class="ARS-right-container">
+
+
+            <div class="ARS-right-top-container">
+
+
+                <!-- 1 위 SB/SP/PU => Operating-btn-1 -->
+                <div class="operating-btn-1">
+                    <a href="#none" class="SB-btn Operate-on">SB</a>
+                    <a href="#none" class="SP-btn">SP</a>
+                    <a href="#none" class="PU-btn">PU</a>
+                </div>
+            
+                <!-- 2 중간 move&stop => Operating-btn-2  -->
+                <div class="operating-btn-2">
+                    <a href="#none" class="MOVE-btn">MOVE</a>
+                    <a href="#none" class="STOP-btn">STOP</a>
+                </div> 
+
+                <!-- 3 아래 방향키 버튼 => Operating-btn-3 -->
+                <div class="operating-btn-3 direction-wrap">
+
+
+                    <div class="top">
+                        <a href="#none" id="direction-top">
+                            <img src="imges/monitor-sub-4/top.png" alt="top"/>
+                        </a>
+                    </div>
+
+
+                    <div class="middle">
+                        <a href="#none" id="direction-left">
+                            <img src="imges/monitor-sub-4/left.png" alt="left"/>
+                        </a>
+                        <div class="ward-box">
+                            <a href="#none" id="direction-upward">
+                                <img src="imges/monitor-sub-4/upward.png" alt="up"/>
+                            </a>
+                            <a href="#none" id="direction-downward">
+                                <img src="imges/monitor-sub-4/downward.png" alt="down"/>
+                            </a>
+                        </div>
+                        <a href="#none" id="direction-right">
+                            <img src="imges/monitor-sub-4/right.png" alt="right"/>
+                        </a>
+                    </div>
+
+
+                    <div class="bottom">
+                        <a href="#none" id="direction-bottom">
+                            <img src="imges/monitor-sub-4/bottom.png" alt="bottom"/>
+                        </a>
+                    </div>
+
+
+                </div> 
+
+                <!-- 4 아래 저장버튼 -->
+                <div class="ARS-right-bottom-container">
+                    <a href="#none" class="SAVE-btn">SAVE</a>
+                </div>
+
+            </div>
+
+
+            
+
+
+
+        </div>
+
+      </div>
+      <!-- ----------------------- -->
+      
+
+
+
+
+
+
+    </main>
+    <!-- main end -->
+    <!-- ----------------------------------- -->
+
+
+
+  </div>
+
+
+
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>통합모니터링</title>
+
+	<!-- css -->
+	<link href="../GU/css/reset.css" rel="stylesheet" type="text/css"/>
+	<link href="../GU/css/monitor.css" rel="stylesheet" type="text/css"/>
+	<link href="../GU/css/monitor-2.css" rel="stylesheet" type="text/css"/>
+	<link href="../GU/css/pc.css" rel="stylesheet" type="text/css"/>
+	<link href="../GU/css/pc-2.css" rel="stylesheet" type="text/css"/>
+  
+	<!-- fonts -->
+	<link href="../GU/font/Pretendard-Black.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-Bold.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-ExtraBold.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-ExtraLight.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-Light.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-Medium.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-Regular.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-SemiBold.ttf" rel='stylesheet' type='text/css'/>
+	<link href="../GU/font/Pretendard-Thin.ttf" rel='stylesheet' type='text/css'/>
+  
+	<!-- script -->
+	<script src="../GU/js/jquery-3.3.1.min.js"></script>
+	<script src="../GU/js/base.js"></script> 
+	<script src="../GU/js/language.js"></script>
+
+</head>
+<body>
+
+	<!-- ----------------------------- -->
+	<div id="Monitoring_dashboard">
+		<div class="container">
+
+
+			<header>
+				
+				<div class="h-left">
+					<div class="product-name">물품명</div>
+					<div class="date">2024년 7월 25일 14시 51분</div>
+				</div>
+
+				<div class="conv-box-mean">
+					<ul>
+						<li class="span-li">
+							<span>1</span>
+							<p>도장기 on/off</p>
+						</li>
+						<li class="li">
+							<h4>74°</h4>
+							<p>도장기 각도</p>
+						</li>
+						<li class="li">
+							<h4>3</h4>
+							<p>도장 패턴</p>
+						</li>
+						<li class="li">
+							<h4>2</h4>
+							<p>분사 에어압</p>
+						</li>
+					</ul>
+				</div>
+			</header>
+
+
+		
+			<div class="monitor-info-wrap">
+
+
+
+
+				<div class="conv-Num-Box">
+					<span>1</span>
+					<p>1</p>
+					<p>3</p>
+					<p>2</p>
+				</div>
+
+
+				<div class="booth-Situation-absoliute">
+					<div class="container">
+
+						<!-- 왼쪽 3박스 -->
+						<div class="booth-sa-work-3">
+							<ul>
+								<li class="Working">작업중</li>
+								<li class="Ready-work">작업 준비</li>
+								<li class="Stop-work">작업 중지</li>
+							</ul>
+						</div> 
+
+						<!-- 오른쪽 4박스 -->
+						<div class="booth-sa-work-4">
+							<ul>
+								<li>wdwsws</li>
+								<li>wdwsws</li>
+							</ul>
+							<ul>
+								<li>wdwsws</li>
+								<li>wdwsws</li>
+							</ul>
+						</div> 
+
+					</div>
+				</div>
+
+
+
+				<!-- 컨베이어 로봇 -->
+				<div class="conv-ROBOT-wrap">
+
+					<!-- 위 - 제품(와인잔)  6   -->
+					<div class="Products-box">
+						<div class="Products-entity"></div>
+						<div class="Products-entity"></div>
+						<div class="Products-entity"></div>
+						<div class="Products-entity"></div>
+						<div class="Products-entity"></div>
+						<div class="Products-entity"></div>
+					</div> 
+
+					<!-- 아래 - 도장기본체  12   -->
+					<div class="Sprayer-box">
+						<!-- 6 -->
+						<div class="Sprayer-box Sprayer-box-left">
+							
+							<!-- 본체 1개  x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box"></div>
+							</div>
+
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box"></div>
+							</div>
+
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box"></div>
+							</div>
+
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box"></div>
+							</div>
+
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box"></div>
+							</div>
+
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box"></div>
+							</div>
+
+						</div>
+
+						<!-- 6 -->
+						<div class="Sprayer-box Sprayer-box-right">
+							
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+							<!-- 본체 1개 x 6-->
+							<div class="Sprayer-entity">
+								<div class="Sp-body">
+									<!-- 이미지 1 - 원래 정지 상태 -->
+									<!-- 이미지 2 - 분사 상태 -->
+								</div>
+								<div class="Sp-support-box">
+									<!-- 이미지 -  밑에 네모박스 -->
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!-- 7개 -->
+				<div class="m-info-box">
+					<h4 class="h4-white">컨베이어 속도</h4>
+					<h4 class="h4-aqua">12M/Min</h4>
+				</div> 
+
+				<div class="m-info-box">
+					<h4 class="h4-white">컨베이어 RPM</h4>
+					<h4 class="h4-aqua">300rpm</h4>
+				</div> 
+
+				<div class="m-info-box">
+					<h4 class="h4-white">제품카운트</h4>
+					<h4 class="h4-aqua">1000EA</h4>
+				</div> 
+
+				<div class="m-info-box">
+					<h4 class="h4-white">건조로온도</h4>
+					<h4 class="h4-aqua">56℃</h4>
+				</div> 
+
+				<div class="m-info-box">
+					<h4 class="h4-white">인버터</h4>
+					<h4 class="h4-aqua">45%</h4>
+				</div> 
+
+				<div class="m-info-box">
+					<h4 class="h4-white">로드셀1</h4>
+					<h4 class="h4-aqua">500ml</h4>
+				</div> 
+
+				<div class="m-info-box">
+					<h4 class="h4-white">로드셀2</h4>
+					<h4 class="h4-aqua">500ml</h4>
+				</div> 
+
+
+			</div>
+
+
+
+
+
+
+
+			<main>
+
+
+
+				<!-- 컨베이어 x 3개 -->
+				<!-- 1 -->
+				<!--3800 / 950  -->
+				<div class="conveyor conveyor-1 conveyor-red">
+
+
+					<div class="booth-info-span booth-info-span-1">
+						<h4>Booth 1</h4>
+					</div>
+
+					<div class="conv-box conv-box-1">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+					<!-- 컨베이어 이미지 -->
+					<!-- ------------------------- -->
+					<div class="conveyor-booth">
+						
+						<div class="conveyor-ani-con-wrap">
+							
+
+							
+						
+							<div class="cv-ani-con do">
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+							</div>
+							
+						</div>
+						
+						<div class="booth-info-span">
+							<h4 class="margin-right">습도 45%</h4>
+							<h4>배기 45%</h4>
+						</div>
+
+					</div>
+					<!-- ------------------------- -->
+
+					<div class="conv-box conv-box-2">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+
+
+				</div>
+
+
+
+				<!-- 2 -->
+				<div class="conveyor conveyor-2 conveyor-green">
+
+
+					<div class="booth-info-span booth-info-span-1">
+						<h4>Booth 2</h4>
+					</div>
+
+					<div class="conv-box conv-box-1">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+					
+
+					<!-- ------------------------- -->
+					<div class="conveyor-booth">
+						
+						<div class="conveyor-ani-con-wrap">
+							
+						
+							<div class="cv-ani-con do">
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+							</div>
+							
+						</div>
+						
+						<div class="booth-info-span">
+							<h4 class="margin-right">습도 45%</h4>
+							<h4>배기 45%</h4>
+						</div>
+
+					</div>
+					<!-- ------------------------- -->
+
+					<div class="conv-box conv-box-2">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+
+
+				</div>
+
+				<!-- 3 -->
+				<div class="conveyor conveyor-3 conveyor-green">
+
+
+					<div class="booth-info-span booth-info-span-1">
+						<h4>Booth 3</h4>
+					</div>
+
+					<div class="conv-box conv-box-1">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+					
+
+					<!-- ------------------------- -->
+					<div class="conveyor-booth">
+						
+						<div class="conveyor-ani-con-wrap">
+							
+							<div class="cv-ani-con do">
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+							</div>
+							
+						</div>
+						
+						<div class="booth-info-span">
+							<h4 class="margin-right">습도 45%</h4>
+							<h4>배기 45%</h4>
+						</div>
+
+					</div>
+					<!-- ------------------------- -->
+
+					<div class="conv-box conv-box-2">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+
+
+				</div>
+
+				<!-- 4 -->
+				<div class="conveyor conveyor-4 conveyor-green">
+
+
+					
+					<div class="booth-info-span booth-info-span-1">
+						<h4>Booth 4</h4>
+					</div>
+					<!-- display:none -->
+					<div class="conv-box conv-box-1">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+					
+
+					<!-- ------------------------- -->
+					<div class="conveyor-booth">
+						
+						<div class="conveyor-ani-con-wrap">
+							
+							<div class="cv-ani-con do">
+								
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+								<img src="../GU/imges/monitering-system/conveyor-img.png" alt=""/>
+
+							</div>
+							
+						</div>
+						
+						<div class="booth-info-span">
+							<h4 class="margin-right">습도 45%</h4>
+							<h4>배기 45%</h4>
+						</div>
+
+					</div>
+					<!-- ------------------------- -->
+
+					<!-- display:none -->
+					<div class="conv-box conv-box-2">
+						<!-- 6개 -->
+						<div class="num-con">
+							<span>1</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>2</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>3</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>4</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>5</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+						<div class="num-con">
+							<span>6</span>
+							<p>74°</p>
+							<p>3</p>
+							<p>2</p>
+						</div> 
+					</div>
+
+
+
+				</div>
+				
+				
+			</main>
+
+
+
+		</div>
+	</div>
+	<!-- ----------------------------- -->
+	
+	
+</body>
+</html>

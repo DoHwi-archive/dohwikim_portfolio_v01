@@ -1,0 +1,53 @@
+@charset "utf-8";
+*{margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all;}
+body{-webkit-text-size-adjust:none;}
+ul, ol, li { list-style:none; }
+img, fieldset { border:none; }
+img, object { vertical-align:top; }
+img { max-width:100%; border: 0;}
+svg{display: block;}
+svg polygon{vector-effect: non-scaling-stroke;}
+/* svg:not(:root) {overflow:hidden;} */
+button{border: none; outline: none; background-color: transparent; cursor: pointer;}
+a{text-decoration: none;}
+span{display: block;}
+input{border: none; text-overflow: ellipsis; font-family: var(--baseFont); box-sizing: border-box;}
+
+
+
+
+/* font + */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+/* font-family: 'Pretendard', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* font-family: "Inter", sans-serif; */
+
+:root{
+    --baseFont: 'Pretendard', 'Inter' sans-serif;
+    --engFont: 'Inter', 'Pretendard' sans-serif;
+
+    --svgFill: rgba(0,0,0,0.9);
+
+    --titColor: #191918;
+    --decsColor: #000000e6;
+    --btn: #0075de;
+    --btnHover: #005bab;
+    --grayBox: #f6f5f4;
+    --grayBoxHover: #dfdcd9;
+    --grayBoxBorder: 13px;
+}
+
+
+
+
+
+
+
+
+.blind{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+}

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion UI 클론(학습용)</title>
+
+    <!-- css -->
+     <link href="css/nt_common.css" rel="stylesheet" type="text/css"/>
+    <link href="css/nt.css" rel="stylesheet" type="text/css"/>
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/nt.js"></script>
+
+</head>
+<body>
+
+    <!-- 
+        1080
+        942
+        712
+        600
+    -->
+
+    <div class="wrap">
+        <div>
+
+            
+            <!--  head PC용 -->
+            <header id="header" class="pageHead pageHead_Pc">
+                <div>
+
+                    <div class="logo" style="width: 29px; height: 30px;">
+                        <img src="img/header/logo.svg" alt="notion logo">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="navigation">
+                        <div id="m_notion" class="menu menuDrop">
+                            <button aria-haspopup="true">
+                                <span style="font-family: 'Inter', sans-serif; font-weight: 400;">Notion</span>
+                                <svg class="arrowSvg" viewBox="0 0 30 30">
+                                    <polygon points="15,17.4 4.8,7 2,9.8 15,23 28,9.8 25.2,7 "></polygon>
+                                </svg>
+                            </button>
+                            <!-- drop down menu = Notion -->
+                            <div class="dropdownMenu"></div> 
+                        </div>
+                        <a href="#none" class="menu">메일</a>
+                        <a href="#none" class="menu">캘린더</a>
+                        <a href="#none" class="menu">AI</a>
+                        <a href="#none" class="menu">대기업</a>
+                        <a href="#none" class="menu">가격</a>
+                        <div id="m_looking" class="menu menuDrop">
+                            <button aria-haspopup="true">
+                                <span>둘러보기</span>
+                                <svg class="arrowSvg" viewBox="0 0 30 30">
+                                    <polygon points="15,17.4 4.8,7 2,9.8 15,23 28,9.8 25.2,7 "></polygon>
+                                </svg>
+                            </button>
+                            <!-- drop down menu = Notion -->
+                            <div class="dropdownMenu"></div> 
+                        </div>
+                        <a href="#none" class="menu">영업팀 문의하기</a>
+                    </div>
+
+                    <div class="launch">
+                        <a href="#none">Launch Notion</a>
+                    </div>
+
+                </div>
+            </header>
+
+
+            <!-- nav  -->
+            <nav class="pageNav pageNav_Pc">
+
+                <div class="marketP">
+                    <div class="icon marketIcon"></div>
+                    <span>마켓플레이스</span>
+                    <a href="#none"></a>
+                </div>
+
+                <div class="navIconLink">
+                    <div class="navIconLink_con">
+                        <div class="icon navIcon"></div>
+                        <span>업무</span>
+                        <a href="#none"></a>
+                    </div>
+                    <div class="navIconLink_con">
+                        <div class="icon navIcon"></div>
+                        <span>학교</span>
+                        <a href="#none"></a>
+                    </div>
+                    <div class="navIconLink_con">
+                        <div class="icon navIcon"></div>
+                        <span>라이프</span>
+                        <a href="#none"></a>
+                    </div>
+                </div>
+
+            </nav>
+
+
+
+            <!-- main contents wrap  => 중앙정렬 & width값 주기 -->
+            <main class="main" role="main">
+
+                <!-- 0. 반응형 서브페이지 네브 -->
+                <div class="pageNav pageNav_Responsive"></div>
+
+
+
+                <!-- 1. 둘러보기 (box 3단) -->
+                <section class="content contLooking">
+
+                    <div class="sec_titZone">
+
+                        <div class="sec_titBox">
+                            <h2 class="sec_title">둘러보기</h2>
+                            <p class="decs">Notion 커뮤니티에서 제작한 최고의 템플릿과 설정을 모두 찾아보세요.</p>
+                        </div>
+
+                        <!-- 30000 검색창 (clone) -->
+                        <div class="templateSearch">
+
+                            <form class="templateSearch_form" action="#" role="search">
+
+                                <label for="templateSearch_input" class="blind">검색</label>
+
+                                <div class="templateSearch_box">
+
+                                    <input id="templateSearch_input" type="search" name="search-form" 
+                                    placeholder="30,000개 이상의 템플릿 검색" autocomplete="off"/>
+
+
+                                    <button type="submit" class="templateSearch_icon" aria-label="검색">
+                                        🔍
+                                    </button>
+
+                                    <!-- drop down list menu 👉 전부 button만 사용 (JS 제어가 전제) -->
+                                    <ul class="suggest_list" role="listbox" aria-label="검색 제안" hidden >
+                                        <!-- hidden -->
+                                        <li role="none">
+                                            <button role="option" type="button" data-href="상세페이지이동경로" label="라이프" class="option_button">
+                                                <span class="icon optionIcon"></span>
+                                                라이프
+                                                <span class="hidden_number">템플릿 16525개</span>
+                                            </button>
+                                            <a href="#none"></a>
+                                        </li>
+                                        <li role="none">
+                                            <button role="option" type="button" data-href="상세페이지이동경로" label="개인 생산성" class="option_button">
+                                                <span class="icon optionIcon"></span>
+                                                개인 생산성
+                                                <span class="hidden_number">템플릿 32516개</span>
+                                            </button>
+                                            <a href="#none"></a>
+                                        </li>
+                                        <li role="none">
+                                            <button role="option" type="button" data-href="상세페이지이동경로" label="업무" class="option_button">
+                                                <span class="icon optionIcon"></span>
+                                                업무
+                                                <span class="hidden_number">템플릿 20112개</span>
+                                            </button>
+                                            <a href="#none"></a>
+                                        </li>
+                                        <!-- option group list -->
+                                        <ul class="option_group" role="group">
+                                            <li class="option_title">템플릿</li>
+                                            <li role="none">
+                                                <button role="option" type="button" data-href="상세페이지이동경로" lavel="주간 할 일 목록" class="option_button option_group_button">
+                                                    <div class="opt_img"></div>
+                                                    <div class="opt_tit">
+                                                        <h2>주간 할 일 목록</h2>
+                                                        <span>Notion</span>
+                                                    </div>
+                                                </button>
+                                                <a href="#none"></a>
+                                            </li>
+                                            <li role="none">
+                                                <button role="option" type="button" data-href="상세페이지이동경로" lavel="할 일 목록" class="option_button option_group_button">
+                                                    <div class="opt_img"></div>
+                                                    <div class="opt_tit">
+                                                        <h2>할 일 목록</h2>
+                                                        <span>Notion</span>
+                                                    </div>
+                                                </button>
+                                                <a href="#none"></a>
+                                            </li>
+                                            <li role="none">
+                                                <button role="option" type="button" data-href="상세페이지이동경로" lavel="습관 트래커" class="option_button option_group_button">
+                                                    <div class="opt_img"></div>
+                                                    <div class="opt_tit">
+                                                        <h2>습관 트래커</h2>
+                                                        <span>Notion</span>
+                                                    </div>
+                                                </button>
+                                                <a href="#none"></a>
+                                            </li>
+                                        </ul> 
+                                        <!-- option group list -->
+                                    </ul>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <!-- box grid (3줄) -->
+                    <div class="boxGrid">
+                        <div class="gridItem gridItem_12">
+                            <article>
+                                <div class="divItem_txt consultantItem consultantItem_txt">
+                                    <div>
+                                        <span>컨설턴트</span>
+                                        <h2>Notion 전문가와 함께 더 스마트하게 작업하기</h2>
+                                        <p>
+                                            API 통합, 자동화, 교육을 담당하는 공인 컨설팅 파트너로부터 Notion 설정에 대한 맞춤형 1:1 지원을 받으세요.
+                                        </p>
+                                    </div>
+                                    <div class="divHover_moreBtn">
+                                        <span>둘러보기</span>
+                                        <span>→</span>
+                                    </div>
+                                </div>
+                                <div class="divItem_img consultantItem consultantItem_img">BackGround-Img</div>
+                                <a href="#none"></a>
+                            </article>
+                        </div>
+                        <div class="gridItem gridItem_8">
+                            <article>
+                                <div class="divItem_txt newyearItem newyearItem_txt">
+                                    <div>
+                                        <span>New Year</span>
+                                        <h2>Build your 2026</h2>
+                                        <p>
+                                            Choose a pack to build your around what matters most.
+                                        </p>
+                                    </div>
+                                    <div class="divHover_moreBtn">
+                                        <span>둘러보기</span>
+                                        <span>→</span>
+                                    </div>
+                                </div>
+                                <div class="divItem_img newyearItem newyearItem_img">BackGround-Img</div>
+                                <a href="#none"></a>
+                            </article>
+                        </div>
+                        <div class="gridItem gridItem_4">
+                            <article>
+                                <div class="divItem_txt creatorItem creatorItem_txt">
+                                    <div>
+                                        <span>Top creator</span>
+                                        <h2>Maro Creations</h2>
+                                        <p>
+                                            Simplifying life and boosting productivity through thoughtfully designed Notion templates.
+                                        </p>
+                                    </div>
+                                    <div class="divHover_moreBtn">
+                                        <span>둘러보기</span>
+                                        <span>→</span>
+                                    </div>
+                                </div>
+                                <a href="#none"></a>
+                            </article>
+                        </div>
+                        <div class="gridItem gridItem_12">
+                            <div class="boxGrid boxGrid_Grid">
+                                <div class="gridItem gridItem_2">
+                                    <div class="icon gridItem_icon_p"></div>
+                                    <h2>학업 플래너</h2>
+                                    <span>템플릿 4,264개</span>
+                                    <a href="#none"></a>
+                                </div>
+                                <div class="gridItem gridItem_2">
+                                    <div class="icon gridItem_icon_g"></div>
+                                    <h2>개인 플래너</h2>
+                                    <span>템플릿 4,264개</span>
+                                    <a href="#none"></a>
+                                </div>
+                                <div class="gridItem gridItem_2">
+                                    <div class="icon gridItem_icon_p"></div>
+                                    <h2>에이전트 스타일을<br/>내 마음대로</h2>
+                                    <span>템플릿 4,264개</span>
+                                    <a href="#none"></a>
+                                </div>
+                                <div class="gridItem gridItem_2">
+                                    <div class="icon gridItem_icon_g"></div>
+                                    <h2>개인 플래너</h2>
+                                    <span>템플릿 4,264개</span>
+                                    <a href="#none"></a>
+                                </div>
+                                <div class="gridItem gridItem_2">
+                                    <div class="icon gridItem_icon_g"></div>
+                                    <h2>시즌</h2>
+                                    <span>템플릿 4,264개</span>
+                                    <a href="#none"></a>
+                                </div>
+                                <div class="gridItem gridItem_2">
+                                    <div class="icon gridItem_icon_p"></div>
+                                    <h2>PRD:프로덕트<br/>요건 문서</h2>
+                                    <span>템플릿 4,264개</span>
+                                    <a href="#none"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                </section>
+
+
+
+                <!-- 2. 추천 컨설턴트 -->
+                <section class="content conConsultant">
+
+                    <div class="sec_titZone">
+
+                        <div class="sec_titBox">
+                            <h2 class="sec_title">추천 컨설턴트</h2>
+                            <p class="decs">다양한 규모의 팀에 서비스를 제공하는 Notion 최고 서비스</p>
+                        </div>
+
+                        <div class="moreView">
+                            <span>104개의 컨설턴트 둘러보기</span>
+                            <a href="#none"></a>
+                        </div>
+                        
+                    </div>
+
+                    <!-- 추천 컨설턴트 아이템 존 -->
+                    <div class="boxGrid" id="consultant_boxGrid">
+                        <div class="gridItem gridItem_12">
+                            <div class="boxGrid boxGrid_Grid">
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 (3개의 클래스 각각 다르게) -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>Simone Smerilli</h2>
+                                        <p>
+                                            “Everything is built on sand, but we must build as if the sand were stone.” (Borges). I craft intentional, usable, scalable digital systems with AI and automation as much or as little as useful. Learn more: simosme.com
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>Workcraft | Workspaces, Automation & AI for Teams</h2>
+                                        <p>
+                                            As a Notion Certified Consultant, Dave has led workflow optimization projects for early-stage startups to 500+ person teams. His experience with startups and venture capital firms has helped teams save hundreds of hours per week with Notion, automation & AI.                                  
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>aNotioneer</h2>
+                                        <p>
+                                            👋 I'm a full time self-employed Notion consultant with more than 5 years experience, helping companies to develop their Notion workspaces, adopt AI and automate processes with integrations.                                        
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>Lou Attal Studio</h2>
+                                        <p>
+                                            Consultante Notion Partenaire. Nous accompagnons les entreprises dans le déploiement de Notion comme outil de travail au coeur de leurs opérations 🛠️
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="boxGrid boxGrid_Grid">
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>Primary Goals</h2>
+                                        <p>
+                                            As a business grows, processes become more complex and start to break down.  I make it easier to communicate and coordinate at scale so you make more money with fewer breakdowns.
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>Nick Janes | iGeekuPlay</h2>
+                                        <p>
+                                            Dev background meets Notion expertise. I architect custom workspaces with API integrations, advanced automations, and AI workflows most consultants can't build. Years working with AI prompt engineering & workflow optimizations.
+                                            Strategy sessions or sprints & monthly partnership.
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>noxen+produteka</h2>
+                                        <p>
+                                            Growth brings talent and ideas—and also chaos, friction, and wasted resources. We transform scattered operations into a connected system so your team moves faster, aligns better, and adapts to any challenge.
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_3 profile">
+                                    <!-- 내부 버튼은 카드 클릭과 분리 -->
+                                    <a href="#none" class="card_link" aria-label="프로필 링크 이동"></a>
+                                    <div class="profile_img"></div>
+                                    <div class="profile_txt">
+                                        <h2>Sanja Veletanlic</h2>
+                                        <p>
+                                            👋 Hi, I’m Sanja. Since 2019, I’ve worked with clients worldwide and built 50+ custom Notion workspaces. I enjoy helping small and medium businesses design workspaces that are clear, connected, and easy to use. I’m patient, practical, and my dog will always show up for treats 🐶.
+                                        </p>
+                                        <div class="profileInner_btn">
+                                            <button type="button" class="profile_link" aria-label="프로필 링크 이동">프로필 보기</button>
+                                            <button type="button" class="reservation_link" aria-label="예약하기 링크 이동">예약하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- 3. 추천 템플릿 -->
+                <section class="content conTemplate">
+
+                    <div class="sec_titZone">
+
+                        <div class="sec_titBox">
+                            <h2 class="sec_title">추천 템플릿</h2>
+                            <p class="decs">Notion팀 추천 템플릿</p>
+                        </div>
+                        
+                    </div>
+
+                    <!-- 추천 템플릿 아이템 존 -->
+                    <div class="boxGrid" id="template_boxGrid">
+                        <div class="gridItem gridItem_12">
+                            <div class="boxGrid boxGrid_Grid">
+                                <!-- 템플릿 아이템  -->
+                                <div class="gridItem gridItem_4 template">
+                                    <div class="template_img">
+                                        <a href="#none" class="templatePopUp_link" aria-label="템플릿 popup 보기"></a>
+                                    </div>
+                                    <div class="template_txt">
+                                        <div>
+                                            <article>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기"></a>
+                                            </article>
+                                            <div class="inner">
+                                                <a href="#none" class="template_link" aria-label="템플릿 보기">Reading System (독서 시스템)</a>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기">name</a>
+                                            </div>
+                                        </div>
+                                        <span>무료</span>
+                                    </div>
+                                </div>
+
+                                <div class="gridItem gridItem_4 template">
+                                    <div class="template_img">
+                                        <a href="#none" class="templatePopUp_link" aria-label="템플릿 popup 보기"></a>
+                                    </div>
+                                    <div class="template_txt">
+                                        <div>
+                                            <article>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기"></a>
+                                            </article>
+                                            <div class="inner">
+                                                <a href="#none" class="template_link" aria-label="템플릿 보기">돈 없어요, 아니 그냥 없어요 - 가계부</a>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기">name</a>
+                                            </div>
+                                        </div>
+                                        <span>무료</span>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_4 template">
+                                    <div class="template_img">
+                                        <a href="#none" class="templatePopUp_link" aria-label="템플릿 popup 보기"></a>
+                                    </div>
+                                    <div class="template_txt">
+                                        <div>
+                                            <article>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기"></a>
+                                            </article>
+                                            <div class="inner">
+                                                <a href="#none" class="template_link" aria-label="템플릿 보기">일기</a>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기">name</a>
+                                            </div>
+                                        </div>
+                                        <span>무료</span>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_4 template">
+                                    <div class="template_img">
+                                        <a href="#none" class="templatePopUp_link" aria-label="템플릿 popup 보기"></a>
+                                    </div>
+                                    <div class="template_txt">
+                                        <div>
+                                            <article>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기"></a>
+                                            </article>
+                                            <div class="inner">
+                                                <a href="#none" class="template_link" aria-label="템플릿 보기">일잘러의 주간업무일지 (대기업ST)</a>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기">name</a>
+                                            </div>
+                                        </div>
+                                        <span>무료</span>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_4 template">
+                                    <div class="template_img">
+                                        <a href="#none" class="templatePopUp_link" aria-label="템플릿 popup 보기"></a>
+                                    </div>
+                                    <div class="template_txt">
+                                        <div>
+                                            <article>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기"></a>
+                                            </article>
+                                            <div class="inner">
+                                                <a href="#none" class="template_link" aria-label="템플릿 보기">한눈에 보는 여행 플래너 plus</a>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기">name</a>
+                                            </div>
+                                        </div>
+                                        <span>US$4.00</span>
+                                    </div>
+                                </div>
+                                <div class="gridItem gridItem_4 template">
+                                    <div class="template_img">
+                                        <a href="#none" class="templatePopUp_link" aria-label="템플릿 popup 보기"></a>
+                                    </div>
+                                    <div class="template_txt">
+                                        <div>
+                                            <article>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기"></a>
+                                            </article>
+                                            <div class="inner">
+                                                <a href="#none" class="template_link" aria-label="템플릿 보기">동학년 온라인 연구실</a>
+                                                <a href="#none" class="templateMaker_link" aria-label="템플릿 제작자 프로필 보기">name</a>
+                                            </div>
+                                        </div>
+                                        <span>무료</span>
+                                    </div>
+                                </div>
+                                <!-- 템플릿 아이템  -->
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                
+
+                <!-- 4. 크리에이터 되기 -->
+                <section class="content conCategory">
+                    <div class="category_img">
+                        <!-- img -->
+                    </div>
+                    <aside>
+                        <h1>크리에이터 되기</h1>
+                        <p>
+                            Notion 템플릿 갤러리에 템플릿을 제출하고, 추천을 받고, 수익도 얻을 수 있어요. 모두 클릭 몇 번이면 가능합니다.
+                        </p>
+                        <button class="startBtn" role="button" type="button" aria-label="시작하기 버튼">
+                            <span>시작하기</span>
+                            <span>→</span>
+                            <a href="#none"></a>
+                        </button>
+                    </aside>
+                </section>
+
+                
+
+
+                <!-- footer -->
+                <footer class="footer"> 
+                    footer
+                </footer> 
+
+            </main>
+
+        </div>
+    </div>
+    
+</body>
+</html>

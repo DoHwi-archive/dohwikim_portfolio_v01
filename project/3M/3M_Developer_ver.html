@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3M</title>
+
+  <!-- CSS -->
+  <link href="./css/reset.css" rel="stylesheet" />
+  <link href="./css/parallexreset.css" rel="stylesheet" />
+  <link href="./css/main.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- body -->
+  <div id="wrapper">
+    <div id="header-wrap"></div>
+    <div id="Main"></div>
+    <div id="sv-zone-wrap"></div>
+    <div id="tabMo-S-menu-zone-wrap"></div>
+    <div id="footer-wrap"></div>
+    <div id="top-BTN"></div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/jquery.transit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    $(function () {
+      $("#header-wrap").load("./header.html", function () {
+        $("#header_menu").load("./header_menu.html");
+      });
+
+      $("#sv-zone-wrap").load("./sv_zone.html");
+      $("#tabMo-S-menu-zone-wrap").load("./tm-side-menu.html");
+
+      // ✅ 메인 콘텐츠 로드 완료 후
+      $("#Main").load("./mainPage.html", function () {
+        $("#footer-wrap").load("./footer.html");
+        $("#top-BTN").load("./topbtn.html");
+
+        // ✅ Swiper 및 Section3 초기화 함수가 포함된 스크립트 로드
+        $.getScript("./js/swiper_main.js", function () {
+          if (typeof initSwipers === "function") initSwipers();
+          if (typeof initSection3Events === "function") initSection3Events();
+        });
+
+        // ✅ 기타 사용자 정의 스크립트 로드 (선택사항)
+        $.getScript("./js/sub.js");
+        AOS.init();
+      });
+    });
+  </script>
+</body>
+</html>
