@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Stop Top (Top 버튼 + 푸터 전에 멈춤)</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        
+        .wrap{max-width: 1000px; margin: 0 auto; padding: 24px;}
+
+        #visual{
+            height: 520px; background-color: #111; color: #fff;
+            display: grid; place-items: center; text-align: center; padding: 40px;
+        }
+        #visual h1{font-size: 30px; margin-bottom: 20px;}
+        #visual p{opacity: 0.8; margin: 0;}
+
+        main{padding: 40px 0;}
+        .dummy{
+            height: 1800px; background-color: #f3f3f3; padding: 24px;
+        }
+
+        footer{
+            background-color: #111; color: #fff; padding: 120px 24px;
+            text-align: center;
+        }
+
+        #topBTN{
+            width: 56px; height: 56px; border-radius: 50%;
+            cursor: pointer; position: fixed; right: 20px; bottom: 20px; z-index: 999;
+            background-color: #003cff; color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+
+            display: none; border: 0;
+            transition: transform 0.15s ease, opacity 0.2s ease;
+        }
+        #topBTN:hover{transform: translateY(-2px);}
+        #topBTN:active{transform: translateY(0px),scale(0.96);}
+        #topBTN span{
+            display: block; font-size: 18px; line-height: 56px; text-align: center;
+            transform: translateY(-1px);
+        }
+        #topBTN.is-stopped{
+            position: absolute; bottom: auto;
+        }
+
+
+        #topStopper{
+            position: relative; height: 0px;
+            /* 실제로는 공간을 만들 필요 없음 */
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+
+            const $win =$(window);
+            const $topBtn = $("#topBTN");
+            const $visual = $("#visual");
+            const $footer = $("#footer");
+            const $stopper = $("#topStopper");
+
+            // “버튼 등장 기준” 높이 계산
+            function getShowPoint(){
+                return $visual.outerHeight();
+            };
+
+            function updateTopButtonPosition(){
+
+                const scrollTop = $win.scrollTop();
+                const winH = $win.height();
+
+                const showPoint = getShowPoint();
+
+                if(scrollTop > showPoint){
+                    if($topBtn.is(":hidden")) $topBtn.fadeIn(200);
+                }else {
+                    if($topBtn.is(":visible")) $topBtn.fadeOut(200);
+                }
+
+
+                // 푸터에 닿기 전 멈춤 처리 
+                const btnH = $topBtn.outerHeight();
+                const btnBottmGap = 20;
+                const footerTop = $footer.offset().top;
+                const btnTouchY = scrollTop + winH - btnBottmGap;
+
+                if (btnTouchY >= footerTop){
+
+                    $topBtn.addClass("is-stopped").css({
+                        top: (footerTop - btnH - btnBottmGap) + "px",
+                        right: "20px"
+                    });
+
+                }else{
+                    // 푸터에서 멀어지면
+                    $topBtn.removeClass("is-stopped").css({
+                        top: "",
+                        right: ""
+                    });
+                }
+
+            };
+
+
+            
+
+
+            // 스크롤시 매번 업데이트
+            $win.on("scroll",updateTopButtonPosition);
+            $win.on("resize",updateTopButtonPosition);
+
+            // 업데이트 최초 1회 실행(새로고침 직후 위치반영)
+            updateTopButtonPosition();
+
+
+
+            $topBtn.on("click",function(){
+                $("html,body").stop().animate({scrollTop:0},500);
+            });
+
+
+
+
+
+        });
+        // end
+    </script>
+
+</head>
+<body>
+
+
+    <section id="visual">
+        <div>
+            <h1>visual 이후 Top버튼 등장</h1>
+            <p>스크롤을 내린 뒤, 푸터 근처에서 버튼이 멈추는지 확인!</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="wrap">
+            <div class="dummy">
+                <h2>스크롤 영역</h2>
+                <p>이 영역은 스크롤을 만들기 위한 더미입니다.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- “멈춤” 동작을 위해 버튼이 absolute 기준을 가질 컨테이너 -->
+    <div id="topStopper"></div>
+
+    <footer id="footer">
+        <p style="margin: 0;">Footer 영역</p>
+    </footer>
+
+    <!-- top btn -->
+    <button id="topBTN" type="button" aria-label="맨 위로 이동">
+        <span>▲</span>
+    </button> 
+
+
+    
+    
+</body>
+</html>
