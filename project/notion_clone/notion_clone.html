@@ -16,17 +16,19 @@
 <body>
 
     <!-- 
+        1200
         1080
-        942
-        712
-        600
+        941
+        839
+        711
+        610
     -->
 
     <div class="wrap">
         <div>
 
             
-            <!--  head PC용 -->
+            
             <header id="header" class="pageHead pageHead_Pc">
                 <div>
 
@@ -36,7 +38,8 @@
                     </div>
 
                     <div class="navigation">
-                        <div id="m_notion" class="menu menuDrop">
+                        <div id="m_notion" class="menu menuDropDown">
+                            <!-- aria-hidden / aria-expanded -->
                             <button aria-haspopup="true">
                                 <span style="font-family: 'Inter', sans-serif; font-weight: 400;">Notion</span>
                                 <svg class="arrowSvg" viewBox="0 0 30 30">
@@ -44,14 +47,50 @@
                                 </svg>
                             </button>
                             <!-- drop down menu = Notion -->
-                            <div class="dropdownMenu"></div> 
+                            <!-- aria-hidden / aria-expanded -->
+                            <div class="dropdownMenu">
+                                <div class="menuGrid menuGrid_1">
+                                    <!-- grid -->
+                                    <div class="menuArea menuArea_bold">
+                                        <ul>
+                                            <li><a href="#none">Notion AI</a></li>
+                                            <li><a href="#none">에이전트</a></li>
+                                            <li><a href="#none">기업 통합 검색</a></li>
+                                            <li><a href="#none">AI 노트</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="menuArea menuArea_bold">
+                                        <ul>
+                                            <li><a href="#none">문서</a></li>
+                                            <li><a href="#none">지식 베이스</a></li>
+                                            <li><a href="#none">프로젝트</a></li>
+                                            <li><a href="#none">사이트</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="menuArea menuArea_thin">
+                                        <ul>
+                                            <li><a href="#none">AI 사용 사례 살펴보기</a></li>
+                                            <li><a href="#none">마켓플레이스 둘러보기</a></li>
+                                            <li><a href="#none">API 통합 보기</a></li>
+                                            <li><a href="#none">Web Clipper 다운로드</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="appDownArea">
+                                        <p>더 빠른 경험을 위한 Notion 데스크톱 앱 다운로드</p>
+                                        <button type="button" aria-label="앱 다운로드">
+                                            앱 다운로드
+                                        </button>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                         <a href="#none" class="menu">메일</a>
                         <a href="#none" class="menu">캘린더</a>
                         <a href="#none" class="menu">AI</a>
                         <a href="#none" class="menu">대기업</a>
                         <a href="#none" class="menu">가격</a>
-                        <div id="m_looking" class="menu menuDrop">
+                        <div id="m_looking" class="menu menuDropDown">
+                            <!-- aria-hidden / aria-expanded -->
                             <button aria-haspopup="true">
                                 <span>둘러보기</span>
                                 <svg class="arrowSvg" viewBox="0 0 30 30">
@@ -59,20 +98,74 @@
                                 </svg>
                             </button>
                             <!-- drop down menu = Notion -->
-                            <div class="dropdownMenu"></div> 
+                            <!-- aria-hidden / aria-expanded -->
+                            <div class="dropdownMenu">
+                                <div class="menuGrid menuGrid_2">
+                                    <!-- grid -->
+                                    <div class="menuArea menuArea_bold">
+                                        <ul>
+                                            <li><a href="#none">Notion AI</a></li>
+                                            <li><a href="#none">에이전트</a></li>
+                                            <li><a href="#none">기업 통합 검색</a></li>
+                                            <li><a href="#none">AI 노트</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="menuArea menuArea_bold">
+                                        <ul>
+                                            <li><a href="#none">문서</a></li>
+                                            <li><a href="#none">지식 베이스</a></li>
+                                            <li><a href="#none">프로젝트</a></li>
+                                            <li><a href="#none">사이트</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="menuArea menuArea_thin">
+                                        <ul>
+                                            <li><a href="#none">AI 사용 사례 살펴보기</a></li>
+                                            <li><a href="#none">마켓플레이스 둘러보기</a></li>
+                                            <li><a href="#none">API 통합 보기</a></li>
+                                            <li><a href="#none">Web Clipper 다운로드</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="menuArea menuArea_thin">
+                                        <ul>
+                                            <li><a href="#none">AI 사용 사례 살펴보기</a></li>
+                                            <li><a href="#none">마켓플레이스 둘러보기</a></li>
+                                            <li><a href="#none">API 통합 보기</a></li>
+                                            <li><a href="#none">Web Clipper 다운로드</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                         <a href="#none" class="menu">영업팀 문의하기</a>
                     </div>
 
-                    <div class="launch">
-                        <a href="#none">Launch Notion</a>
+                    <div class="h_right_box">
+                        <div class="launch">
+                            <a href="#none">Launch Notion</a>
+                        </div>
+
+                        <div class="responsive_MenuBtn_box">
+                            <button class="responsive_MenuBtn" type="button" role="button" title="반응형 메뉴버튼">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
+
+                <!-- nav Mobile -->
+                <div class="Nav_Mobile">
+                    dcfgdfgdfdr
+                </div>
+
             </header>
+            
+            
 
-
-            <!-- nav  -->
+            <!-- nav PC -->
             <nav class="pageNav pageNav_Pc">
 
                 <div class="marketP">
@@ -100,15 +193,13 @@
                 </div>
 
             </nav>
-
+            
 
 
             <!-- main contents wrap  => 중앙정렬 & width값 주기 -->
             <main class="main" role="main">
 
-                <!-- 0. 반응형 서브페이지 네브 -->
-                <div class="pageNav pageNav_Responsive"></div>
-
+               
 
 
                 <!-- 1. 둘러보기 (box 3단) -->
@@ -133,34 +224,45 @@
                                     <input id="templateSearch_input" type="search" name="search-form" 
                                     placeholder="30,000개 이상의 템플릿 검색" autocomplete="off"/>
 
+                                    <div class="iconButton_group" role="button">
+                                        <button title="지우기" type="button" tabindex="-1" class="templateDelete_icon" aria-label="입력 내용 지우기">
+                                            <img src="img/other/delete_icon.svg" alt="delete iscon"/>
+                                        </button>
+                                        <button title="템플릿 갤러리 검색" type="submit" class="templateSearch_icon" aria-label="검색">
+                                            <img src="img/other/search_icon.svg" alt="search iscon"/>
+                                        </button>
+                                    </div>
+                                    
 
-                                    <button type="submit" class="templateSearch_icon" aria-label="검색">
-                                        🔍
-                                    </button>
-
-                                    <!-- drop down list menu 👉 전부 button만 사용 (JS 제어가 전제) -->
-                                    <ul class="suggest_list" role="listbox" aria-label="검색 제안" hidden >
-                                        <!-- hidden -->
+                                    <!-- drop down list menu 👉 전부 button만 사용 -->
+                                    <ul class="suggest_list" role="listbox" aria-label="검색 제안"  >
+                                        <!-- 01.30 리스트 css 완성 -->
                                         <li role="none">
-                                            <button role="option" type="button" data-href="상세페이지이동경로" label="라이프" class="option_button">
-                                                <span class="icon optionIcon"></span>
-                                                라이프
+                                            <button  class="option_button" role="option" type="button" data-href="상세페이지이동경로" label="라이프">
+                                                <div>
+                                                    <span class="icon optionIcon"></span>
+                                                    <p>라이프</p>
+                                                </div>
                                                 <span class="hidden_number">템플릿 16525개</span>
                                             </button>
                                             <a href="#none"></a>
                                         </li>
                                         <li role="none">
-                                            <button role="option" type="button" data-href="상세페이지이동경로" label="개인 생산성" class="option_button">
-                                                <span class="icon optionIcon"></span>
-                                                개인 생산성
+                                            <button  class="option_button" role="option" type="button" data-href="상세페이지이동경로" label="개인 생산성">
+                                                <div>
+                                                    <span class="icon optionIcon"></span>
+                                                    <p>개인 생산성</p>
+                                                </div>
                                                 <span class="hidden_number">템플릿 32516개</span>
                                             </button>
                                             <a href="#none"></a>
                                         </li>
                                         <li role="none">
-                                            <button role="option" type="button" data-href="상세페이지이동경로" label="업무" class="option_button">
-                                                <span class="icon optionIcon"></span>
-                                                업무
+                                            <button  class="option_button" role="option" type="button" data-href="상세페이지이동경로" label="업무">
+                                                <div>
+                                                    <span class="icon optionIcon"></span>
+                                                    <p>업무</p>
+                                                </div>
                                                 <span class="hidden_number">템플릿 20112개</span>
                                             </button>
                                             <a href="#none"></a>
@@ -205,6 +307,11 @@
                                 </div>
 
                             </form>
+
+                            <!-- 반응형 검색창 밑 검색어 -->
+                            <div class="templateSearch_bottom_box">
+                                <!-- nav .navIconLink 를 여기에 클론 -->
+                            </div> 
 
                         </div>
                     </div>
@@ -264,6 +371,7 @@
                                         <span>→</span>
                                     </div>
                                 </div>
+                                <div class="divItem_img creatorItem creatorItem_img">BackGround-Img</div>
                                 <a href="#none"></a>
                             </article>
                         </div>
@@ -283,7 +391,7 @@
                                 </div>
                                 <div class="gridItem gridItem_2">
                                     <div class="icon gridItem_icon_p"></div>
-                                    <h2>에이전트 스타일을<br/>내 마음대로</h2>
+                                    <h2>에이전트 스타일을 <br/>내 마음대로</h2>
                                     <span>템플릿 4,264개</span>
                                     <a href="#none"></a>
                                 </div>
@@ -301,7 +409,7 @@
                                 </div>
                                 <div class="gridItem gridItem_2">
                                     <div class="icon gridItem_icon_p"></div>
-                                    <h2>PRD:프로덕트<br/>요건 문서</h2>
+                                    <h2>PRD:프로덕트 <br/>요건 문서</h2>
                                     <span>템플릿 4,264개</span>
                                     <a href="#none"></a>
                                 </div>
@@ -613,10 +721,7 @@
                 
 
 
-                <!-- footer -->
-                <footer class="footer"> 
-                    footer
-                </footer> 
+                
 
             </main>
 

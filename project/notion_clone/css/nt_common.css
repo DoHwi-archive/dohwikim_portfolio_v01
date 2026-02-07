@@ -12,8 +12,16 @@ button{border: none; outline: none; background-color: transparent; cursor: point
 a{text-decoration: none;}
 span{display: block;}
 input{border: none; text-overflow: ellipsis; font-family: var(--baseFont); box-sizing: border-box;}
-
-
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
 
 
 /* font + */
