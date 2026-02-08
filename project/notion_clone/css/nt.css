@@ -180,33 +180,178 @@ header .launch:active{background-color: #2a2a28;}
     #header .responsive_MenuBtn_box{
         display: block;
     }
-    #header .responsive_MenuBtn{
+    .responsive_MenuBtn{
         width: 22px; height: 20px;  margin-left: 20px;
-        display: flex; justify-content: space-between; flex-direction: column;
+        position: relative;
     }
-    #header .responsive_MenuBtn span{
+    .responsive_MenuBtn span{
         width: 100%; height: 2px; background-color: #777;
+        position: absolute; left: 0; transition: transform 0.15s ease;
     }
+    .responsive_MenuBtn span:nth-child(1){top: 0;}
+    .responsive_MenuBtn span:nth-child(2){top: 50%; transform: translateY(-50%);}
+    .responsive_MenuBtn span:nth-child(3){bottom: 0;}
 
     /* 반응형 햄버거 버튼 = click 시 x 로 바꿔주기 */
-    
-
-}
-/* -------------------------------------------------- */
-/* nav Mobile(햄버거 버튼) */
-.Nav_Mobile{display: none;}
-@media (max-width:1200px){
-    .Nav_Mobile{
-        display: block; position: absolute; top: var(--header-height); left: 0; right: 0;
-        height: calc(100vh - var(--header-height)); background-color: #fff;
-        border: 1px solid red;
-        overflow: auto;
+    .responsive_MenuBtn.is_clicked span:nth-child(1){
+        transform: rotate(-45deg) translateY(-50%); top: 50%; 
+    }
+    .responsive_MenuBtn.is_clicked span:nth-child(2){opacity: 0;}
+    .responsive_MenuBtn.is_clicked span:nth-child(3){
+        transform: rotate(45deg) translateY(-50%); top: 50%; 
     }
 
-    /* 반응형 햄버거 버튼 = click 시   얘가 나타나주기 */
+}
+
+/* -------------------------------------------------- */
+/* nav Mobile(햄버거 버튼) */
+
+.Nav_Mobile{display: none;}
+
+@media (max-width:1200px){
+
+    body.no_scroll {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    /* 반응형 햄버거 버튼 = click 시 얘가 나타나주기 */
+    .Nav_Mobile.is_clicked_open{
+        position: fixed; top: var(--header-height); 
+        left: 0; right: 0; bottom: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height)); background-color: #fff;
+        display: flex;              /*  추가 */
+        flex-direction: column;     /*  추가 */
+        overflow-y: auto;           
+    }
+    .Nav_Mobile>.inner{
+        padding: 24px 16px 80px 16px;
+        flex: 1 1 auto; width: 100%;
+    }
+
+    /* ++헤더안에 노션버튼 파란색으로 바뀌기++ */
+    header .launch.isLauch_change{
+        background-color: #097fe8;
+    }
+    .Nav_Mobile .top_inner{
+        display: flex; flex-direction: column; flex: 1 1;
+        gap: 12px;
+        position: relative; z-index: 1;
+    }
+    .Nav_Mobile .nm_menu{
+        position: relative; width: 100%; text-align: left;
+    }
+    .Nav_Mobile .nm_menu .nm_menu_inner{
+        padding-left: 10px;
+        display: flex; align-items: center;
+        font-family: var(--baseFont); color: var(--titColor);
+    }
+    .Nav_Mobile .nm_menu .nm_menu_h2{
+        font-size: 22px; font-weight: 600;
+    }
+    .Nav_Mobile .nm_menu .nm_menu_arrow{
+        transform: scale(0.45);
+        transition: transform 0.15s ease;
+    }
+
+    /* 오픈시 안의 내용 */
+    .Nav_Mobile .nm_menu .nm_menu_open{
+        padding: 14px 0 14px 10px; display: none;
+    }
+    .Nav_Mobile .nm_menu .nm_menu_open.isMenu_open{display: block;}
+
+    .Nav_Mobile .nm_menu .nm_menu_open .sub_nm_menu{
+        width: 100%; height: auto; display: flex; justify-content: flex-start;
+        margin-bottom: 16px;
+    }
+    .Nav_Mobile .nm_menu .nm_menu_open .sub_nm_menu:last-child{margin-bottom: 0;}
+    .sub_nm_menu .icon{
+        width: 30px; height: 30px; background-color: var(--grayBox);
+        border-radius: 4px; border: 1px solid rgba(0,0,0,0.1);
+        margin-right: 10px;
+    }
+    .sub_nm_menu .txt_area{font-family: var(--baseFont);}
+    .sub_nm_menu .txt_area>span{
+        color: var(--decsColor); font-size: 14px; font-weight: 500;
+    }
+    .sub_nm_menu .txt_area>p{
+        color: #666; font-size: 12px; font-weight: 400;
+    }
+
+
+
+
+
+
+    /* 그레이박스 */
+    .Nav_Mobile .gray_box{
+        background-color: var(--grayBox); border-radius: 6px;
+        margin-top: 130px; padding: 10px 10px;
+        display: flex; flex-direction: column; gap: 6px;
+    }
+    .Nav_Mobile.marginTop_20 .gray_box{margin-top: 20px;}
+
+    .Nav_Mobile .top_inner .nm_menu.nm_menu_alink .nm_menu_arrow,
+    .Nav_Mobile .top_inner .nm_menu.nm_menu_alink .nm_menu_open
+    {
+        display: none;
+    }
+    .gray_box .notion_item{
+        width: 100%; position: relative; font-family: var(--baseFont);
+        display: flex; justify-content: flex-start; align-items: center;
+    }
+    .gray_box .notion_item .notion_item_icon{
+        width: 30px; height: 30px; background-color: #fff; 
+        border-radius: 6px; border: 1px solid rgba(0,0,0,0.1);
+        margin-right: 8px;
+    }
+    .gray_box .notion_item .notion_item_txt{
+        font-size: 14px; font-weight: 500; color: var(--decsColor);
+    }
+    .gray_box .notion_item a{position: absolute; inset: 0;}
+
+
+    /* 앱다운로드하기 & 로그인 */
+    .Nav_Mobile .bottom_sticky{
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 9999;
+        background-color: #fff; 
+        width: 100%; padding: 15px 15px;
+        display: flex; justify-content: space-between;
+    }
+    .Nav_Mobile .bottom_sticky::before{
+        content: ''; width: 95%; height: 1px; background-color: rgba(0,0,0,0.1);
+        position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    }
+
+    .Nav_Mobile .bottom_sticky>button{
+        width: 48.5%; font-family: var(--baseFont);
+        font-size: 11px; font-weight: 500;
+        padding: 5px 0 7px 0; border-radius: 6px;
+    }
+    .Nav_Mobile .bottom_sticky>button.subappDown_btn{
+        background-color: #097fe8; color: #fff;
+    }
+    .Nav_Mobile .bottom_sticky>button.sublogIn_btn{
+        background-color: #e0eef9; color: #115ea1;
+    }
 
 
 }
+
+@media (max-width:599px){
+    .Nav_Mobile>.inner{padding: 24px 16px 130px 16px;}
+    .Nav_Mobile .gray_box{margin-top: 80px;}
+    .Nav_Mobile .bottom_sticky{flex-direction: column;}
+    .Nav_Mobile .bottom_sticky>button{width: 100%;}
+    .Nav_Mobile .bottom_sticky>button.subappDown_btn{margin-bottom: 14px;}
+}
+
+
+
 
 /* -------------------------------------------------- */
 /* nav */
@@ -275,7 +420,7 @@ main .pageNav{display: block;}
 }
 .templateSearch_box .iconButton_group{
     width: inherit;
-    /* pointer-events: all; */ padding-right: 10px;
+    padding-right: 10px;
     display: inline-flex; align-items: center;
     position: absolute; top: 0; right: 0; bottom: 0;
 }
@@ -378,7 +523,6 @@ main .pageNav{display: block;}
 
 /* box grid == start */
 .boxGrid{
-    /* background-color: aquamarine;  */
     display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); 
     grid-auto-rows: min-content;
     width: 100%; column-gap: 32px;

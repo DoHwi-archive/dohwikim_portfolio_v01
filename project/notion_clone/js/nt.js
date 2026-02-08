@@ -71,6 +71,50 @@ $(document).ready(function(){
 
 
 
+    // header > 반응형메뉴버튼 클릭 이벤트
+    let scrollPos = 0;
+
+    $(".responsive_MenuBtn").on("click", function () {
+        $(this).toggleClass("is_clicked");
+        $(".Nav_Mobile").toggleClass("is_clicked_open");
+
+        // body fix
+        if (!$("body").hasClass("no_scroll")) {
+            scrollPos = $(window).scrollTop();
+            $("body").addClass("no_scroll").css("top", -scrollPos);
+        } else {
+            $("body").removeClass("no_scroll").css("top", "");
+            $(window).scrollTop(scrollPos);
+        }
+
+        // 헤더 안 런처 색 바뀌기
+        $("header .launch").toggleClass("isLauch_change");
+
+    });
+    // 오픈시 안의 내용
+    $(".Nav_Mobile .nm_menu").on("click", function () {
+        const $thisMenu = $(this);
+
+        // 다른 메뉴 닫기
+        $(".Nav_Mobile .nm_menu")
+            .not($thisMenu)
+            .find(".nm_menu_open")
+            .removeClass("isMenu_open");
+
+        // 클릭한 메뉴만 토글
+        $thisMenu.find(".nm_menu_open").toggleClass("isMenu_open");
+
+        // 링크 전용 메뉴면 여기서 종료
+        if ($thisMenu.hasClass("nm_menu_alink")) return;
+
+        // 하나라도 열려 있으면 marginTop 유지
+        const isAnyOpen = $(".Nav_Mobile .nm_menu_open.isMenu_open").length > 0;
+        $(".Nav_Mobile").toggleClass("marginTop_20", isAnyOpen);
+    });
+
+
+
+
 
     
 
@@ -87,15 +131,15 @@ $(document).ready(function(){
 
     
 
-    
+
     $(function () {
 
-    const $iconClone = $("nav .navIconLink")
+        const $iconClone = $("nav .navIconLink")
         .clone(true)              // 이벤트 포함
         .removeAttr("id")         // id 충돌 방지
         .addClass("is-cloned");   // 스타일 분리용 클래스
 
-    $(".templateSearch .templateSearch_bottom_box").append($iconClone);
+        $(".templateSearch .templateSearch_bottom_box").append($iconClone);
 
     });
     
