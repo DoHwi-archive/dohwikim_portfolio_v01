@@ -8,6 +8,13 @@
 	--Poppins: 'Poppins', sans-serif;
 	--Noto: 'Noto Sans KR', sans-serif;
 	/* --mainColor: #00ACCC; */
+     --blue:#1f6fff;
+      --ink:#111;
+      --muted:#666;
+      --bg:#ffffff;
+      --bg2:#f7f9fc;
+      --card:#ffffff;
+      --dark:#0d0f14;
 }
 *{margin: 0; padding: 0; box-sizing: border-box; line-height: 1.3; word-break: keep-all;}
 
@@ -22,6 +29,11 @@
 }
 .w1600{
     max-width: 1600px; 
+    margin: 0 auto;
+    width: 100%;
+}
+.w1400{
+    max-width: 1400px; 
     margin: 0 auto;
     width: 100%;
 }

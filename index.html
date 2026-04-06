@@ -27,6 +27,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
 
     <!-- script block -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -40,76 +43,628 @@
     <script src="js/main.js"></script>
     <script src="js/common.js"></script>
     <script src="js/swiper.js"></script>
-    <!-- <script src="js/aos.js"></script> -->
 
 
 </head>
 <body>
 
+    <!-- 
+        1200
+        1050
+        940
+        840
+        768 
+        710
+        610
+        360px 기준 + 320px까지 깨지지 않게 대응
+    -->
+
     <article id="main">
 
 
+        <!-- mainVisual -->
+        <section id="mainVisual" class="mainVisual">
+            <div class="container mainVisual-inner">
+                <div class="mainVisual-motion" id="mainVisualMotion">
+                    <p class="kicker">Publisher Portfolio</p>
+                    <h1 class="title title-1" data-aos="fade-left" data-aos-duration="400" data-aos-easing="ease-in-sine">
+                        Design the Structure,
+                    </h1>
+                    <h1 class="title title-2" data-aos="fade-right" data-aos-duration="400" data-aos-easing="ease-in-sine">
+                        Code the Experience
+                    </h1>
+                    <p class="sub">
+                   “퍼블리싱을 기반으로 인터랙션을 구현하며, 사용자 경험을 개선하는 웹을 만들어갑니다.”
+                    </p>
+                </div>
 
-        <!-- visual -->
-        <section id="visual">
+                <div class="scroll-hint" aria-hidden="true">
+                    <span>Scroll</span>
+                    <span class="arrow"><i class="fa-solid fa-arrow-down"></i></span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- stage: “스크롤 공간” -->
+        <section class="stage" id="stage" aria-hidden="true"></section>
+
+
+
+        <!-- project -->
+        <section id="project" class="next">
+            <div class="container">
+
+                <div class="pftit-container">
+                    <div class="tit">
+                        <h2 class="split">PORTFOLIO</h2>	
+                    </div>
+                    <div class="hashtag">
+                        <span># 진실·화해를위한과거사정리위원회</span>
+                        <span># 반응형</span>
+                        <span># 서브페이지</span>
+                        <span># 홈페이지 리뉴얼</span>
+                        <span># 관리자 페이지</span>
+                        <span># 모니터링시스템</span>
+                        <span># 예지보전시스템</span>
+                    </div>
+                </div>
+                
+
+                <!-- portfolio item box -->
+                <div class="pfitem-container list">
+                    <!-- NEW -->
+                    <!-- <div class="ani_box">
+                       <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>GSAP 반응형 사이트</h3>
+                                    <ul>
+                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
+                                            GSAP를 이용한 반응형 사이트
+                                            #개인프로젝트 #반응형
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-13">준비중</div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">GSAP 반응형 사이트</h2>
+                            </div>
+                            <a href="#none" target="_blank"></a>
+                        </div>
+
+                        
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>상태 처리 / 간단한 API 연동</h3>
+                                    <ul>
+                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
+                                            상태 처리 / 간단한 API 연동
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-14">준비중</div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">상태 처리 / 간단한 API 연동 <span style="color: #888;">~ing</span></h2>
+                            </div>
+                            <a href="#none" target="_blank"></a>
+                        </div>
+
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>옷 골라주기 앱</h3>
+                                    <ul>
+                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
+                                            상태 처리 / 간단한 API 연동
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-15">준비중</div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">옷 골라주기 앱</h2>
+                            </div>
+                            <a href="#none" target="_blank"></a>
+                        </div>
+
+                    </div> -->
+                    <div class="ani_box">
+                        <!-- 
+                        실제 서비스 UI 클론
+                        1️⃣ Notion (전체 섹션 1페이지)
+                        2️⃣ Toss (텍스트 중심 섹션 2~3개)
+                          -->
+                        <div class="item item_notion">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>Notion UI 클론</h3>
+                                    <ul>
+                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
+                                            #Grid분기처리<br/>
+                                            #클래스기반UI<br/> 
+                                            #스크롤락<br/> 
+                                            #반응형
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg" style="border: 2px solid #666; box-sizing: border-box;">
+                                        <div class="bg bg-12"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">Notion UI 클론</h2>
+                            </div>
+                            <a href="project/notion_clone/notion_clone.html" target="_blank"></a>
+                        </div>
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>3M</h3>
+                                    <ul>
+                                        <li>
+                                            홈페이지 리뉴얼<br/>
+                                            #팀프로젝트<br/>
+                                            #반응형
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-7"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">3M</h2>
+                            </div>
+                            <a href="project/3M/3M_open_directly.html" target="_blank"></a>
+                        </div>
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>나모케미칼</h3>
+                                    <ul>
+                                        <li>홈페이지 리뉴얼</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-0"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">나모케미칼</h2>
+                            </div>
+                            <a href="https://namochemical.com/" target="_blank"></a>
+                        </div>
+                    </div>
+                    
+                    <div class="ani_box">
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>LIG  넥스원</h3>
+                                    <ul>
+                                        <li>
+                                            #UI 디자인<br/>
+                                            #관리자 페이지<br/>
+                                            #산업시스템UI<br/>
+                                            #대형디스플레이UI
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-6 popup" data-popup="lig"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">LIG  넥스원</h2>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>진실·화해를위한과거사정리위원회</h3>
+                                    <ul>
+                                        <li>"화해를 위한 조치"<br/>서브페이지</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-1"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">진실·화해를위한과거사정리위원회</h2>
+                            </div>
+                            <a href="https://jinsil.go.kr/fnt/bbm/bbs/selectBoardArticleView.do?nttId=22960&upper_menu_no=300000&menu_no=390000" target="_blank"></a>
+                        </div>
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>진실·화해를위한과거사정리위원회</h3>
+                                    <ul>
+                                        <li>
+                                            "한국전쟁 민간인 희생"
+                                            <br/>특별페이지</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-2"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">진실·화해를위한과거사정리위원회</h2>
+                            </div>
+                            <a href="https://jinsil.go.kr/KoreanWar.do" target="_blank"></a>
+                        </div>
+                        
+                    </div>
+                    <div class="ani_box">
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>GU VINA MES 퍼블리싱</h3>
+                                    <ul>
+                                        <li>
+                                            #MES&nbsp; #작업지시화면<br/>
+                                            #반응형UI&nbsp; #4K대응<br/>
+                                            #퍼블리싱전담
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-3 popup guvina_popup" data-popup="guvina"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">GU VINA MES 퍼블리싱</h2>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>FNG 소프트</h3>
+                                    <ul>
+                                        <li>홈페이지 리뉴얼</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-4"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">FNG 소프트</h2>
+                            </div>
+                            <a href="project/fng_soft/fng_index.html" target="_blank"></a>
+                        </div>
+                        <div class="item">
+                            <div class="hover">
+                                <div class="top_txt">
+                                    <h3>WITHUS  21</h3>
+                                    <ul>
+                                        <li>홈페이지 리뉴얼</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="in">
+                                <div class="border_r">
+                                    <div class="img_bg">
+                                        <div class="bg bg-5"></div>
+                                    </div>
+                                    <div class="btn">
+                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
+                                    </div>
+                                </div>
+                                <h2 class="pc_t">WITHUS  21</h2>
+                            </div>
+                            <a href="http://www.withus21.co.kr/" target="_blank"></a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+        <!-- ------------------------------------------- -->
+
+        <!-- 팝업 -->
+        <div id="project-popup" class="popup-window">
+            <div class="popup-inner">
+
+                <button type="button" class="popup-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="popup-header">
+                    <h3 class="popup-title"></h3>
+                </div>
+
+                <div class="popup-body">
+                    <!-- ✅ LIG 콘텐츠 -->
+                        <div class="popup-content" data-popup="lig">
+                            <div id="popup-lig-sw" class="LigSwiper">
+                                <p class="decs">
+                                    <b>「로봇활용 유도탄(천궁Ⅱ) 도장자동화시스템 구축」 프로젝트 UI 디자인</b><br/>
+                                    관리자 페이지 및 예지보전시스템 UI 디자인을 담당했습니다. 
+                                    3920×2205px 대형 커스텀 해상도 환경에 맞춰 화면 구조를 설계하고, 산업 설비 데이터를 효율적으로 시각화하는 UI를 구현했습니다.
+                                </p>
+                                <div class="swiper-wrapper">
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/1.png" alt=""/>
+                                        <h2>로그인 화면 UI</h2>
+                                    </div>
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/2.png" alt=""/>
+                                        <h2>작업지시목록 화면 UI</h2>
+                                    </div>
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/3.png" alt=""/>
+                                        <h2>재고현황 화면 UI</h2>
+                                    </div>
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/4.png" alt=""/>
+                                        <h2>생산이력조회 화면 UI</h2>
+                                    </div>
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/5.png" alt=""/>
+                                        <h2>메뉴트리목록 화면 UI</h2>
+                                    </div>
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/6.png" alt=""/>
+                                        <h2>작업진행목록 화면 UI</h2>
+                                    </div>
+                                    <div class="lig-img swiper-slide">
+                                        <img src="img/project/lig/7.png" alt=""/>
+                                        <h2>예지보전시스템 UI  |  컨셉 1</h2>
+                                    </div>
+                                    <div class="lig-img lig-img-8 swiper-slide">
+                                        <img src="img/project/lig/8.png" alt=""/>
+                                        <h2>예지보전시스템 UI  |  컨셉 2</h2>
+                                    </div>
+                                    <div class="lig-img lig-img-9 swiper-slide">
+                                        <img src="img/project/lig/9.png" alt=""/>
+                                        <h2>예지보전시스템 UI  |  컨셉 3</h2>
+                                    </div>
+                                </div>
+                                <div class="sw-moveBtn">
+                                    <button class="prev">prev</button>
+                                    <button class="next">next</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    
+
+                        <div class="popup-content" data-popup="guvina">
+                            <div id="popup-guvina">
+                                <p class="decs">
+                                    GU VINA MES 프로젝트의 주요 화면 퍼블리싱을 담당하였으며, 
+                                    4K UHD부터 PC 해상도까지 대응하는 반응형 UI를 구현했습니다. 
+                                    작업지시 화면을 포함한 전체 화면 구조 설계 및 공통 스타일 정리를 통해 일관된 퍼블리싱 구조를 구축했습니다.
+                                </p>
+                                <div class="gv-btn-wrap">
+                                    <button type="button" class="gv-btn gv-btn-1">
+                                        <p>Monitoring System</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/integrated_monitoring_system.html" target="_blank"></a>
+                                        <!-- * 3920픽셀 X 2205픽셀 해상도를 기준으로 함 (4K UHD) -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-2">
+                                        <p>Main Screen</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-main.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-3">
+                                        <p>Home</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub1.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-4">
+                                        <p>Automatic Operation</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub2.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-5">
+                                        <p>Robot Setting</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub3-1.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-6">
+                                        <p>All Robot Setting</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub3-2.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-7">
+                                        <p>Gun Setting</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub3-3.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-8">
+                                        <p>Purge & Color load</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub4.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-9">
+                                        <p>Model selection</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub5-1.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-10">
+                                        <p>PLC I/O</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub5-2.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                    <button type="button" class="gv-btn gv-btn-11">
+                                        <p>Alarm list</p>
+                                        <div class="goBtn"><i class="fa-solid fa-play"></i></div>
+                                        <a href="/project/GU/monitor-sub5-3.html" target="_blank"></a>
+                                        <!-- * 4K UHD ~ PC 해상도를 기준으로 함 -->
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- ------------------------------------------- -->
+
+
+
+
+
+
+     
+        
+        
+        <!-- ------------------------------------------- -->
+        <!-- Work process & Tech Stack -->
+        <section id="stackTech">
+
+            <div class="container">
             
-            <div class="scroll-box">
-                <div class="scroll-wrap">
+                <!-- tech -->
+                <div class="gridBox techBox">
+                    
+                  
+                    <div class="t-1">
+                        <ul>
+                            <li class="bold">HTML / CSS</li>
+                            <li> - 접근성과 유지보수를 고려한 Semantic Markup 설계</li>
+                            <li> - PC·Tablet·Mobile 환경에 최적화된 반응형 레이아웃 구현</li>
+                            <li> - 사용자 흐름을 자연스럽게 만드는 CSS Animation 및 인터랙션 적용</li>
+                        </ul>
+                    </div>
+                    <div class="t-2">
+                        <ul>
+                            <li class="bold">JavaScript</li>
+                            <li> - jQuery 및 Vanilla JavaScript를 활용한 UI 인터랙션 구현</li>
+                            <li> - DOM 제어 및 조건 분기를 통한 동적 기능 구현</li>
+                            <li> - GSAP / ScrollTrigger 기반 스크롤 애니메이션 적용</li>
+                        </ul>
+                    </div>
+                    <div class="t-3">
+                        <ul>
+                            <li class="bold">UI Library</li>
+                            <li> - Swiper/Slick : 반응형 슬라이드, 커스텀 네비게이션 구현</li>
+                            <li> - AOS : 스크롤 위치에 따른 콘텐츠 등장 애니메이션 적용</li>
+                            <li> - Chart.js : 관리자 페이지 내 데이터 시각화 차트 적용</li>
+                        </ul>
+                    </div>
+                    <div class="t-4">
+                        <ul>
+                            <li class="bold">Collaboration</li>
+                            <li> - Git 기반 협업 환경에서 퍼블리싱 작업 진행</li>
+                            <li> - 기획·디자인·개발 간 커뮤니케이션 경험</li>
+                            <li> - 공통 컴포넌트 관리 경험</li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <div class="padding"></div>
-                    <div class="video-wrap">
-                        <div class="relative">
-                            <div class="absolute black">
-                                <div class="overflow">
-                                    <h2 class="bold">I &nbsp;Build &nbsp;Interfaces</h2>
-                                </div>
-                                <div class="overflow">
-                                    <h2 class="light">
-                                        저는 꾸준한 학습과 실무 경험으로 퍼블리싱 역량을 성장시켜 왔습니다 !<br/>
-                                        사용자 경험을 개선하고 더 나은 웹을 만들기 위해 다양한 프로젝트를 수행하며,<br/>
-                                        원활한 소통과 체계적인 작업으로 완성도 높은 결과를 만들어가고 있습니다.
-                                    </h2>
-                                </div>
-                                <!-- <div class="margin overflow">
-                                    img
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="relative overflow">
-                            <div class="absolute white">
-                                <div class="overflow">
-                                    <h2 class="bold">I &nbsp;Build &nbsp;Interfaces</h2>
-                                </div>
-                                <div class="overflow">
-                                    <h2 class="light">
-                                        저는 꾸준한 학습과 실무 경험으로 퍼블리싱 역량을 성장시켜 왔습니다 !<br/>
-                                        사용자 경험을 개선하고 더 나은 웹을 만들기 위해 다양한 프로젝트를 수행하며,<br/>
-                                        원활한 소통과 체계적인 작업으로 완성도 높은 결과를 만들어가고 있습니다.
-                                    </h2>
-                                </div>
-                                <div class="margin overflow">
-                                    img
-                                </div>
-                            </div>
-                        </div>
-                        <div class="video-box">
-                            <div class="video" style="height: 800px; background-color: blueviolet;">
-                                <video class="pc"></video>
-                            </div>
+                <div class="gridBox gridBox-2">
+                    <div class="gridBox design-box">
+                        <div class="design-tit">Design Understanding</div>
+                        <div class="design-container">
+                            <div class="design">UI 디자인 경험</div>
+                            <div class="design">Figma 협업 경험</div>
+                            <div class="design">반응형 적용</div>
                         </div>
                     </div>
 
+                
+                    <div class="gridBox work-box">
+                        <div class="work-tit">Work Process</div>
+                        <div class="work-container">
+                            <div class="work">요구사항 파악</div>
+                            <div class="work">구조 설계 & 시맨틱 마크업</div>
+                            <div class="work">퍼블리싱 & 반응형</div>
+                            <div class="work">인터랙션 적용</div>
+                            <div class="work">테스트 & 수정</div>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
-
+            
         </section>
-        <!-- ------------------------------------------- -->
 
         <!-- about -->
         <section id="about">
 
             <!-- 4개의 아이템 섹션 1 -->
-            <div class="item-container">
+            <div class="container">
                 <div class="item">
                     <div class="svg_ctn svg1"><img src="img/about/item_design.svg" alt=""/></div>
                     <div class="txt">
@@ -162,646 +717,90 @@
 
            
         </section>
-        <!-- ------------------------------------------- -->
-
-
-
-        <!-- Work process & Tech Stack -->
-        <section id="techStack">
-            <div class="w1600 container">
-
-
-                
-
-                <!-- tech -->
-                <div class="tech-box">
-                  
-                    <div class="tech tech-bottom">
-
-                        <div class="t-inner">
-                            <div class="t-1">
-                                <span class="tit">HTML / CSS</span>
-                                <ul>
-                                    <li>- Semantic Markup</li>
-                                    <li>- 반응형 레이아웃 적용</li>
-                                    <li>- CSS Animation</li>
-                                </ul>
-                            </div>
-                            <div class="t-2">
-                                <span class="tit">JavaScript</span>
-                                <ul>
-                                    <li>- jQuery</li>
-                                    <li>- Vanilla JS</li>
-                                    <li>- GSAP / ScrollTrigger</li>
-                                </ul>
-                            </div>
-                            <div class="t-3">
-                                <span class="tit">UI Library</span>
-                                <ul>
-                                    <li>- Swiper/Slick : 반응형 슬라이드, 커스텀 네비게이션 구현</li>
-                                    <li>- AOS : 스크롤 위치에 따른 콘텐츠 등장 애니메이션 적용</li>
-                                    <li>- Chart.js : 관리자 페이지 내 데이터 시각화 차트 적용</li>
-                                </ul>
-                            </div>
-                            <div class="t-4">
-                                <span class="tit">Collaboration</span>
-                                <ul>
-                                    <li>- Git 기반 협업 환경에서 퍼블리싱 작업 진행</li>
-                                    <li>- 기획·디자인·개발 간 커뮤니케이션 경험</li>
-                                    <li>- 공통 컴포넌트 관리 경험</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- arrow box -->
-                <div class="arrow-box">
-                    <span><img src="img/arrow_DOWN.svg" alt=""/></span>
-                    <span><img src="img/arrow_DOWN.svg" alt=""/></span>
-                    <span><img src="img/arrow_DOWN.svg" alt=""/></span>
-                </div>
-
-
-                <!-- work -->
-                <div class="work-box">
-                    <div class="work">요구사항 파악</div>
-                    <div class="work">구조 설계 & 시맨틱 마크업</div>
-                    <div class="work">퍼블리싱 & 반응형 대응</div>
-                    <div class="work">인터랙션 적용</div>
-                    <div class="work">테스트 & 수정</div>
-                </div>
-
-            </div>
-        </section> 
-        <!-- ------------------------------------------- -->
-
-
 
 
 
         
 
-
-        <!-- project -->
-        <section id="project">
-            <div class="container">
-
-                <div class="pftit-container">
-                    <div class="tit">
-                        <h2 class="split">PORTFOLIO</h2>	
-                    </div>
-                    <div class="hashtag">
-                        <span># 진실·화해를위한과거사정리위원회</span>
-                        <span># 반응형</span>
-                        <span># 서브페이지</span>
-                        <span># 홈페이지 리뉴얼</span>
-                        <span># 관리자 페이지</span>
-                        <span># 모니터링시스템</span>
-                        <span># 예지보전시스템</span>
-                    </div>
-                </div>
-                
-
-                <!-- portfolio item box -->
-                <div class="pfitem-container list">
-                    <div class="ani_box">
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>나모케미칼</h3>
-                                    <ul>
-                                        <li>홈페이지 리뉴얼</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-0"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">나모케미칼</h2>
-                            </div>
-                            <a href="https://namochemical.com/" target="_blank"></a>
-                        </div>
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>진실·화해를위한과거사정리위원회</h3>
-                                    <ul>
-                                        <li>"화해를 위한 조치"<br/>서브페이지</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-1"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">진실·화해를위한과거사정리위원회</h2>
-                            </div>
-                            <a href="https://jinsil.go.kr/fnt/bbm/bbs/selectBoardArticleView.do?nttId=22960&upper_menu_no=300000&menu_no=390000" target="_blank"></a>
-                        </div>
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>진실·화해를위한과거사정리위원회</h3>
-                                    <ul>
-                                        <li>"한국전쟁 민간인 희생"<br/>특별페이지</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-2"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">진실·화해를위한과거사정리위원회</h2>
-                            </div>
-                            <a href="https://jinsil.go.kr/KoreanWar.do" target="_blank"></a>
-                        </div>
-                        
-                    </div>
-                    <div class="ani_box">
-
-                        <!-- --------- 얘도 팝업 만들어야 함 --------- -->
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>GU VINA</h3>
-                                    <ul>
-                                        <li>모니터링시스템 퍼블리싱</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-3 popup guvina_popup" data-popup="guvina"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">GU VINA</h2>
-                            </div>
-                        </div>
-                        <!-- --------- 얘도 팝업 만들어야 함 --------- -->
-
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>FNG 소프트</h3>
-                                    <ul>
-                                        <li>홈페이지 리뉴얼</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-4"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">FNG 소프트</h2>
-                            </div>
-                            <a href="project/fng_soft/fng_index.html" target="_blank"></a>
-                        </div>
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>WITHUS  21</h3>
-                                    <ul>
-                                        <li>홈페이지 리뉴얼</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-5"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">WITHUS  21</h2>
-                            </div>
-                            <a href="http://www.withus21.co.kr/" target="_blank"></a>
-                        </div>
-                        
-                    </div>
-                    <div class="ani_box">
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>LIG  넥스원</h3>
-                                    <ul>
-                                        <li>
-                                            UI 디자인<br/>
-                                            #관리자 페이지<br/>
-                                            #예지보전시스템 
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-6 popup" data-popup="lig"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">LIG  넥스원</h2>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>3M</h3>
-                                    <ul>
-                                        <li>
-                                            홈페이지 리뉴얼<br/>
-                                            #팀프로젝트 #반응형
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-7"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">3M</h2>
-                            </div>
-                            <a href="project/3M/3M_open_directly.html" target="_blank"></a>
-                        </div>
-                        
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>Ben & Jerry's</h3>
-                                    <ul>
-                                        <li>
-                                            홈페이지 리뉴얼<br/>
-                                            #개인프로젝트<br/>
-                                            #PC #서브페이지
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-8"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">Ben & Jerry's</h2>
-                            </div>
-                            <a href="project/ben/ben.html" target="_blank"></a>
-                        </div>
-                    </div>
-                    <div class="ani_box">
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>Hollys Coffee</h3>
-                                    <ul>
-                                        <li>
-                                            홈페이지 리뉴얼<br/>
-                                            #개인프로젝트 #반응형
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-9"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">Hollys Coffee</h2>
-                            </div>
-                            <a href="project/hollys/hollys.html" target="_blank"></a>
-                        </div>
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>Kiehl's</h3>
-                                    <ul>
-                                        <li>
-                                            홈페이지 리뉴얼<br/>
-                                            #개인프로젝트 #반응형
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-10"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">Kiehl's</h2>
-                            </div>
-                            <a href="project/kiehl/kiehls.html" target="_blank"></a>
-                        </div>
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>OVERDRIVE 앨범홍보페이지</h3>
-                                    <ul>
-                                        <li>
-                                            #기획/디자인/코딩<br/>
-                                            #앨범홍보 #팬페이지
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-11"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">OVERDRIVE 앨범홍보페이지</h2>
-                            </div>
-                            <a href="project/im/im.html" target="_blank"></a>
-                        </div>
-                    </div>
-                    <!-- NEW -->
-                    <div class="ani_box">
-                        <!-- GSAP 반응형 사이트 -->
-                        <!-- <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>GSAP 반응형 사이트</h3>
-                                    <ul>
-                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
-                                            GSAP를 이용한 반응형 사이트
-                                            #개인프로젝트 #반응형
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-12"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">GSAP 반응형 사이트</h2>
-                            </div>
-                            <a href="#none" target="_blank"></a>
-                        </div> -->
-
-                        <!-- 
-                        실제 서비스 UI 클론
-                        1️⃣ Notion (전체 섹션 1페이지)
-                        2️⃣ Toss (텍스트 중심 섹션 2~3개)
-                          -->
-                        <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>Notion UI 클론</h3>
-                                    <ul>
-                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
-                                            #실제 서비스 중인 UI를 참고<br/>
-                                            #텍스트 정렬 #줄바꿈 규칙<br/> 
-                                            #반응형 레이아웃
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-12"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">Notion UI 클론 <span style="color: #888;">~ing</span></h2>
-                            </div>
-                            <a href="project/notion_clone/notion_clone.html" target="_blank"></a>
-                        </div>
-
-                        <!-- 상태 처리 / 간단한 API 연동  -->
-                        <!-- <div class="item">
-                            <div class="hover">
-                                <div class="top_txt">
-                                    <h3>상태 처리 / 간단한 API 연동</h3>
-                                    <ul>
-                                        <li style="word-break: keep-all; overflow-wrap: break-word;">
-                                            상태 처리 / 간단한 API 연동
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="in">
-                                <div class="border_r">
-                                    <div class="img_bg">
-                                        <div class="bg bg-13"></div>
-                                    </div>
-                                    <div class="btn">
-                                        <i><img src="img/project/arrow.svg" alt="arrow"/></i>
-                                    </div>
-                                </div>
-                                <h2 class="pc_t">상태 처리 / 간단한 API 연동 <span style="color: #888;">~ing</span></h2>
-                            </div> -->
-                            <!-- <a href="project/API_integration/API_integration.html" target="_blank"></a> -->
-                        </div>
-
-                    </div>
-                   
-                </div>
-
-            </div>
-        </section>
-        <!-- ------------------------------------------- -->
-
-        <!-- LIG넥스원 팝업 -->
-        <div id="project-popup" class="popup-window">
-            <div class="popup-inner">
-
-                <button type="button" class="popup-close">×</button>
-
-                <div class="popup-header">
-                    <h3 class="popup-title"></h3>
-                </div>
-
-                <div class="popup-body">
-                    <!-- ✅ LIG 콘텐츠 -->
-                        <div class="popup-content" data-popup="lig">
-                            <div id="popup-lig-sw" class="LigSwiper">
-                                <div class="swiper-wrapper">
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/1.png" alt=""/>
-                                        <h2>로그인 화면 UI</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/2.png" alt=""/>
-                                        <h2>작업지시목록 화면 UI</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/3.png" alt=""/>
-                                        <h2>재고현황 화면 UI</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/4.png" alt=""/>
-                                        <h2>생산이력조회 화면 UI</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/5.png" alt=""/>
-                                        <h2>메뉴트리목록 화면 UI</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/6.png" alt=""/>
-                                        <h2>작업진행목록 화면 UI</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/7.png" alt=""/>
-                                        <h2>예지보전시스템 UI  |  컨셉 1</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/8.png" alt=""/>
-                                        <h2>예지보전시스템 UI  |  컨셉 2</h2>
-                                    </div>
-                                    <div class="lig-img swiper-slide">
-                                        <img src="img/project/lig/9.png" alt=""/>
-                                        <h2>예지보전시스템 UI  |  컨셉 3</h2>
-                                    </div>
-                                </div>
-                                <div class="swiper-pagination"></div>
-                            </div>
-                            
-                        </div>
-                    
-
-                        <div class="popup-content" data-popup="guvina" style="display:none;">
-                            <div id="popup-guvina-sw">
-                                <div class="swiper-wrapper">
-                                    ㄴㅇㄹ호ㅓㅏㅣ;ㅏㅓㅗㅎㄽㅇㄱㄴㅁㄹ호ㅓㅏㅣ;ㅏㅓㅗㅎㄹㅇ
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- ------------------------------------------- -->
-
-
-
-
-
-
         <!-- Problem Solving (트러블슈팅 경험) -->
         <section id="problem">
-            <div class="w1200 container">
+            <div class="container">
 
                 <span class="title">문제 해결 및 개선 경험</span>
 
                 <div class="inner">
 
-                    <div class="box left">
-                        <div class="p-card">
-                            <div class="tit">ScrollTrigger 초기 점프 현상 이슈</div>
-                            <div class="decs">
-                                ScrollTrigger 적용 과정에서<br/>
-                                새로고침 시 요소가 순간적으로 튀는 현상을 경험했습니다.<br/>
-                                초기 렌더링 옵션과 refresh 타이밍을 조정하여<br/>
-                                스크롤 흐름이 자연스럽게 이어지도록 개선했습니다.
-                            </div>
-                        </div>
-                        <div class="p-card">
-                            <div class="tit">모바일 환경에 맞춘 인터랙션 구조 개선</div>
-                            <div class="decs">
-                                PC hover 기반 인터랙션이<br/>
-                                모바일 환경에서 동작하지않기 때문에<br/>
-                                디바이스 환경에 따라 click 방식으로 동작을 분리하여<br/>
-                                모든 환경에서 자연스러운 사용 경험을 개선했습니다.
-                            </div>
-                        </div>
-                        <div class="p-card">
-                            <div class="tit">스크롤 이벤트 최소화 및 퍼포먼스 개선</div>
-                            <div class="decs">
-                                스크롤 이벤트로 인한 성능 저하를 줄이기 위해<br/>
-                                불필요한 이벤트를 제거하고<br/>
-                                GSAP ScrollTrigger 기반으로 전환하여<br/>
-                                부드러운 인터랙션을 구현했습니다.(포트폴리오)
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="box right">
-                        <div class="p-card">
-                            <div class="tit">팝업 내 Swiper 초기화 문제</div>
-                            <div class="decs">
-                                팝업 내부에 Swiper를 적용했을 때<br/>
-                                초기에 설정했던 레이아웃이 깨지는 이슈가 발생하여,<br/>
-                                팝업이 열린 이후 슬라이더를 재계산하는 방식으로<br/>
-                                안정적인 화면 구성을 유지했습니다.
+                        <div class="detail_box detail_box_1">
+                            <div class="problem_summary">
+                                <div class="problem_txt">ScrollTrigger 초기 렌더링 및 Refresh 타이밍 최적화</div>
+                                <div class="problem_arrow"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="problem_answer">
+                                ScrollTrigger 적용 시 새로고침 직후 요소가 순간적으로 튀는 초기 렌더링 이슈를 경험했습니다.<br/>
+                                DOM 렌더링 타이밍과 ScrollTrigger의 refresh 시점 차이에서 원인을 파악하고,<br/>
+                                초기 상태 설정 및 옵션 조정을 통해 레이아웃 계산을 안정화했습니다. 이를 통해 스크롤 인터랙션이 자연스럽게 이어지도록 개선했습니다.
                             </div>
                         </div>
-                        <div class="p-card">
-                            <div class="tit">클릭 영역 충돌 문제</div>
-                            <div class="decs">
-                                카드 전체를 덮는 a링크 구조로 인해<br/>
-                                내부의 버튼 클릭이 불가능한 문제를 경험했고,<br/>
-                                z-index 및 pointer-events를 조정해서<br/>
-                                사용자의 클릭 흐름을 방해하지 않도록 개선했습니다.
-                            </div>
-                        </div>
-                        <div class="p-card">
-                            <div class="tit">유지보수를 고려한 리팩토링</div>
-                            <div class="decs">
-                                중복된 CSS스타일과 복잡한 구조로 인해<br/>
-                                수정이 어려웠던 부분을 정리하고,<br/>
-                                공통 스타일 분리 및 구조 개선을 통해<br/>
-                                유지보수성을 높였습니다.
-                            </div>
-                        </div>
-                    </div>
 
+                        <div class="detail_box detail_box_2">
+                            <div class="problem_summary">
+                                <div class="problem_txt">모바일 환경에 맞춘 인터랙션 구조 개선</div>
+                                <div class="problem_arrow"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="problem_answer">
+                                PC hover 기반 인터랙션이 모바일 환경에서 동작하지 않는 문제를 인지하고,
+                                디바이스 환경에 따라 hover와 click 이벤트를 분리 적용했습니다.<br/> 
+                                이를 통해 모든 환경에서 일관되고 자연스러운 사용자 경험을 구현했습니다.
+                            </div>
+                        </div>
+
+                        <div class="detail_box detail_box_3">
+                            <div class="problem_summary">
+                                <div class="problem_txt">스크롤 이벤트 최소화 및 퍼포먼스 개선</div>
+                                <div class="problem_arrow"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="problem_answer">
+                                과도한 scroll 이벤트 사용으로 인한 성능 저하를 개선하기 위해 
+                                불필요한 이벤트를 제거하고 GSAP ScrollTrigger 기반 구조로 전환했습니다.<br/>  
+                                그 결과, 렌더링 부담을 줄이고 부드러운 스크롤 인터랙션을 구현했습니다.
+                            </div>
+                        </div>
+
+                        <div class="detail_box detail_box_4">
+                            <div class="problem_summary">
+                                <div class="problem_txt">팝업 내 Swiper 초기화 문제</div>
+                                <div class="problem_arrow"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="problem_answer">
+                                팝업 내부에 Swiper 적용 시 초기 레이아웃 계산 오류로 화면이 깨지는 문제를 경험했습니다.<br/>  
+                                팝업 오픈 이후 슬라이더를 재초기화하도록 로직을 수정하여 안정적인 레이아웃을 유지하도록 개선했습니다.
+                            </div>
+                        </div>
+
+                        <div class="detail_box detail_box_5">
+                            <div class="problem_summary">
+                                <div class="problem_txt">클릭 영역 충돌 문제</div>
+                                <div class="problem_arrow"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="problem_answer">
+                                카드 전체를 감싸는 링크 구조로 인해 내부 버튼 클릭이 차단되는 이슈를 확인했습니다.<br/>  
+                                z-index 구조와 pointer-events 속성을 재설계하여 사용자 클릭 흐름이 자연스럽게 동작하도록 개선했습니다.
+                            </div>
+                        </div>
+
+                        <div class="detail_box detail_box_6">
+                            <div class="problem_summary">
+                                <div class="problem_txt">유지보수를 고려한 리팩토링</div>
+                                <div class="problem_arrow"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="problem_answer">
+                                중복된 CSS와 복잡한 구조로 인해 확장성이 낮았던 부분을 정리하고,<br/>  
+                                공통 스타일 분리 및 구조 재정비를 통해 유지보수성과 재사용성을 향상시켰습니다.
+                            </div>
+                        </div>
+
+                    
                 </div>
                 
             </div>
@@ -813,165 +812,187 @@
 
 
 
-
-        <!-- ui-polish -->
-        <section id="ui-polish">
-            <div class="w1200 container">
-
-                <div class="title">차이를 만드는 <b>UI 디테일 모음</b></div>
-
-                <div class="cont-box">
-                    <div class="cont"><a href="effect/ui_hoverBtn.html" target="_blank">hover 버튼모음</a></div>
-                    <div class="cont"><a href="effect/Form_ux.html" target="_blank">Form Focus UI</a></div>
-                    <div class="cont"><a href="effect/Click_area.html" target="_blank">클릭 영역 최적화</a></div>
-                    <div class="cont"><a href="effect/Text_align.html" target="_blank">텍스트 정렬 & 줄바꿈</a></div>
-                    <div class="cont"><a href="effect/Search_Form.html" target="_blank">Search Form UI</a></div>
-
-                    야야야 이거 디자인 바꿔
-                </div>
-
-                
-            </div>
-        </section>
+       
 
 
 
-        <!-- effect -->
-        <section id="effect">
-            
-            <div class="tit-zone">
-                웹을 더 생동감 있게 만드는 인터랙션 및 모션 작업 모음입니다
+        <section id="uiEffect">
+
+
+            <div class="title">
+                <b>UI & Interaction</b> 디테일 모음
             </div>
 
 
-            <div class="efitem-zone">
+            <div class="container">
 
-
-                <!-- 위 -->
-                <div class="efitem-box top">
-                    <div data-aos="fade-right" data-aos-offset="550" data-aos-easing="ease-in-sine">
-                        <div class="swiper-slide efitem efitem-1">
-                            <h2>Background Parallax</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/parallax.svg" alt=""/>
-                            </div>
-                            <a href="effect/Background-Parallax.html" target="_blank"></a>
+                <div class="ue-box ue-box-1">
+                    <div class="ue-tit">UI detail</div>
+                    <div class="inner">
+                        <div class="ue ue-1">
+                            <h2>
+                                <i class="fa-solid fa-arrow-pointer"></i>
+                                Hover 버튼모음
+                            </h2>
+                            <p>
+                            호버 상태로 클릭 가능 요소를 직관적으로 전달하는 버튼 UI  
+                            </p>
+                            <a href="effect/ui_hoverBtn.html" target="_blank"></a>
                         </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Card Parallax</h2>
-                            <div class="efitem-img">
-                               <img src="img/effect/parallax.svg" alt=""/>
-                            </div>
-                            <a href="effect/Card-Parallax.html" target="_blank"></a>
+                        <div class="ue ue-2">
+                            <h2>
+                                <i class="fa-solid fa-square-pen"></i>
+                                Form Focus UI
+                            </h2>
+                            <p>
+                            포커스 흐름을 시각적으로 강조한 입력 중심 UI
+                            </p>
+                            <a href="effect/Form_ux.html" target="_blank"></a>
                         </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Chart.js</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/chart.svg" alt=""/>
-                            </div>
-                            <a href="effect/chart/index.html" target="_blank"></a>
+                        <div class="ue ue-3">
+                            <h2>
+                                <i class="fa-solid fa-hand-point-up"></i>
+                                클릭 영역 최적화
+                            </h2>
+                            <p>
+                            실제 클릭 영역을 확장해 사용성을 개선한 UI 패턴
+                            </p>
+                            <a href="effect/Click_area.html" target="_blank"></a>
                         </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Pagination</h2>
-                            <div class="efitem-img" style="justify-content: center;">
-                                <img src="img/effect/pagination.svg" alt=""/>
-                            </div>
-                            <a href="effect/pagination.html" target="_blank"></a>
+                        <div class="ue ue-4">
+                            <h2>
+                                <i class="fa-solid fa-a"></i>
+                                텍스트 정렬 & 줄바꿈
+                            </h2>
+                            <p>
+                            가독성을 고려한 정렬 및 반응형 줄바꿈 처리
+                            </p>
+                            <a href="effect/Text_align.html" target="_blank"></a>
                         </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Open Platform</h2>
-                            <div class="efitem-img">
-                               <img src="img/effect/platform.svg" alt=""/>
-                            </div>
-                            <a href="effect/open_platform/a.html" target="_blank"></a>
+                        <div class="ue ue-5">
+                            <h2>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                Search Form UI
+                            </h2>
+                            <p>
+                            입력 → 탐색 흐름이 명확한 검색 Form UI
+                            </p>
+                            <a href="effect/Search_Form.html" target="_blank"></a>
                         </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Slick_Center</h2>
-                            <div class="efitem-img" style="justify-content: center;">
-                                <img src="img/effect/slick-center.svg" alt=""/>
-                            </div>
-                            <a href="effect/slick_customCenter/center.html" target="_blank"></a>
+                        <div class="ue ue-6">
+                            <h2>
+                                <i class="fa-solid fa-circle-up"></i>
+                                Sticky Stop Top
+                            </h2>
+                            <p>
+                            헤더 및 푸터와의 충돌 방지를 고려한 고정 Top UI
+                            </p>
+                            <a href="effect/sticky_Stop_Top.html" target="_blank"></a>
                         </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Slick_3item</h2>
-                            <div class="efitem-img" style="justify-content: center;">
-                                <img src="img/effect/slick-3.svg" alt=""/>
-                            </div>
-                            <a href="effect/slick_customThreeitems/slick-1.html" target="_blank"></a>
-                        </div>
-                        
-                    </div>
-                </div>
-                <!-- 아래 -->
-                <div class="efitem-box bottom">
-                    <div data-aos="fade-left" data-aos-offset="450" data-aos-delay="500" data-aos-easing="ease-in-sine">
-                        <div class="swiper-slide efitem">
-                            <h2>Scroll Fade</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/scroll-fadeup.svg" alt=""/>
-                            </div>
-                            <a href="effect/Scroll_fade.html" target="_blank"></a>
-                        </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Split Text</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/split.svg" alt=""/>
-                            </div>
-                            <a href="effect/Split_text.html" target="_blank"></a>
-                        </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Scrolling Image Reveal</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/reveal.svg" alt=""/>
-                            </div>
-                            <a href="effect/Image-reveal.html" target="_blank"></a>
-                        </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Smooth Hover Zoom</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/hoverzoom.svg" alt=""/>
-                            </div>
-                            <a href="effect/Smooth_hover_zoom.html" target="_blank"></a>
-                        </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Infinite Marquee</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/marquee.svg" alt=""/>
-                            </div>
-                            <a href="effect/Infinite_marquee.html" target="_blank"></a>
-                        </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Scroll Theme Switch</h2>
-                            <div class="efitem-img" style="justify-content: center;">
-                               <img src="img/effect/change_scroll.svg" alt=""/>
-                            </div>
-                            <a href="effect/Scroll_back_color.html" target="_blank"></a>
-                        </div>
-                        <div class="swiper-slide efitem">
-                            <h2>Number Counter</h2>
-                            <div class="efitem-img">
-                                <img src="img/effect/counter.svg" alt=""/>
-                            </div>
-                            <a href="effect/Number_counter.html" target="_blank"></a>
-                        </div>
-                        
                     </div>
                 </div>
 
+                <div class="ue-box ue-box-2">
+                    <div class="ue-tit">Interaction</div>
+                    <div class="inner">
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-up-down"></i>
+                                    Background Parallax
+                                </h2>
+                                <a href="effect/Background-Parallax.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2 class="pd-more">
+                                    <i class="fa-solid fa-chart-pie"></i>
+                                    Chart.js
+                                </h2>
+                                <a href="effect/chart/index.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                    Pagination
+                                </h2>
+                                <a href="effect/pagination.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-box"></i>
+                                    Open Platform
+                                </h2>
+                                <a href="effect/open_platform/a.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-s"></i>
+                                    Slick_Center
+                                </h2>
+                                <a href="effect/slick_customCenter/center.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-s"></i>
+                                    Slick_3item
+                                </h2>
+                                <a href="effect/slick_customThreeitems/slick-1.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2 class="pd-more">
+                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                                    Scroll Fade
+                                </h2>
+                                <a href="effect/Scroll_fade.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2 class="pd-more">
+                                    <i class="fa-solid fa-language"></i>
+                                    Split Text
+                                </h2>
+                                <a href="effect/Split_text.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-file-image"></i>
+                                    Scroll Image Reveal
+                                </h2>
+                                <a href="effect/Image-reveal.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2 class="pd-more">
+                                    <i class="fa-solid fa-infinity"></i>
+                                    Infinite Marquee
+                                </h2>
+                                <a href="effect/Infinite_marquee.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2 class="pd-more">
+                                    <i class="fa-solid fa-fill-drip"></i>
+                                    Section Switch
+                                </h2>
+                                <a href="effect/Scroll_back_color.html" target="_blank"></a>
+                            </div>
+                            <div class="ue">
+                                <h2>
+                                    <i class="fa-solid fa-calculator"></i>
+                                    Number Counter
+                                </h2>
+                                <a href="effect/Number_counter.html" target="_blank"></a>
+                            </div>
+                    </div>
+                </div>
 
             </div>
-
-
         </section>
-        <!-- ------------------------------------------- -->
+
+         
 
 
 
 
+       
 
 
-
-        <!-- inquiry - 말풍선 둥둥 떠다니는 섹션 -->
         <section id="balloon">
             <div class="box">
 
@@ -1006,7 +1027,7 @@
 
         <!-- footer -->
         <footer id="footer">
-            <div class="w1300 container">
+            <div class="container">
 
                 <div class="top" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="linear">
                     <h2 class="split-footer">LET'S &nbsp;&nbsp;WORK &nbsp;&nbsp;TOGETHER !</h2>
@@ -1020,7 +1041,7 @@
                     </a>
                 </div>
 
-                <div class="bottom">© Copyright 2025 DoHwi Kim.</div>
+                
 
             </div>
         </footer>

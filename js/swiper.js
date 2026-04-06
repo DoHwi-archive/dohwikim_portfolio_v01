@@ -37,14 +37,13 @@ $(document).ready(function(){
 
 
     var swiper = new Swiper(".LigSwiper", {
-      slidesPerView: 1.5,
-      spaceBetween: 30,
-    //   centeredSlides: true,
+      
       loop: true,
-      pagination: {
-        el: ".popup-content .swiper-pagination",
-        clickable: true,
+      navigation: {
+        nextEl: ".popup-content .sw-moveBtn button.next",
+        prevEl: ".popup-content .sw-moveBtn button.prev",
       },
+
     });
 
     

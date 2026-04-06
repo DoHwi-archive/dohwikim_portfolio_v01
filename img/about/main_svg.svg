@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1435 620" style="enable-background:new 0 0 1435 620;" xml:space="preserve">
+<style type="text/css">
+	.st001{fill:#27B2EC;}
+	.st002{fill:#FFFFFF;}
+	.st003{font-family:'RedHatDisplay-Regular';}
+	.st004{font-size:20px;}
+	.st005{fill:#1AA9AE;}
+	.st006{fill:#082284;}
+	.st007{fill:#136ABF;}
+</style>
+<g id="item04">
+	<g>
+		<circle class="st001" cx="1306.5" cy="509.5" r="110.5"/>
+		<text transform="matrix(1 0 0 1 1265.1108 515.46)" class="st002 st003 st004">Scripting </text>
+	</g>
+</g>
+<g id="item03">
+	<g>
+		<path class="st005" d="M802.5,557.13L802.5,557.13c-58-72.34-46.38-178.01,25.97-236.01l270.51-216.89
+			c72.34-58,178.01-46.38,236.01,25.97l0,0c58,72.34,46.38,178.01-25.97,236.01l-270.51,216.89
+			C966.17,641.09,860.5,629.47,802.5,557.13z"/>
+		<text transform="matrix(0.7802 -0.6255 0.6255 0.7802 1037.3167 376.4959)" class="st002 st003 st004">Publishing</text>
+	</g>
+</g>
+<g id="item02">
+	<g>
+		<circle class="st006" cx="560.5" cy="413.5" r="206.5"/>
+		<text transform="matrix(1 0 0 1 486.5808 419.46)" class="st002 st003 st004">Contents Design</text>
+	</g>
+</g>
+<g id="item01">
+	<g>
+		<path class="st007" d="M334,620H38c-11.05,0-20-8.96-20-20V152c0-11.05,8.96-20,20-20H334c11.05,0,20,8.96,20,20V600
+			C354,611.04,345.04,620,334,620z"/>
+		<text transform="matrix(6.123234e-17 -1 1 6.123234e-17 191.96 445.9985)" class="st002 st003 st004">Creative Design</text>
+	</g>
+</g>
+</svg>

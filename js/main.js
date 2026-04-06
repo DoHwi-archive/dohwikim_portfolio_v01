@@ -8,113 +8,143 @@ $(window).on("load", function (){
 	});
 	
 
+	
+
 	// -----------------------------
 	// ScrollTrigger 모음 (
 	// -----------------------------
 	function initScrollTriggers() {
 		gsap.registerPlugin(ScrollTrigger);
 
+		// createMainVisualStage();
+		// createHeroDoneToggle(); // ✅ 추가
+
 		ScrollTrigger.matchMedia({
 
-			// PC (1200px 이상)
-			"(min-width: 1200px)": function () {
-				createVisualPC();      // #visual 관련 PC용 스크롤 애니메이션
+			// PC (1051px 이상)
+			"(min-width: 1051px)": function () {
+				createMainVisualStage();  //메인비주얼
+				createHeroDoneToggle();   //메인비주얼
 				createAboutSplit();    // #about 타이틀 split 애니메이션
-				createTechstackTriggers();
 				createProjectTriggers();  // #project 업다운
-				createEffectTriggers();  // #effect 배경색변경
+				createBalloonTriggers();  // #balloon 배경색변경
 				createFooterTriggers();  //footer h2 애니메이션
 				
 			},
 
-			// 모바일/태블릿 (1199px 이하)
-			"(max-width: 1199px)": function () {
-				createVisualMO();      // #visual 관련 모바일용 스크롤 애니메이션
-				createAboutSplit();    // #about 타이틀 split 애니메이션 (모바일에서도 동일하게 사용)
-				createTechstackTriggers();
-				createProjectTriggers();  // #project 업다운
-				createEffectTriggers();   // #effect 배경색변경
-				createFooterTriggers();  //footer h2 애니메이션
+			// 모바일/태블릿 (1050px 이하)
+			"(max-width: 1050px) and (min-width: 769px)": function () {
+				createAboutSplit();
+				createBalloonTriggers();   
+				createFooterTriggers(); 
 				
+			},
+			// 모바일 (768px 이하)
+			"(max-width: 768px) and (min-width: 320px)": function () {
+				createAboutSplit();
+				createBalloonTriggers();
+				createFooterTriggers();
 			}
 
+		});
+		ScrollTrigger.refresh();
+	}
+
+	
+	
+
+
+	// -----------------------------
+	// #mainVisual 
+	// -----------------------------
+	function createMainVisualStage(){
+
+	// 요소 체크
+		const mainVisual = document.getElementById("mainVisual");
+		const heroMotion = document.getElementById("mainVisualMotion");
+		const card = document.getElementById("card");
+		if(!mainVisual || !heroMotion || !card) return;
+
+		// 초기값(깜빡임 방지)
+		gsap.set(heroMotion, { y: 0, opacity: 1 });
+		gsap.set(card, { y: 60, opacity: 0.15 });
+
+		// ✅ 메인비주얼 스크롤 애니메이션(페이드 + 축소 + 내부요소 모션)
+		gsap.to("#mainVisual", {
+			scale: 0.6,
+			opacity: 0,
+			ease: "none",
+			scrollTrigger: {
+			trigger: "#mainVisual",
+			start: "top top",
+			end: "bottom top",
+			scrub: true,
+			// markers: true,
+			}
+		});
+
+		gsap.to("#mainVisualMotion", {
+			y: -80,
+			opacity: 0.4,
+			ease: "none",
+			scrollTrigger: {
+			trigger: "#mainVisual",
+			start: "top top",
+			end: "bottom top",
+			scrub: true,
+			}
+		});
+
+		gsap.to("#card", {
+			y: 0,
+			opacity: 1,
+			ease: "none",
+			scrollTrigger: {
+			trigger: "#mainVisual",
+			start: "top top",
+			end: "bottom top",
+			scrub: true,
+			}
+		});
+
+		// ✅ 메인비주얼을 “완전히 지나쳤을 때” 클래스 붙이고, 다시 올라오면 제거
+		ScrollTrigger.create({
+			trigger: "#mainVisual",
+			start: "top top",
+			end: "bottom top",
+			onLeave: () => mainVisual.classList.add("scrollMainV"),
+			onEnterBack: () => mainVisual.classList.remove("scrollMainV"),
+		});
+	}
+
+
+
+
+
+
+
+	function createHeroDoneToggle(){
+		const stage = document.getElementById("stage");
+		if(!stage) return;
+
+		ScrollTrigger.create({
+			trigger: stage,
+			start: "top top",
+			end: "bottom top",
+			onLeave: () => document.body.classList.add("hero-done"),
+			onEnterBack: () => document.body.classList.remove("hero-done"),
+			invalidateOnRefresh: true,
+			// markers: true,
 		});
 	}
 
 	// -----------------------------
-	// #visual : PC 버전
-	// -----------------------------
-	function createVisualPC() {
-
-		const $videoBox   = $(".video-box");
-		const $scrollWrap = $(".scroll-wrap");
-
-		if (!$videoBox.length || !$scrollWrap.length) return;
-
-		gsap.registerPlugin(ScrollTrigger);
-
-		// refresh(리사이즈/로드) 때마다 값 다시 계산되게 함수로 빼기
-		const getOffsetTop = () => $videoBox.offset().top;
-		const getTotalHeight = () => $scrollWrap.outerHeight(true) - $(window).outerHeight(true);
-
-		const tl = gsap.timeline({
-			scrollTrigger: {
-			trigger: ".scroll-box",
-			pin: true,
-			start: "top top",
-			end: () => "+=" + getTotalHeight(),   //  함수형으로(리프레시 대응)
-			scrub: true,
-			invalidateOnRefresh: true,            //  refresh 때 tween 값 재계산
-			// markers: true,
-
-			onEnter() {
-				$("#header").removeClass("black");
-				$("#top").removeClass("white");
-			},
-			onLeave() {
-				$("#header").addClass("black");
-				$("#top").addClass("white");
-			},
-			onEnterBack() {
-				$("#header").removeClass("black");
-				$("#top").removeClass("white");
-			},
-			onLeaveBack() {
-				$("#header").addClass("black");
-				$("#top").addClass("white");
-			}
-		}
-	});
-
-	tl
-		.to(".video-wrap", { y: () => -getOffsetTop() }, "a")
-
-		// ✅ from은 immediateRender 때문에 깜빡일 수 있어서 false 주기
-		.from("#visual .absolute", {
-			transform: "translate3d(0, -100%, 0)",
-			immediateRender: false
-		}, "a")
-
-		.to("#visual .absolute", {
-			top: "50%",
-			yPercent: 50,
-			transform: "translate(0, -100%)",
-			width: "100%"
-		}, "a")
-
-		.to("#visual .video-box", { width: "100%" }, "a");
-	}
-
-
-		
-
-	// -----------------------------
-	// #about : split 텍스트 애니메이션
+	// #project : split 텍스트 애니메이션
 	// -----------------------------
 	function createAboutSplit() {
 		ScrollTrigger.create({
 			trigger: "#project",
-			start: "top 90%",   // 화면 32% 지점쯤 올 때 실행
+			start: "top 32%",   // 화면 32% 지점쯤 올 때 실행
 			once: true,
 			onEnter: function () {
 			$(".split").each(function () {
@@ -134,50 +164,7 @@ $(window).on("load", function (){
 	// #techStack 
 	// -----------------------------
 	function createTechstackTriggers() {
-		// #techStack 관련 ScrollTrigger들
-		gsap.registerPlugin(ScrollTrigger);
-
-		// tech-box
-		// gsap.to("#techStack .container .tech-box", {
-		// 	y: 0,
-		// 	opacity: 1,
-		// 	ease: "power2.out",
-		// 	duration: 1.4,
-		// 	scrollTrigger: {
-		// 		trigger: "#techStack",
-		// 		start: "top 80%",
-		// 		once: true, 
-		// 		markers: true
-		// 	}
-		// });
-
-		// arrow-box
-		gsap.to("#techStack .container .arrow-box", {
-			y: 5,
-			opacity: 1,
-			ease: "none",
-			duration: 1.0,
-			scrollTrigger: {
-				trigger: "#techStack .tech-box",
-				start: "bottom 100%",   // 섹션이 화면 아래에서 올라올 때
-				once: true, 
-				// markers: true
-			}
-		});
-
-		// work-box
-		gsap.to("#techStack .container .work-box", {
-			y: -30,
-			opacity: 1,
-			ease: "none",
-			duration: 0.3,
-			scrollTrigger: {
-				trigger: "#techStack",
-				start: "bottom 98%",   // 섹션이 화면 아래에서 올라올 때
-				once: true, 
-				// markers: true
-			}
-		});
+		
 	}	
 
 
@@ -214,23 +201,30 @@ $(window).on("load", function (){
 
 	}	
 
-	function createEffectTriggers() {
-		gsap.to("#effect", {
+	// -----------------------------
+	// #balloon
+	// -----------------------------
+	function createBalloonTriggers() {
+		ScrollTrigger.create({
+			trigger: "#balloon",
+			start: "top 70%",
+			onEnter: () => gsap.to("#balloon", {
 			backgroundColor: "#000",
 			duration: 0.25,
 			ease: "power2.out",
-			once: true,
-			scrollTrigger: {
-				trigger: "#effect",
-				start: "top 70%",
-				toggleActions: "play none none reverse", 
-			}
+			overwrite: "auto"
+			}),
+			onLeaveBack: () => gsap.to("#balloon", {
+			backgroundColor: "",
+			duration: 0.25,
+			ease: "power2.out",
+			overwrite: "auto"
+			}),
+			once: false,
+			invalidateOnRefresh: true,
+			// markers: true,
 		});
 	}
-
-	function createBalloonTriggers() {
-		// #balloon 관련 ScrollTrigger들
-	}	
 
 
 	function createFooterTriggers() {
@@ -266,38 +260,61 @@ $(window).on("load", function (){
 	// ------------------------------------------------------------------------
 
 
-	// 순서값 세우는 (✔ 실무에서 가장 많이 사용하는 방법)
+	// 순서값 세우는 
 	$("#project .item, #project .item .btn").each(function(p, el) {
-		el.dataset.pro = p;
+		el.dataset.proj = p;
 	});
 
 	// 호버
-	$("#project .item").hover(
-		function () {
+	if ($(window).width() > 1050) {
 
-			// 버튼 나타내기
-			$(this).find(".btn").css({ right: "0" });
+		$("#project .item").hover(
+			function () {
 
-			// border 효과 넣기
-			$(this).find(".img_bg").css({
-				"border-top-left-radius": "500px",
-				"border-bottom-right-radius": "120px",
-			});
-			$(this).find(".in h2").css({"transform" : "translateY(-80px)"});
-		},
-		function () {
-			
-			// 버튼 초기 위치로 숨기기
-			$(this).find(".btn").css({ right: "-150%" });
+				$(this).find(".btn").css({ right: "0" });
 
-			// border 원래대로 복귀
-			$(this).find(".img_bg").css({
-				"border-top-left-radius": "0",
-				"border-bottom-right-radius": "0",
-			});
-			$(this).find(".in h2").css({"transform" : "translateY(0)"});
+				$(this).find(".img_bg").css({
+					"border-top-left-radius": "600px",
+					"border-bottom-right-radius": "120px",
+				});
+
+				$(this).find(".in h2").css({ "transform": "translateY(-80px)" });
+
+			},
+			function () {
+
+				$(this).find(".btn").css({ right: "-150%" });
+
+				$(this).find(".img_bg").css({
+					"border-top-left-radius": "0",
+					"border-bottom-right-radius": "0",
+				});
+
+				$(this).find(".in h2").css({ "transform": "translateY(0)" });
+
+			}
+		);
+
+	}
+
+	// ------------------------------------------------------------------
+	// problem_answer창 띄우기 (#problem)
+	
+	$("#problem .problem_summary").on("click", function () {
+		const $box = $(this).closest(".detail_box");
+		const $answer = $box.find(".problem_answer");
+		const isOpen = $answer.is(":visible");
+
+		// 전부 닫기 + 아이콘 초기화
+		$("#problem .problem_answer").stop(true, true).slideUp(250);
+		$("#problem .problem_arrow i").removeClass("fa-minus").addClass("fa-plus");
+
+		// 방금 열려있던 걸 다시 누른 게 아니면 열기
+		if (!isOpen) {
+			$answer.stop(true, true).slideDown(250);
+			$box.find(".problem_arrow i").removeClass("fa-plus").addClass("fa-minus");
 		}
-	);
+	});
 
 
 

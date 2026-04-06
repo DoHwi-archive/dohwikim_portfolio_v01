@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hero Overlap Scroll Demo</title>
+  <style>
+    :root{
+      --blue:#1f6fff;
+      --ink:#111;
+      --muted:#666;
+      --bg:#ffffff;
+      --bg2:#f7f9fc;
+      --card:#ffffff;
+      --dark:#0d0f14;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif; color:var(--ink); background:var(--bg);}
+    a{color:inherit; text-decoration:none;}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 20px;}
+
+    /* ===== HERO (sticky) ===== */
+    .hero{
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display:flex;
+      align-items:center;
+      background: linear-gradient(to bottom, var(--bg), var(--bg2));
+      overflow:hidden;
+    }
+    /* 아주 연한 그리드(배너와 다음 섹션 연결감) */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(to right, rgba(31,111,255,0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31,111,255,0.08) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: .28;
+      mask-image: radial-gradient(60% 55% at 50% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    .hero-inner{position:relative; width:100%;}
+    .kicker{font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 14px;}
+    .title{
+      margin:0;
+      font-weight:750;
+      line-height:1.05;
+      font-size: clamp(34px, 5vw, 62px);
+    }
+    .title .blue{color:var(--blue);}
+    .sub{
+      margin:16px 0 26px;
+      font-size: clamp(14px, 1.8vw, 18px);
+      color:var(--muted);
+      line-height:1.65;
+      max-width: 52ch;
+    }
+
+    .cta-row{display:flex; gap:12px; align-items:center; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:44px; padding:0 16px; border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      font-weight:650;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .btn.primary{
+      border-color: rgba(31,111,255,.35);
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(0,0,0,.09);
+    }
+
+    /* 아래 화살표: "둥둥" 포인트 애니메이션 (과하지 않게 5px) */
+    .scroll-hint{
+      position:absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      font-size: 13px;
+      color: rgba(0,0,0,.55);
+      display:flex; align-items:center; gap:10px;
+      user-select:none;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px; background: rgba(31,111,255,.9);
+      box-shadow: 0 10px 24px rgba(31,111,255,.25);
+      animation: float 2.6s ease-in-out infinite;
+    }
+    .arrow{
+      display:inline-block;
+      animation: float 2.6s ease-in-out infinite;
+      animation-delay: .15s;
+    }
+    @keyframes float{
+      0%{transform: translateY(0);}
+      50%{transform: translateY(-5px);}
+      100%{transform: translateY(0);}
+    }
+
+    /* hero 텍스트가 위로 밀리는(패럴럭스) 대상 */
+    .hero-motion{
+      transform: translate3d(0, 0, 0);
+      will-change: transform, opacity;
+    }
+
+    /* ===== SCROLL STAGE: hero가 sticky로 붙어있는 동안 스크롤 공간을 만들어주는 섹션 ===== */
+    .stage{
+      /* 이 높이가 클수록 hero 위에서 연출되는 시간이 길어짐 */
+      height: 160vh;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
+
+    /* ===== NEXT SECTION (겹쳐 올라오는 카드) ===== */
+    .next{
+      position: relative;
+      z-index: 10; /* hero 위로 올라오게 */
+      margin-top: -22vh; /* 처음부터 살짝 겹치게(키 포인트) */
+      padding: 34px 0 90px;
+    }
+
+    .card{
+      background: var(--card);
+      border-radius: 22px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.12);
+      border: 1px solid rgba(0,0,0,.07);
+      padding: 34px;
+      transform: translate3d(0, 60px, 0); /* 아래에서 올라오는 시작 위치 */
+      opacity: 0.15;
+      will-change: transform, opacity;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: clamp(22px, 3vw, 34px);
+    }
+    .card p{
+      margin:0 0 18px;
+      color: var(--muted);
+      line-height:1.75;
+      max-width: 70ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .tile{
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,.08);
+      padding: 16px;
+      background: linear-gradient(to bottom, #fff, #fbfcff);
+      min-height: 110px;
+    }
+    .tile b{display:block; margin-bottom:6px;}
+    .tile span{color:var(--muted); font-size:14px; line-height:1.5;}
+
+    /* ===== DARK SECTIONS ===== */
+    .dark{
+      background: var(--dark);
+      color: rgba(255,255,255,.92);
+      padding: 80px 0;
+      margin-top: 80px;
+    }
+    .dark p{color: rgba(255,255,255,.68); line-height:1.75; max-width: 70ch;}
+    footer.dark{
+      padding: 40px 0;
+      margin-top: 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    /* Responsive quick */
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr;}
+      .next{margin-top:-16vh;}
+      .card{padding: 24px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO (붙어있고, 텍스트가 스크롤에 따라 위로 밀림) -->
+  <header class="hero" id="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-motion" id="heroMotion">
+        <p class="kicker">Publisher Portfolio</p>
+        <h1 class="title">
+          Design the <span class="blue">Structure</span>,<br />
+          Code the Experience
+        </h1>
+        <p class="sub">
+          미니멀 UI 위에 디테일한 인터랙션과 반응형을 깔끔하게 구현합니다.
+          (이 데모는 “텍스트가 위로 밀리며 다음 섹션이 겹쳐 올라오는” 스크롤 연출을 보여줘요.)
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#dark">Go Dark Section</a>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="dot"></span>
+        <span>Scroll</span>
+        <span class="arrow">↓</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- stage: hero가 sticky로 연출되는 “스크롤 공간” -->
+  <section class="stage" id="stage" aria-hidden="true"></section>
+
+  <!-- 다음 섹션: 아래에서 올라와 hero를 덮는 느낌 -->
+  <section class="next" id="projects">
+    <div class="wrap">
+      <div class="card" id="card">
+        <h2>Projects</h2>
+        <p>
+          이 카드가 스크롤하면서 아래에서 “겹쳐 올라오는” 느낌으로 올라오고,
+          동시에 위의 배너 텍스트는 살짝 위로 밀리면서(패럴럭스) 자연스럽게 전환됩니다.
+        </p>
+        <div class="grid">
+          <div class="tile"><b>UI Polish</b><span>Hover / Focus / Click-area / Micro motion</span></div>
+          <div class="tile"><b>Responsive</b><span>PC → Tablet → Mobile 깨짐 없는 레이아웃</span></div>
+          <div class="tile"><b>Interaction</b><span>Scroll 기반 연출, 자연스러운 흐름 설계</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="dark">
+    <div class="wrap">
+      <h2 style="margin:0 0 10px; font-size:28px;">Dark Section</h2>
+      <p>
+        너가 말한 것처럼 아래로 내려갈수록 다크로 전환되는 구조도 여기처럼 자연스럽게 이어붙일 수 있어.
+        배너에서 미리 “구조/그리드” 힌트를 줬기 때문에 톤이 바뀌어도 흐름이 덜 끊겨 보여.
+      </p>
+    </div>
+  </section>
+
+  <footer class="dark">
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <span>© 2026. Your Name</span>
+        <span style="color:rgba(255,255,255,.6);">Minimal · Blue Accent · Clean Motion</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 핵심 아이디어:
+    // 1) hero는 sticky로 붙어있다.
+    // 2) "stage" 구간을 스크롤하는 동안 진행률(progress)을 계산한다.
+    // 3) progress에 따라 hero 텍스트는 위로 이동(+약간 페이드),
+    //    다음 섹션 card는 아래에서 위로 올라오며(translateY 감소) 더 선명해진다.
+
+    const stage = document.getElementById("stage");
+    const heroMotion = document.getElementById("heroMotion");
+    const card = document.getElementById("card");
+
+    function clamp(v, min, max){ return Math.min(Math.max(v, min), max); }
+
+    function onScroll(){
+      const rect = stage.getBoundingClientRect();
+
+      // stage의 시작 ~ 끝 사이에서 진행률 0~1 만들기
+      // rect.top이 0일 때: stage 시작점에 진입
+      // rect.top이 -stageHeight일 때: stage 끝에 도달
+      const stageH = stage.offsetHeight;
+      const progress = clamp((-rect.top) / stageH, 0, 1);
+
+      // hero 텍스트: 0 -> -80px 이동, opacity 1 -> 0.4
+      const heroY = progress * -80;
+      const heroOpacity = 1 - progress * 0.6;
+      heroMotion.style.transform = `translate3d(0, ${heroY}px, 0)`;
+      heroMotion.style.opacity = heroOpacity.toFixed(3);
+
+      // card: 아래(60px) -> 제자리(0px), opacity 0.15 -> 1
+      const cardY = 60 - progress * 60;
+      const cardOpacity = 0.15 + progress * 0.85;
+      card.style.transform = `translate3d(0, ${cardY}px, 0)`;
+      card.style.opacity = cardOpacity.toFixed(3);
+    }
+
+    // 첫 렌더
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+  </script>
+</body>
+</html>
