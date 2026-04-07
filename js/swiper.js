@@ -37,8 +37,10 @@ $(document).ready(function(){
 
 
     var swiper = new Swiper(".LigSwiper", {
+      slidesPerView: 1,
       
-      loop: true,
+      keyboard: true,
+      loop: false,
       navigation: {
         nextEl: ".popup-content .sw-moveBtn button.next",
         prevEl: ".popup-content .sw-moveBtn button.prev",

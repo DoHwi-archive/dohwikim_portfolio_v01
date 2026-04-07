@@ -21,8 +21,8 @@ $(window).on("load", function (){
 
 		ScrollTrigger.matchMedia({
 
-			// PC (1051px 이상)
-			"(min-width: 1051px)": function () {
+			// PC (1024px 이상)
+			"(min-width: 1024px)": function () {
 				createMainVisualStage();  //메인비주얼
 				createHeroDoneToggle();   //메인비주얼
 				createAboutSplit();    // #about 타이틀 split 애니메이션
@@ -32,15 +32,14 @@ $(window).on("load", function (){
 				
 			},
 
-			// 모바일/태블릿 (1050px 이하)
-			"(max-width: 1050px) and (min-width: 769px)": function () {
+			// 태블릿 (1023px 이하)
+			"(max-width: 1023px) and (min-width: 768px)": function () {
 				createAboutSplit();
 				createBalloonTriggers();   
 				createFooterTriggers(); 
-				
 			},
 			// 모바일 (768px 이하)
-			"(max-width: 768px) and (min-width: 320px)": function () {
+			"(max-width: 767px) and (min-width: 320px)": function () {
 				createAboutSplit();
 				createBalloonTriggers();
 				createFooterTriggers();

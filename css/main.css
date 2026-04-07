@@ -398,26 +398,28 @@ body.no-scroll{overflow: hidden;}
     inset: 0;
     background: rgba(0,0,0,0.65);
     display: none; /* 처음엔 숨김 */
-    justify-content: center;
-    align-items: center;
     z-index: 9999;
-}
-
-.popup-inner {
-    background: #fff; width: 60%; height: fit-content; padding: 32px 28px; 
-	border-radius: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
-	position: absolute; top: 50%; left: 50%;
-	transform: translate(-50%, -50%);
-	overflow: hidden; 
-	/* 내용많으면 내부 스크롤 */
+	overflow-y: scroll; overflow-x: hidden; 
 }
 .popup-close{
-	position: absolute; top: 23px; right: 25px; 
+	position: absolute; top: 26px; right: 20px; 
 	width: 45px; height: 45px; border: none;
-	background: none; font-family: var(--EngFont); font-size: 26px; font-weight: 700; 
+	background: none; font-family: var(--EngFont); font-size: 24px; font-weight: 700; 
 	cursor: pointer; background-color: rgb(234, 234, 234);
 	z-index: 20; border-radius: 50%; line-height: 1;
 }
+
+.popup-inner {
+    background: #fff; 
+	width: 60vw; max-width: 60vw; 
+	/* height: 68vh; min-height: 80vh;  */ min-height: 5em;
+	padding: 32px 28px 0px 28px; 
+	border-radius: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
+	position: absolute; top: 5%;  left: 50%; transform: translateX(-50%);
+	overflow: hidden;
+	/* 내용많으면 내부 스크롤 */
+}
+
 .popup-header{margin-bottom: 16px;}
 .popup-title{
 	font-family: var(--BaseFont); font-size: 26px; font-weight: 600; 
@@ -428,59 +430,64 @@ body.no-scroll{overflow: hidden;}
 	position: absolute; top: 0; left: 0;
 }
 
-#popup-lig-sw .swiper-wrapper{margin-top: 20px; height: unset; background-color: pink;}
 #popup-lig-sw .sw-moveBtn{
-	position: absolute; top:50%; transform: translateY(-50%); left: 0;
+	position: absolute; top:40%; transform: translateY(-50%); left: 0;
 	width: 100%; height: 39px; z-index: 10;
 	display: flex; align-items: center; justify-content: space-between;
+	
 }
 #popup-lig-sw .sw-moveBtn button{
-	height: 100%; width: 90px; 
-	font-family: var(--EngFont); font-size: 16px; font-weight: 500; color: #222;
-	text-align: center; line-height: 33px; letter-spacing: 1px;
+	height: 100%; width:50px; 
+	font-family: var(--EngFont); font-size: 20px; font-weight: 500; color: #222;
+	text-align: center; line-height: 33px; 
 }
-/* #popup-lig-sw .sw-moveBtn button.prev{margin-right: 25px;} */
+
 #popup-lig-sw .sw-moveBtn button.next{
 	margin-top: 0; padding: 0;
 }
+#popup-lig-sw .sw-moveBtn button.swiper-button-disabled{color: #b7b7b7;}
 
-
+#popup-lig-sw .swiper-wrapper{
+	width: 90%; height: auto; margin-top: 0px;
+}
 .popup-body{position: relative; font-family: var(--BaseFont); font-size: 15px; font-weight: 400; color: #111;}
 
 .popup-body .lig-img{
 	position: relative; 
 	display: flex; align-items: center; justify-content: center; 
-	flex-direction: column; width: fit-content; height: fit-content;
-}
-.popup-body .lig-img img{width: 80%; height: auto;}
-.popup-body .lig-img.lig-img-8 img,
-.popup-body .lig-img.lig-img-9 img{width: 76%;}
-.popup-body .lig-img h2{
-	font-family: var(--BaseFont); font-size: 22px; font-weight: 500; 
-	color: #333; width: auto; position: relative; z-index: 100; margin-top: 10px;
-}
-.popup-body .lig-img h2::before{
-	content: ''; position: absolute; bottom:0; left: 50%; transform: translateX(-50%); 
-	z-index: 1;
-}
+	/* flex-direction: column;  */
+	width: 100%; height: 400px;
+	background-position: center; background-repeat: no-repeat;
+	background-size: contain; cursor: pointer;
 
-/* .popup-content{position: relative; } */
-.popup-content .swiper-pagination{
-	z-index: 99999999; position: absolute; bottom: -10px !important; left: 0;
-	width: 100%; height: 15px;
 }
+.popup-body .lig-img img{width: 95%; height: auto; cursor: pointer; display: none;}
+/* .popup-body .lig-img.lig-img-8 img,
+.popup-body .lig-img.lig-img-9 img{width: 89.5%;} */
+.lig-img.lig-img-1{background-image: url(../img/project/lig/1.png);}
+.lig-img.lig-img-2{background-image: url(../img/project/lig/2.png);}
+.lig-img.lig-img-3{background-image: url(../img/project/lig/3.png);}
+.lig-img.lig-img-4{background-image: url(../img/project/lig/4.png);}
+.lig-img.lig-img-5{background-image: url(../img/project/lig/5.png);}
+.lig-img.lig-img-6{background-image: url(../img/project/lig/6.png);}
+.lig-img.lig-img-7{background-image: url(../img/project/lig/7.png);}
+.lig-img.lig-img-8{background-image: url(../img/project/lig/8.png);}
+.lig-img.lig-img-9{background-image: url(../img/project/lig/9.png);}
 
 
 #popup-guvina,#popup-lig-sw{
-	width: 100%; height: 80vh; min-height: 80vh; overflow: hidden;
+	width: 100%; position: relative;
+	overflow-y: hidden; overflow-x: hidden; 
 }
 #popup-guvina{display: flex; flex-direction: column;}
 .popup-body .decs{
-	font-family: var(--BaseFont); font-size: 18px; font-weight: 400; color: #333;
-	width: 100%; text-align: left; padding: 0 40px;
+	font-family: var(--BaseFont); font-size: 16px; font-weight: 400; color: #333;
+	width: 100%; text-align: left; margin-top: 25px; margin-bottom: 10px;
 	word-break: keep-all; line-height: 1.6; 
-	display: -webkit-box; webkit-box-orient: vertical; 
+	display: -webkit-box; -webkit-box-orient: vertical; 
 }
+.popup-body .decs b.tit{font-size: 20px;}
+.popup-body .decs b.bold2{font-weight: 600;}
 
 #popup-guvina .gv-btn-wrap{
 	width: 100%; margin-top: 20px; flex: 1;
@@ -528,28 +535,49 @@ body.no-scroll{overflow: hidden;}
 }
 
 
-	@media (max-width: 1750px){
-		#popup-lig-sw .sw-moveBtn{
-			bottom: 0; top: unset; transform: translateY(0); justify-content: center;
-		}
-		#popup-lig-sw .sw-moveBtn button.prev{margin-right: 25px;}
+	
+
+	@media (max-width: 1470px){
+		.popup-inner {width: 70vw; max-width: 70vw;}
 	}
-	@media (max-width: 1550px){
-		.popup-body .lig-img img{width: 90%; height: auto;}
-		.popup-body .lig-img.lig-img-8 img,
-		.popup-body .lig-img.lig-img-9 img{width: 84%;}
-	}
-	@media (max-width: 1400px){
-		.popup-body .lig-img img{width: 100%; height: auto;}
-		.popup-body .lig-img.lig-img-8 img,
-		.popup-body .lig-img.lig-img-9 img{width: 94%;}
+	@media (max-width: 1300px){
+		.popup-inner {width: 80vw; max-width: 80vw;}
 	}
 	@media (max-width: 1220px){
+		
+
+		/* 얘도 수정하기 */
 		#popup-guvina .gv-btn-wrap button::before{display: none;}
 		#popup-guvina .gv-btn-wrap button p{
 			padding-bottom: 0; width: 90%; font-size: 18px;
 			white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 		}
+	}
+	@media (max-width: 1023px){
+		#popup-lig-sw .sw-moveBtn{
+			position:relative; bottom: 0; left: 0; top:unset; transform: translateY(0); 
+			height: 44px;margin-top: 20px; justify-content: center;
+		}
+		#popup-lig-sw .sw-moveBtn button{width:95px; font-size: 24px;}
+		#popup-lig-sw .sw-moveBtn button.prev{margin-right: 25px;}
+
+		.popup-body .lig-img{
+			border: 1px solid red; height: 360px;
+		}
+	}
+	@media (max-width: 865px){
+		.popup-body .lig-img{height: 340px;}
+	}
+	@media (max-width: 767px){
+		.popup-body .lig-img{height: 300px;}
+		.popup-title{font-size: 24px;}
+		.popup-close{width: 38px; height: 38px;}
+		.popup-body .decs{font-size: 15px;}
+		.popup-body .decs b.tit{font-size: 18px;}
+	}
+	@media (max-width: 660px){
+		.popup-inner {width: 85vw; max-width: 85vw;}
+		.popup-body .lig-img{height: 270px;}
 	}
 
 
@@ -801,7 +829,7 @@ body.no-scroll{overflow: hidden;}
 }
 
 	@media (max-width: 1440px){
-		#about>.container{padding: 0 4%; gap: 15px; border: 1px solid red;}
+		#about>.container{padding: 0 4%; gap: 15px;}
 		#about .item .svg_ctn img{transform: scale(0.9);}
 		#about .item .txt p{font-size: 26px;}
 		#about .item .txt>div>span{padding: 3px 5px;}
