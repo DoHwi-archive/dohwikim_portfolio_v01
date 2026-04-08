@@ -456,9 +456,9 @@ body.no-scroll{overflow: hidden;}
 	position: relative; 
 	display: flex; align-items: center; justify-content: center; 
 	/* flex-direction: column;  */
-	width: 100%; height: 400px;
-	background-position: center; background-repeat: no-repeat;
-	background-size: contain; cursor: pointer;
+	width: 100%; aspect-ratio: 16 / 9;
+	background-position: 50% 50%; background-repeat: no-repeat;
+	background-size: cover; cursor: pointer;
 
 }
 .popup-body .lig-img img{width: 95%; height: auto; cursor: pointer; display: none;}
@@ -488,9 +488,10 @@ body.no-scroll{overflow: hidden;}
 }
 .popup-body .decs b.tit{font-size: 20px;}
 .popup-body .decs b.bold2{font-weight: 600;}
+#popup-guvina .decs{margin-bottom: 30px;}
 
 #popup-guvina .gv-btn-wrap{
-	width: 100%; margin-top: 20px; flex: 1;
+	width: 100%; flex: 1;
 	padding: 20px 20px; background-color: #D5E5D5;
 	display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px;
     grid-auto-rows: min-content; border-radius: 20px;
@@ -509,8 +510,7 @@ body.no-scroll{overflow: hidden;}
 }
 #popup-guvina .gv-btn-wrap button .goBtn{
 	display: flex; align-items: center; justify-content: center;
-	font-size: 18px; 
-	transition: all 0.3s;
+	font-size: 18px; transition: all 0.3s;
 }
 #popup-guvina .gv-btn-wrap button:hover .goBtn{
 	animation: gobtnMove 0.4s cubic-bezier(0.5, 1, 0.89, 1) infinite alternate;
@@ -562,22 +562,24 @@ body.no-scroll{overflow: hidden;}
 		#popup-lig-sw .sw-moveBtn button.prev{margin-right: 25px;}
 
 		.popup-body .lig-img{
-			border: 1px solid red; height: 360px;
+			border: 1px solid red; 
 		}
 	}
-	@media (max-width: 865px){
-		.popup-body .lig-img{height: 340px;}
-	}
+	
 	@media (max-width: 767px){
-		.popup-body .lig-img{height: 300px;}
+		.popup-inner {width: 85vw; max-width: 85vw;}
 		.popup-title{font-size: 24px;}
 		.popup-close{width: 38px; height: 38px;}
 		.popup-body .decs{font-size: 15px;}
-		.popup-body .decs b.tit{font-size: 18px;}
+		.popup-body .decs b.tit{font-size: 17px;}
 	}
-	@media (max-width: 660px){
-		.popup-inner {width: 85vw; max-width: 85vw;}
-		.popup-body .lig-img{height: 270px;}
+	
+	@media (max-width: 480px){
+		.popup-inner {width: 90vw; max-width: 90vw;}
+		.popup-title{font-size: 22px;}
+		#popup-lig-sw .sw-moveBtn{height: 40px;}
+		#popup-guvina .gv-btn-wrap button{grid-column: span 12;}
+		
 	}
 
 
